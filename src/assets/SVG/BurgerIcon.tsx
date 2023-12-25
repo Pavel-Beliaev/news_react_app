@@ -1,17 +1,14 @@
 import React, { FC } from 'react';
+import { SVGType } from './types';
 
-type PropsType = {
-  w: string;
-  h: string;
-  fill: string;
-};
-export const BurgerIcon: FC<PropsType> = ({ w, h, fill }) => {
+export const BurgerIcon: FC<SVGType> = ({ w, h, fill, stroke }) => {
   return (
     <svg
       width={w}
       height={h}
       viewBox='0 0 24 24'
-      fill={fill && 'current color'}
+      fill={fill || 'currentColor'}
+      stroke={stroke || 'currentColor'}
       xmlns='http://www.w3.org/2000/svg'>
       <path
         d='M4 18L20 18'
