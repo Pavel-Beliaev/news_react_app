@@ -6,7 +6,7 @@ type PropsType = {
 export const Title: FC<PropsType> = ({ size }) => {
   return (
     <h1
-      className={`grid place-self-center font-["Grenze_Gotisch"] ${size} tracking-widest shadowed-text`}>
+      className={`font-["Grenze_Gotisch"] ${size} tracking-widest shadowed-text`}>
       Echo of World
     </h1>
   );
