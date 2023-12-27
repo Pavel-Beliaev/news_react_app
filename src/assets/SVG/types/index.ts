@@ -3,4 +3,5 @@ export type SVGType = {
   h: string;
   fill?: string;
   stroke?: string;
+  className?: string;
 };

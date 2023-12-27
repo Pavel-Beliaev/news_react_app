@@ -3,7 +3,7 @@ import { HeaderButton } from '../HeaderButton';
 import { BurgerIcon } from '../../../assets/SVG/BurgerIcon';
 import { SearchIcon } from '../../../assets/SVG/SearchIcon';
 import { SearchForm } from '../SearchForm';
-import { Title } from '../../Title';
+import { Logo } from '../../Logo';
 
 export const Header = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -29,7 +29,7 @@ export const Header = () => {
         <SearchForm isVisible={isVisible} />
       </div>
       <div className='grid place-self-center '>
-        {/*<Title size='text-2xl' />*/}
+        <Logo size='text-2xl' />
         language
       </div>
       <div className='grid justify-self-end content-center px-2'>login...</div>
