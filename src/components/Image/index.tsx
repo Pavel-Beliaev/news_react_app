@@ -3,13 +3,14 @@ import React, { FC } from 'react';
 type PropsType = {
   url: string;
   author: string;
+  className?: string;
 };
-export const Image: FC<PropsType> = ({ url, author }) => {
+export const Image: FC<PropsType> = ({ url, author, className }) => {
   return (
     <div className='flex flex-col'>
-      <div className='relative w-full h-auto p-[0_0_65%] bg-transparent rounded overflow-hidden'>
+      <div className='relative flex justify-center w-full h-auto p-[0_0_65%] bg-transparent rounded overflow-hidden'>
         <img
-          className='absolute w-full h-auto bg-gray-50'
+          className={`absolute w-full h-auto bg-gray-50 ${className}`}
           src={url}
           alt='pict'
         />

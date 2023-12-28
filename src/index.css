@@ -2,15 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-    h3 {
-        @apply font-bold
-    }
-}
-
 @layer components {
     .container {
         @apply my-0 mx-auto max-w-[80%]
+    }
+}
+
+@layer utilities {
+    .delimiter {
+        @apply before:border-l relative before:border-[#C7C7C7] before:absolute before:h-full before:h-full before:right-[-17px]
     }
 }
 

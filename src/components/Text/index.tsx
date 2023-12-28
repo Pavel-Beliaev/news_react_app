@@ -2,8 +2,7 @@ import React, { FC } from 'react';
 
 type PropsType = {
   text: string;
-  className: string;
 };
-export const Text: FC<PropsType> = ({ text, className }) => {
-  return <p className={className}>{text}</p>;
+export const Text: FC<PropsType> = ({ text }) => {
+  return <p className='text-[14px] font-serif'>{text}</p>;
 };

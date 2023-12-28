@@ -1,22 +1,25 @@
 import React, { FC } from 'react';
-import { ShareButton } from '../ShareButton';
-import { Title } from '../Title';
-import { Text } from '../Text';
 import { Image } from '../Image';
 import { TextBlock } from '../TextBlock';
 
-type PropsType = {};
-export const Post: FC<PropsType> = ({}) => {
+type PropsType = {
+  title: string;
+  text: string;
+  url: string;
+  author: string;
+  isLast: boolean;
+};
+export const Post: FC<PropsType> = ({ isLast, title, text, author, url }) => {
   return (
-    <div className='grid grid-cols-[repeat(14,2fr)] gap-x-[33px] pb-[24px] border-b border-black'>
+    <div
+      className={`grid grid-cols-[repeat(14,2fr)] gap-x-[33px] ${
+        isLast ? 'border-none' : 'border-b mb-[20px] pb-[24px]'
+      } border-black`}>
       <div className='grid col-start-[1] col-end-[6]'>
-        <TextBlock />
+        <TextBlock title={title} text={text} />
       </div>
       <div className='grid col-start-[6] col-end-[15]'>
-        <Image
-          url='https://static01.nyt.com/images/2023/12/27/us/politics/27dc-china-techspy-02/27dc-china-techspy-02-superJumbo.jpg'
-          author=''
-        />
+        <Image url={url} author={author} />
       </div>
     </div>
   );

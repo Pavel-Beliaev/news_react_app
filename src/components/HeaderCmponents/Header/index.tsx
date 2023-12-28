@@ -29,7 +29,7 @@ export const Header = () => {
         <SearchForm isVisible={isVisible} />
       </div>
       <div className='grid place-self-center '>
-        <Logo size='text-2xl' />
+        {/*<Logo size='text-2xl' />*/}
         language
       </div>
       <div className='grid justify-self-end content-center px-2'>login...</div>

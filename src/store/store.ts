@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
-
+import news from './slice';
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    news,
+  },
 });
 
 export type RootState = ReturnType<typeof store.getState>;
