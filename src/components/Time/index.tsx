@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 
 type PropsType = {
-  time: string;
+  time: string | undefined;
 };
 export const Time: FC<PropsType> = ({ time }) => {
   return (

@@ -5,8 +5,8 @@ type PropsType = {
 };
 export const Heading: FC<PropsType> = ({ heading }) => {
   return (
-    <div className='flex w-full justify-start font-bold text-[14px]'>
-      <h2 className=''>{heading}</h2>
+    <div className='relative mb-[14px] flex whitespace-nowrap w-full justify-start font-bold text-[14px]'>
+      <h2 className='absolute top-[-14px]'>{heading}</h2>
     </div>
   );
 };
