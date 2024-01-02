@@ -1,6 +1,7 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from './store';
 import axios from 'axios';
+import { groupByArrays } from '../utils/groupByArrays';
 
 export const fetchTopStories = createAsyncThunk(
   'news/fetchTopStories',
@@ -72,7 +73,7 @@ export type NewsType = {
 };
 
 export type NewsDataSlice = {
-  data: NewsType[];
+  data: NewsType[][];
   opinions: NewsType[];
   magazine: NewsType[];
   world: NewsType[];
@@ -90,43 +91,47 @@ export const newsData = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchTopStories.pending, () => {
-      console.log('loading');
-    });
+    builder.addCase(fetchTopStories.pending, () => {});
     builder.addCase(fetchTopStories.fulfilled, (state, action) => {
-      console.log('ok');
-      state.data = action.payload.results;
+      state.data = groupByArrays(
+        action.payload.results.filter(
+          (n: NewsType, i: number) => i < 15 && n.section !== 'opinion',
+        ),
+      );
+      state.opinions = action.payload.results.filter(
+        (n: NewsType) => n.section === 'opinion',
+      );
     });
     builder.addCase(fetchTopStories.rejected, () => {
       console.log('error');
     });
-    builder.addCase(fetchOpinions.pending, () => {
-      console.log('loading');
-    });
-    builder.addCase(fetchOpinions.fulfilled, (state, action) => {
-      state.opinions = action.payload.results;
-    });
-    builder.addCase(fetchOpinions.rejected, () => {
-      console.log('error');
-    });
-    builder.addCase(fetchMagazine.pending, () => {
-      console.log('loading');
-    });
-    builder.addCase(fetchMagazine.fulfilled, (state, action) => {
-      state.magazine = action.payload.results;
-    });
-    builder.addCase(fetchMagazine.rejected, () => {
-      console.log('error');
-    });
-    builder.addCase(fetchWorldNews.pending, () => {
-      console.log('loading');
-    });
-    builder.addCase(fetchWorldNews.fulfilled, (state, action) => {
-      state.world = action.payload.results;
-    });
-    builder.addCase(fetchWorldNews.rejected, () => {
-      console.log('error');
-    });
+    // builder.addCase(fetchOpinions.pending, () => {
+    //   console.log('loading');
+    // });
+    // builder.addCase(fetchOpinions.fulfilled, (state, action) => {
+    //   state.opinions = action.payload.results;
+    // });
+    // builder.addCase(fetchOpinions.rejected, () => {
+    //   console.log('error');
+    // });
+    // builder.addCase(fetchMagazine.pending, () => {
+    //   console.log('loading');
+    // });
+    // builder.addCase(fetchMagazine.fulfilled, (state, action) => {
+    //   state.magazine = action.payload.results;
+    // });
+    // builder.addCase(fetchMagazine.rejected, () => {
+    //   console.log('error');
+    // });
+    // builder.addCase(fetchWorldNews.pending, () => {
+    //   console.log('loading');
+    // });
+    // builder.addCase(fetchWorldNews.fulfilled, (state, action) => {
+    //   state.world = action.payload.results;
+    // });
+    // builder.addCase(fetchWorldNews.rejected, () => {
+    //   console.log('error');
+    // });
   },
 });
 

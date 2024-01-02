@@ -1,14 +1,12 @@
-import React, { FC, ReactNode } from 'react';
+import React, { FC } from 'react';
+import { NewsLine } from '../NewsLine';
+import { BorderLine } from '../BorderLine';
 
-type PropsType = {
-  children: ReactNode;
-  className?: string;
-};
-export const MainColum: FC<PropsType> = ({ className, children }) => {
+type PropsType = {};
+export const MainColum: FC<PropsType> = ({}) => {
   return (
-    <div
-      className={`grid col-start-1 col-end-[15] gap-y-[20px] delimiter ${className}`}>
-      {children}
+    <div className='grid col-start-1 col-end-[15] delimiter'>
+      <NewsLine />
     </div>
   );
 };

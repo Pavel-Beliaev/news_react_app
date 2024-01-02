@@ -19,8 +19,27 @@ export const TextBlock: FC<PropsType> = ({
   text,
   title,
 }) => {
+  // function name() {
+  //   return <div>1</div>;
+  // }
+  //
+  // function name2() {
+  //   return <div>2</div>;
+  // }
+  //
+  // function contentRender() {
+  //   switch (size) {
+  //     case 'S':
+  //       return name();
+  //     case 'M':
+  //       return name2();
+  //     default:
+  //       return <div>3</div>;
+  //   }
+  // }
+
   return (
-    <div className='flex flex-col group cursor-pointer gap-y-2'>
+    <div className='flex flex-col group cursor-pointer gap-y-2 border-b border-[#DFDFDF] last:border-none pb-2 last:pb-0'>
       <div>
         {author && <Author author={author} />}
         <Title title={title} size={size} />
@@ -33,3 +52,4 @@ export const TextBlock: FC<PropsType> = ({
     </div>
   );
 };
+// contentRender();
