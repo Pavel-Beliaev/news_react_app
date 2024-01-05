@@ -1,12 +1,10 @@
 import React, { useEffect } from 'react';
 import { Logo } from './components/Logo';
-import { Navbar } from './components/Navbar';
 import { fetchTopStories } from './store/slice';
 import { useAppDispatch } from './store/store';
 import { Header } from './components/HeaderCmponents/Header';
 import { Content } from './components/Content';
-import { MainColum } from './components/MainColum';
-import { OtherColum } from './components/OtherColum';
+import { Footer } from './components/Footer';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -19,16 +17,10 @@ function App() {
   }, []);
 
   return (
-    <div className='w-full h-auto bg-yellow-50'>
+    <div className='w-full h-auto bg-yellow-50 flex flex-col gap-y-0.5'>
       <Header />
-      <div className='container flex justify-center w-full py-2 border-b-4 border-black'>
-        <Logo size='text-6xl' />
-      </div>
-      <Navbar />
-      <Content className='border-y-2 border-black mt-0.5 py-5'>
-        <MainColum />
-        <OtherColum />
-      </Content>
+      <Content />
+      <Footer />
       {/*<OtherColum>*/}
       {/*  <div className='flex flex-col gap-y-3.5 border-b border-black mb-[20px] pb-[10px] gap-y-2.5'>*/}
       {/*    {magazine*/}
@@ -117,11 +109,6 @@ function App() {
       {/*    ))}*/}
       {/*  </MainColum>*/}
       {/*</Content>*/}
-
-      <div className='container border-t-2 border-black mt-0.5 '>
-        <Logo size='2xl' />
-        <div></div>
-      </div>
     </div>
   );
 }

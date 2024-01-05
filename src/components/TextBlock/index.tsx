@@ -41,10 +41,10 @@ export const TextBlock: FC<PropsType> = ({
   return (
     <div className='flex flex-col group cursor-pointer gap-y-2 border-b border-[#DFDFDF] last:border-none pb-2 last:pb-0'>
       <div>
-        {author && <Author author={author} />}
+        {!!author && <Author author={author} />}
         <Title title={title} size={size} />
       </div>
-      {text && <Text text={text} />}
+      {!!text && <Text text={text} />}
       <div className='flex items-center justify-between'>
         <Time time={time} />
         <ShareButton />

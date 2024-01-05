@@ -15,8 +15,8 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <div className='w-full mt-[2px] relative'>
-      <ul className='container flex justify-center border-y-2 border-black'>
+    <div className='relative'>
+      <ul className='flex justify-center border-y-2 border-black'>
         {NAVBAR.map((el) => (
           <li
             key={el}
