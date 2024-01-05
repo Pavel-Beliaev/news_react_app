@@ -1,6 +1,5 @@
 import React, { useCallback, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { DropMenu } from '../DropMenu';
 
 const NAVBAR = ['U.S.', 'World', 'Business', 'Arts', 'Lifestyle', 'Opinion'];
 

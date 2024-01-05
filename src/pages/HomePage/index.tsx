@@ -1,6 +1,9 @@
 import React from 'react';
 import { Logo } from '../../components/Logo';
-import { Navbar } from '../../components/Navbar';
+import { Navbar } from '../../components/HomePageComponents/Navbar';
+import { MainNewsBlock, Wrapper } from '../../components';
+import { MoreNewsBlock } from '../../components/HomePageComponents/MoreNewsBlock';
+import { LifestyleNewsBlock } from '../../components/HomePageComponents/LifestyleNewsBlock';
 
 export const HomePage = () => {
   return (
@@ -9,9 +12,12 @@ export const HomePage = () => {
         <Logo size='text-6xl' />
       </div>
       <Navbar />
-      {/*<MainColum />*/}
-      {/*<OtherColum />*/}
+      <Wrapper.NewsBlock>
+        <MainNewsBlock />
+        {/*<MoreNewsBlock />*/}
+        {/*<LifestyleNewsBlock />*/}
+      </Wrapper.NewsBlock>
     </>
   );
 };
-// grid grid-cols-[repeat(20,2fr)] gap-x-[33px] border-y-2 border-black mt-0.5 py-5
+//

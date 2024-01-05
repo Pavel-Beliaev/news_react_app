@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Title } from '../Title';
 import { Text } from '../Text';
-import { ShareButton } from '../ShareButton';
+import { ShareButton } from '../HomePageComponents/ShareButton';
 import { Time } from '../Time';
 import { Author } from '../Author';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { DotsIcon } from '../../assets/SVG/DotsIcon';
+import { DotsIcon } from '../../../assets/SVG/DotsIcon';
 
 export const ShareButton = () => {
   return (

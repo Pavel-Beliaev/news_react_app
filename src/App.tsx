@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { fetchTopStories } from './store/slice';
 import { useAppDispatch } from './store/store';
-import { Header } from './components/HeaderCmponents/Header';
 import { Content } from './components/Content';
 import { Footer } from './components/Footer';
+import { Header } from './components';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -20,7 +20,7 @@ function App() {
       <Header />
       <Content />
       <Footer />
-      {/*<OtherColum>*/}
+      {/*<RightColumnWrapper>*/}
       {/*  <div className='flex flex-col gap-y-3.5 border-b border-black mb-[20px] pb-[10px] gap-y-2.5'>*/}
       {/*    {magazine*/}
       {/*      .filter((m, i) => m.title !== '' && m.abstract !== '' && i < 6)*/}
@@ -40,10 +40,10 @@ function App() {
       {/*      ))}*/}
       {/*  </div>*/}
 
-      {/*</OtherColum>*/}
+      {/*</RightColumnWrapper>*/}
       {/*<Content>*/}
       {/*  <Heading heading='More News' />*/}
-      {/*  <MainColum className='grid-cols-[repeat(14,2fr)] gap-x-[33px]'>*/}
+      {/*  <LeftColumnWrapper className='grid-cols-[repeat(14,2fr)] gap-x-[33px]'>*/}
       {/*    <div className='grid col-start-[1] col-end-[6] delimiter pt-[16px] first:pt-0'>*/}
       {/*      {data*/}
       {/*        .filter(*/}
@@ -82,8 +82,8 @@ function App() {
       {/*          </div>*/}
       {/*        ))}*/}
       {/*    </div>*/}
-      {/*  </MainColum>*/}
-      {/*  <OtherColum>*/}
+      {/*  </LeftColumnWrapper>*/}
+      {/*  <RightColumnWrapper>*/}
       {/*    {world.slice(1, 7).map((w) => (*/}
       {/*      <div*/}
       {/*        key={w.url}*/}
@@ -91,12 +91,12 @@ function App() {
       {/*        <TextBlock author={w.kicker} title={w.title} time='1' size='S' />*/}
       {/*      </div>*/}
       {/*    ))}*/}
-      {/*  </OtherColum>*/}
+      {/*  </RightColumnWrapper>*/}
       {/*</Content>*/}
 
       {/*<Content>*/}
       {/*  <Heading heading='The Biggest Pop Culture Moments of 2023' />*/}
-      {/*  <MainColum>*/}
+      {/*  <LeftColumnWrapper>*/}
       {/*    {data.slice(-1).map((n) => (*/}
       {/*      <div className='flex flex-col gap-y-[4px]' key={n.url}>*/}
       {/*        <Image*/}
@@ -106,7 +106,7 @@ function App() {
       {/*        <TextBlock author={n.kicker} title={n.title} time='1' size='L' />*/}
       {/*      </div>*/}
       {/*    ))}*/}
-      {/*  </MainColum>*/}
+      {/*  </LeftColumnWrapper>*/}
       {/*</Content>*/}
     </div>
   );
