@@ -1,9 +1,12 @@
 import React from 'react';
 import { Logo } from '../../components/Logo';
-import { Navbar } from '../../components/HomePageComponents/Navbar';
-import { MainNewsBlock, Wrapper } from '../../components';
-import { MoreNewsBlock } from '../../components/HomePageComponents/MoreNewsBlock';
-import { LifestyleNewsBlock } from '../../components/HomePageComponents/LifestyleNewsBlock';
+import {
+  LifestyleNewsBlock,
+  MainNewsBlock,
+  MoreNewsBlock,
+  Navbar,
+  Wrapper,
+} from '../../components';
 
 export const HomePage = () => {
   return (
