@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Logo } from './components/Logo';
 import { fetchTopStories } from './store/slice';
 import { useAppDispatch } from './store/store';
 import { Header } from './components/HeaderCmponents/Header';
