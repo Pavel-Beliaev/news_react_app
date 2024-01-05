@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { fetchTopStories } from './store/slice';
+import { fetchSundayreview, fetchTopStories } from './store/slice';
 import { useAppDispatch } from './store/store';
 import { Content } from './components/Content';
 import { Footer } from './components/Footer';
@@ -10,7 +10,7 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchTopStories());
-    // dispatch(fetchMagazine());
+    dispatch(fetchSundayreview());
     // dispatch(fetchWorldNews());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

@@ -9,7 +9,7 @@ const LeftColumn: FC<WrapperType> = ({ children }) => {
 
 const RightColumn: FC<WrapperType> = ({ children }) => {
   return (
-    <div className=' grid col-start-[15] col-end-[21] content-start '>
+    <div className=' grid col-start-[15] col-end-[21] content-start gap-y-[24px]'>
       {children}
     </div>
   );

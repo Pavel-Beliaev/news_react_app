@@ -12,7 +12,7 @@ export const Title: FC<PropsType> = ({ size, title }) => {
       case 'L':
         return 'text-[24px] font-sans leading-[24px] tracking-wide';
       default:
-        return 'text-[21px] font-serif leading-[21px]';
+        return 'text-[20px] font-serif leading-[20px]';
     }
   };
 

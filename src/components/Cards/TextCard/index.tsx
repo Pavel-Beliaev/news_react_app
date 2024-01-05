@@ -15,7 +15,7 @@ type TextCardType = {
 };
 const TextCard: FC<TextCardType> = ({ author, title, text, time, size }) => {
   return (
-    <div className='flex flex-col gap-y-2 post group'>
+    <div className='flex flex-col gap-y-1 post group'>
       <div>
         {!!author && <Author author={author} />}
         <Title title={title} size={size} />
@@ -49,7 +49,10 @@ const TextCardWithImgY: FC<TextCardWithImgYType> = ({
   isRevers,
 }) => {
   return (
-    <div className={`flex ${isRevers ? 'flex-col-reverse' : 'flex-col'}`}>
+    <div
+      className={`flex ${
+        isRevers ? 'flex-col-reverse' : 'flex-col'
+      } post group`}>
       <Image url={url} imgAuthor={imgAuthor} />
       <div>
         {!!author && <Author author={author} />}
@@ -65,7 +68,10 @@ const TextCardWithImgY: FC<TextCardWithImgYType> = ({
   );
 };
 
-type TextCardWithImgRightType = Omit<TextCardWithImgYType, 'isRevers'>;
+type TextCardWithImgRightType = Omit<
+  TextCardWithImgYType,
+  'isRevers' | 'imgAuthor'
+>;
 const TextCardWithImgRight: FC<TextCardWithImgRightType> = ({
   author,
   title,
@@ -75,11 +81,10 @@ const TextCardWithImgRight: FC<TextCardWithImgRightType> = ({
   by,
   isShare,
   url,
-  imgAuthor,
 }) => {
   return (
-    <div>
-      <div>
+    <div className='flex gap-x-2 post  group'>
+      <div className='flex flex-col flex-[0_1_50%] gap-y-1'>
         {!!author && <Author author={author} />}
         <Title title={title} size={size} />
         <Description text={text} />
@@ -89,7 +94,9 @@ const TextCardWithImgRight: FC<TextCardWithImgRightType> = ({
           {isShare && <ShareButton />}
         </div>
       </div>
-      <Image url={url} imgAuthor={imgAuthor} />
+      <div className='flex-[0_1_50%]'>
+        <Image url={url} imgAuthor='' />
+      </div>
     </div>
   );
 };

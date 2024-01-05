@@ -6,25 +6,21 @@ import { groupByArrays } from '../utils/groupByArrays';
 export const fetchTopStories = createAsyncThunk(
   'news/fetchTopStories',
   async () => {
-    // const {} = params;
     const key = 'DOSr30AZCOpEEHQsUMVpfn5JyqFRZ8qb';
     const { data } = await axios.get(
       `https://api.nytimes.com/svc/topstories/v2/home.json?api-key=${key}`,
     );
-
     return data;
   },
 );
 
-export const fetchOpinions = createAsyncThunk(
-  'news/fetchOpinions',
+export const fetchSundayreview = createAsyncThunk(
+  'news/fetchSundayreview',
   async () => {
-    // const {} = params;
     const key = 'DOSr30AZCOpEEHQsUMVpfn5JyqFRZ8qb';
     const { data } = await axios.get(
-      `https://api.nytimes.com/svc/topstories/v2/opinion.json?api-key=${key}`,
+      `https://api.nytimes.com/svc/topstories/v2/sundayreview.json?api-key=${key}`,
     );
-
     return data;
   },
 );
@@ -37,7 +33,6 @@ export const fetchMagazine = createAsyncThunk(
     const { data } = await axios.get(
       `https://api.nytimes.com/svc/topstories/v2/magazine.json?api-key=${key}`,
     );
-
     return data;
   },
 );
@@ -75,15 +70,13 @@ export type NewsType = {
 export type NewsDataSlice = {
   data: NewsType[][];
   opinions: NewsType[];
-  magazine: NewsType[];
-  world: NewsType[];
+  sundayreview: NewsType[];
 };
 
 const initialState: NewsDataSlice = {
   data: [],
   opinions: [],
-  magazine: [],
-  world: [],
+  sundayreview: [],
 };
 
 export const newsData = createSlice({
@@ -105,15 +98,15 @@ export const newsData = createSlice({
     builder.addCase(fetchTopStories.rejected, () => {
       console.log('error');
     });
-    // builder.addCase(fetchOpinions.pending, () => {
-    //   console.log('loading');
-    // });
-    // builder.addCase(fetchOpinions.fulfilled, (state, action) => {
-    //   state.opinions = action.payload.results;
-    // });
-    // builder.addCase(fetchOpinions.rejected, () => {
-    //   console.log('error');
-    // });
+    builder.addCase(fetchSundayreview.pending, () => {});
+    builder.addCase(fetchSundayreview.fulfilled, (state, action) => {
+      state.sundayreview = action.payload.results.filter(
+        (n: NewsType, i: number) => i < 8,
+      );
+    });
+    builder.addCase(fetchSundayreview.rejected, () => {
+      console.log('error');
+    });
     // builder.addCase(fetchMagazine.pending, () => {
     //   console.log('loading');
     // });
