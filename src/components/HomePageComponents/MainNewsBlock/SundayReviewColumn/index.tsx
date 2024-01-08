@@ -1,10 +1,10 @@
 import React from 'react';
-import { Heading } from '../../Heading';
+import { Heading } from '../../../Heading';
 import { useSelector } from 'react-redux';
-import { newsSlice } from '../../../store/slice';
-import { Post } from '../../Posts';
+import { newsSlice } from '../../../../store/slice';
+import { Post } from '../../../Posts';
 
-export const SundayReviewNews = () => {
+export const SundayReviewColumn = () => {
   const { sundayreview } = useSelector(newsSlice);
 
   return (

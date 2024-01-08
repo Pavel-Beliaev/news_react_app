@@ -1,18 +1,18 @@
 import React from 'react';
 import { Wrapper } from '../../Wrapper';
-import { MainNews } from '../MainNews';
-import { OpinionNews } from '../OpinionNews';
-import { SundayReviewNews } from '../SundayReviewNews';
+import { MainColumn } from './MainColumn';
+import { OpinionColumn } from './OpinionColumn';
+import { SundayReviewColumn } from './SundayReviewColumn';
 
 export const MainNewsBlock = () => {
   return (
     <>
       <Wrapper.LeftColumn>
-        <MainNews />
+        <MainColumn />
       </Wrapper.LeftColumn>
       <Wrapper.RightColumn>
-        <OpinionNews />
-        <SundayReviewNews />
+        <OpinionColumn />
+        <SundayReviewColumn />
       </Wrapper.RightColumn>
     </>
   );

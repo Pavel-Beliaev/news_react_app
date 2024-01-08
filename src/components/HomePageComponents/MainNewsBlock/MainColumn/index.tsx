@@ -1,9 +1,9 @@
 import React from 'react';
-import { MainNewsCard } from '../MainNewsCard';
+import { MainNewsCard } from '../../MainNewsCard';
 import { useSelector } from 'react-redux';
-import { newsSlice } from '../../../store/slice';
+import { newsSlice } from '../../../../store/slice';
 
-export const MainNews = () => {
+export const MainColumn = () => {
   const { data } = useSelector(newsSlice);
 
   return (
