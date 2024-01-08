@@ -1,8 +1,8 @@
 import React from 'react';
 import { Heading } from '../../Heading';
-import { Post } from '../../Cards';
 import { useSelector } from 'react-redux';
 import { newsSlice } from '../../../store/slice';
+import { Post } from '../../Posts';
 
 export const SundayReviewNews = () => {
   const { sundayreview } = useSelector(newsSlice);
@@ -16,6 +16,7 @@ export const SundayReviewNews = () => {
             <Post.TextCard key={n.url} title={n.title} time='4' size='S' />
           ) : i === 1 ? (
             <Post.TextCardWithImgY
+              key={n.url}
               title={n.title}
               time='3'
               size='S'

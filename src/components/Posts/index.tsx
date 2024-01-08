@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
-import { Author } from '../../Author';
-import { Title } from '../../Title';
-import { Time } from '../../Time';
-import { ShareButton } from '../../HomePageComponents';
-import { Description } from '../../Description';
-import { Image } from '../../Image';
+import { Author } from '../Author';
+import { Title } from '../Title';
+import { Time } from '../Time';
+import { ShareButton } from '../HomePageComponents';
+import { Description } from '../Description';
+import { Image } from '../Image';
 
 type TextCardType = {
   author?: string;

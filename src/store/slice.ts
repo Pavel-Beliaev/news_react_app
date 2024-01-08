@@ -25,13 +25,12 @@ export const fetchSundayreview = createAsyncThunk(
   },
 );
 
-export const fetchMagazine = createAsyncThunk(
-  'news/fetchMagazine',
+export const fetchMoreNews = createAsyncThunk(
+  'news/fetchMoreNews',
   async () => {
-    // const {} = params;
     const key = 'DOSr30AZCOpEEHQsUMVpfn5JyqFRZ8qb';
     const { data } = await axios.get(
-      `https://api.nytimes.com/svc/topstories/v2/magazine.json?api-key=${key}`,
+      `https://api.nytimes.com/svc/topstories/v2/nyregion.json?api-key=${key}`,
     );
     return data;
   },
@@ -71,12 +70,14 @@ export type NewsDataSlice = {
   data: NewsType[][];
   opinions: NewsType[];
   sundayreview: NewsType[];
+  moreNews: NewsType[][];
 };
 
 const initialState: NewsDataSlice = {
   data: [],
   opinions: [],
   sundayreview: [],
+  moreNews: [],
 };
 
 export const newsData = createSlice({
@@ -94,6 +95,10 @@ export const newsData = createSlice({
       state.opinions = action.payload.results.filter(
         (n: NewsType) => n.section === 'opinion',
       );
+      state.moreNews[0] = action.payload.results.filter(
+        (n: NewsType, i: number, arr: NewsType[]) =>
+          i > arr.length - 6 && i !== arr.length - 1,
+      );
     });
     builder.addCase(fetchTopStories.rejected, () => {
       console.log('error');
@@ -107,24 +112,15 @@ export const newsData = createSlice({
     builder.addCase(fetchSundayreview.rejected, () => {
       console.log('error');
     });
-    // builder.addCase(fetchMagazine.pending, () => {
-    //   console.log('loading');
-    // });
-    // builder.addCase(fetchMagazine.fulfilled, (state, action) => {
-    //   state.magazine = action.payload.results;
-    // });
-    // builder.addCase(fetchMagazine.rejected, () => {
-    //   console.log('error');
-    // });
-    // builder.addCase(fetchWorldNews.pending, () => {
-    //   console.log('loading');
-    // });
-    // builder.addCase(fetchWorldNews.fulfilled, (state, action) => {
-    //   state.world = action.payload.results;
-    // });
-    // builder.addCase(fetchWorldNews.rejected, () => {
-    //   console.log('error');
-    // });
+    builder.addCase(fetchMoreNews.pending, () => {});
+    builder.addCase(fetchMoreNews.fulfilled, (state, action) => {
+      state.moreNews[1] = action.payload.results.filter(
+        (n: NewsType, i: number) => i < 5,
+      );
+    });
+    builder.addCase(fetchMoreNews.rejected, () => {
+      console.log('error');
+    });
   },
 });
 

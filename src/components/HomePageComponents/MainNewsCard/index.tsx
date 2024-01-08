@@ -1,14 +1,14 @@
 import React, { FC } from 'react';
 import { NewsType } from '../../../store/slice';
 import { Image } from '../../Image';
-import { Post } from '../../Cards';
+import { Post } from '../../Posts';
 
 type PropsType = {
   news: NewsType[];
 };
 export const MainNewsCard: FC<PropsType> = ({ news }) => {
   return (
-    <div className='border-b pb-[24px] border-black last:border-none last:pb-0 grid grid-cols-[repeat(14,2fr)] gap-x-[33px]'>
+    <div className='border-b pb-[24px] border-black last:border-none last:pb-0 grid-inner-left'>
       <div className='grid col-start-[1] col-end-[6] gap-y-3.5'>
         {news.map(
           (n, i) =>

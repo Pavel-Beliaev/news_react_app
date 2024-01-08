@@ -1,8 +1,8 @@
 import React from 'react';
 import { Heading } from '../../Heading';
-import { Post } from '../../Cards';
 import { useSelector } from 'react-redux';
 import { newsSlice } from '../../../store/slice';
+import { Post } from '../../Posts';
 
 export const OpinionNews = () => {
   const { opinions } = useSelector(newsSlice);

@@ -7,6 +7,7 @@ import {
   Navbar,
   Wrapper,
 } from '../../components';
+import { BorderLine } from '../../components/BorderLine';
 
 export const HomePage = () => {
   return (
@@ -17,7 +18,9 @@ export const HomePage = () => {
       <Navbar />
       <Wrapper.NewsBlock>
         <MainNewsBlock />
-        {/*<MoreNewsBlock />*/}
+        <BorderLine />
+        <MoreNewsBlock />
+        <BorderLine />
         {/*<LifestyleNewsBlock />*/}
       </Wrapper.NewsBlock>
     </>

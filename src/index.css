@@ -15,6 +15,9 @@
     .delimiter {
         @apply before:border-l relative before:border-[#C7C7C7] before:absolute before:h-full before:h-full before:right-[-17px]
     }
+    .grid-inner-left {
+        @apply grid grid-cols-[repeat(14,2fr)] gap-x-[33px]
+    }
 }
 
 .shadowed-text {
