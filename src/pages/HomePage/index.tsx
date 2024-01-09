@@ -1,7 +1,7 @@
 import React from 'react';
 import { Logo } from '../../components/Logo';
 import {
-  LifestyleNewsBlock,
+  CultureNewsBlock,
   MainNewsBlock,
   MoreNewsBlock,
   Navbar,
@@ -21,7 +21,7 @@ export const HomePage = () => {
         <BorderLine />
         <MoreNewsBlock />
         <BorderLine />
-        {/*<LifestyleNewsBlock />*/}
+        <CultureNewsBlock />
       </Wrapper.NewsBlock>
     </>
   );

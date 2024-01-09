@@ -39,7 +39,7 @@ export const fetchCultureNews = createAsyncThunk(
   async () => {
     const key = 'DOSr30AZCOpEEHQsUMVpfn5JyqFRZ8qb';
     const { data } = await axios.get(
-      `https://api.nytimes.com/svc/topstories/v2/realestate.json?api-key=${key}`,
+      `https://api.nytimes.com/svc/topstories/v2/books.json?api-key=${key}`,
     );
     return data;
   },

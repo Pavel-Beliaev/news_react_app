@@ -83,21 +83,39 @@ const TextCardWithImgRight: FC<TextCardWithImgRightType> = ({
   url,
 }) => {
   return (
-    <div className='flex gap-x-2 post  group'>
-      <div className='flex flex-col flex-[0_1_50%] gap-y-1'>
-        {!!author && <Author author={author} />}
-        <Title title={title} size={size} />
-        <Description text={text} />
-        <div className='flex items-center justify-between'>
-          <Time time={time} />
-          {!!by && <span>{by}</span>}
-          {isShare && <ShareButton />}
+    <div className='grid grid-cols-[repeat(6,2fr)] gap-x-[33px] post  group'>
+      <div className='grid col-start-1 col-end-5'>
+        <div className='flex flex-col flex-[0_1_50%] gap-y-1'>
+          {!!author && <Author author={author} />}
+          <Title title={title} size={size} />
+          <Description text={text} />
+          <div className='flex items-center justify-between'>
+            <Time time={time} />
+            {!!by && <span>{by}</span>}
+            {isShare && <ShareButton />}
+          </div>
         </div>
       </div>
-      <div className='flex-[0_1_50%]'>
+
+      <div className='grid col-start-5 col-end-7'>
         <Image url={url} imgAuthor='' />
       </div>
     </div>
+    // <div className='flex gap-x-2 post  group'>
+    //   <div className='flex flex-col flex-[0_1_50%] gap-y-1'>
+    //     {!!author && <Author author={author} />}
+    //     <Title title={title} size={size} />
+    //     <Description text={text} />
+    //     <div className='flex items-center justify-between'>
+    //       <Time time={time} />
+    //       {!!by && <span>{by}</span>}
+    //       {isShare && <ShareButton />}
+    //     </div>
+    //   </div>
+    //   <div className='flex-[0_1_50%]'>
+    //     <Image url={url} imgAuthor='' />
+    //   </div>
+    // </div>
   );
 };
 
