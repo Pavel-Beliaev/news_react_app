@@ -1,9 +1,6 @@
 import React from 'react';
 import { Wrapper } from '../../Wrapper';
-import { useSelector } from 'react-redux';
-import { newsSlice } from '../../../store/slice';
 import { Heading } from '../../Heading';
-import { Post } from '../../Posts';
 import { LeftColumn } from './LeftColumn';
 import { CenterColumn } from './CenterColumn';
 import { RightColumn } from './RightColumn';

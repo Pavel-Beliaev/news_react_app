@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import { NewsType } from '../../../store/slice';
 import { Image } from '../../Image';
 import { Post } from '../../Posts';
+import { NewsType } from '../../../store/mainNewsSlice/types';
 
 type PropsType = {
   news: NewsType[];

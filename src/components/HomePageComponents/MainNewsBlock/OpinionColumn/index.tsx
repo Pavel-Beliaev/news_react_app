@@ -1,11 +1,13 @@
 import React from 'react';
 import { Heading } from '../../../Heading';
 import { useSelector } from 'react-redux';
-import { newsSlice } from '../../../../store/slice';
+import { newsSlice } from '../../../../store/mainNewsSlice/slice';
 import { Post } from '../../../Posts';
 
 export const OpinionColumn = () => {
-  const { opinions } = useSelector(newsSlice);
+  const {
+    mainNews: { opinions },
+  } = useSelector(newsSlice);
 
   return (
     <>

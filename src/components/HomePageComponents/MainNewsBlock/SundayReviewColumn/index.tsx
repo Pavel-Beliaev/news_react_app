@@ -1,11 +1,13 @@
 import React from 'react';
 import { Heading } from '../../../Heading';
 import { useSelector } from 'react-redux';
-import { newsSlice } from '../../../../store/slice';
+import { newsSlice } from '../../../../store/mainNewsSlice/slice';
 import { Post } from '../../../Posts';
 
 export const SundayReviewColumn = () => {
-  const { sundayreview } = useSelector(newsSlice);
+  const {
+    mainNews: { sundayreview },
+  } = useSelector(newsSlice);
 
   return (
     <>
