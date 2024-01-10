@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { NavbarItem } from './NavbarItem';
 import { NAVBARITEMS } from '../../../mock';
 
-export const Navbar = () => {
+export const Navbar: FC = () => {
   return (
     <div className='flex justify-center border-y-2 border-black'>
       {NAVBARITEMS.map((item) => (

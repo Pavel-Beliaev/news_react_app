@@ -1,5 +1,5 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-export const SectionPage = () => {
+export const SectionPage: FC = () => {
   return <div>section</div>;
 };

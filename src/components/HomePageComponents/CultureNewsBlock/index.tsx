@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { Wrapper } from '../../Wrapper';
 import { Heading } from '../../Heading';
-import { Post } from '../../Posts';
 import { useSelector } from 'react-redux';
 import { newsSlice } from '../../../store/mainNewsSlice/slice';
 import { CultureMainColumn } from './CultureMainColumn';

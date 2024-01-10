@@ -1,5 +1,5 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-export const ArticlePage = () => {
+export const ArticlePage: FC = () => {
   return <div>article</div>;
 };

@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
 
 import { useAppDispatch } from './store/store';
-import { Content } from './components/Content';
-import { Footer } from './components/Footer';
-import { Header } from './components';
+import { Content, Footer, Header } from './components';
 import {
   fetchCultureNews,
   fetchMoreNews,

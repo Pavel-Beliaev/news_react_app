@@ -1,12 +1,11 @@
-import React, { useCallback, useState } from 'react';
+import React, { FC, useCallback, useState } from 'react';
 import { HeaderButton } from '../HeaderButton';
-import { BurgerIcon } from '../../../assets/SVG/BurgerIcon';
-import { SearchIcon } from '../../../assets/SVG/SearchIcon';
 import { SearchForm } from '../SearchForm';
 import { Logo } from '../../Logo';
 import { useLocation } from 'react-router-dom';
+import { SVG } from '../../../assets/SVG';
 
-export const Header = () => {
+export const Header: FC = () => {
   const { pathname } = useLocation();
   const [isVisible, setIsVisible] = useState(true);
   const [isAble, setIsAble] = useState(false);
@@ -30,10 +29,10 @@ export const Header = () => {
         }`}>
         <div className='flex gap-x-2 self-center'>
           <HeaderButton className='hover:bg-[#f7f7f7]' onCLick={showSideBar}>
-            <BurgerIcon w='20' h='20' />
+            <SVG.BurgerIcon w='20' h='20' />
           </HeaderButton>
           <HeaderButton className='hover:bg-[#f7f7f7]' onCLick={showInput}>
-            <SearchIcon w='20' h='20' fill='transparent' />
+            <SVG.SearchIcon w='20' h='20' fill='transparent' />
           </HeaderButton>
           <SearchForm isVisible={isVisible} />
         </div>

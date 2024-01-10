@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Wrapper } from '../../Wrapper';
 import { Heading } from '../../Heading';
 import { LeftColumn } from './LeftColumn';
 import { CenterColumn } from './CenterColumn';
 import { RightColumn } from './RightColumn';
 
-export const MoreNewsBlock = () => {
+export const MoreNewsBlock: FC = () => {
   return (
     <>
       <Heading heading='More News' />

@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Wrapper } from '../../Wrapper';
 import { MainColumn } from './MainColumn';
 import { OpinionColumn } from './OpinionColumn';
 import { SundayReviewColumn } from './SundayReviewColumn';
 
-export const MainNewsBlock = () => {
+export const MainNewsBlock: FC = () => {
   return (
     <>
       <Wrapper.LeftColumn>

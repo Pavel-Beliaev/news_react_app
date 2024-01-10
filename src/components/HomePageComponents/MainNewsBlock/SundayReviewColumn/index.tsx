@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Heading } from '../../../Heading';
 import { useSelector } from 'react-redux';
 import { newsSlice } from '../../../../store/mainNewsSlice/slice';
 import { Post } from '../../../Posts';
 import { parserURL } from '../../../../utils/parserURL';
 
-export const SundayReviewColumn = () => {
+export const SundayReviewColumn: FC = () => {
   const {
     mainNews: { sundayreview },
   } = useSelector(newsSlice);

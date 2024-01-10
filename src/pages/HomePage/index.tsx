@@ -1,15 +1,15 @@
-import React from 'react';
-import { Logo } from '../../components/Logo';
+import React, { FC } from 'react';
 import {
+  BorderLine,
   CultureNewsBlock,
+  Logo,
   MainNewsBlock,
   MoreNewsBlock,
   Navbar,
   Wrapper,
 } from '../../components';
-import { BorderLine } from '../../components/BorderLine';
 
-export const HomePage = () => {
+export const HomePage: FC = () => {
   return (
     <>
       <div className='flex justify-center border-b-4 border-black py-2.5'>

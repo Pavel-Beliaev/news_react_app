@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { SVGType } from './types';
+import { SVGType } from '../types';
 
 export const DotsIcon: FC<SVGType> = ({ w, h, fill, className }) => {
   return (

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { MainNewsCard } from '../../MainNewsCard';
 import { useSelector } from 'react-redux';
 import { newsSlice } from '../../../../store/mainNewsSlice/slice';
 
-export const MainColumn = () => {
+export const MainColumn: FC = () => {
   const {
     mainNews: { mainColumn },
   } = useSelector(newsSlice);

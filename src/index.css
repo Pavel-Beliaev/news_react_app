@@ -4,7 +4,7 @@
 
 @layer components {
     .container {
-        @apply my-0 mx-auto max-w-[70%]
+        @apply my-0 mx-auto max-w-[65%]
     }
     .post {
         @apply cursor-pointer border-b border-[#C7C7C7] last:border-none pb-2 last:pb-0

@@ -1,5 +1,5 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-export const ErrorPage = () => {
+export const ErrorPage: FC = () => {
   return <div>error</div>;
 };

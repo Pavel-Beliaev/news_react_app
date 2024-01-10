@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { SVGType } from './types';
+import { SVGType } from '../types';
 
 export const SearchIcon: FC<SVGType> = ({ w, h, fill, stroke }) => {
   return (
