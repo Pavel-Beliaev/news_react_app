@@ -11,7 +11,7 @@ export const NavbarSubItem: FC<PropsType> = ({ itemsArray }) => {
         itemsArray.length > 1 ? 'grid-cols-[1fr_1fr_1fr]' : ''
       }`}>
       {itemsArray.map((item) => (
-        <NavLink to={`page/${item.toLowerCase()}`} key={item}>
+        <NavLink to={`section/${item.toLowerCase()}`} key={item}>
           <li className='w-full p-2.5 shadow whitespace-nowrap hover:bg-yellow-100 rounded grid justify-items-center'>
             {item}
           </li>

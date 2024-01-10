@@ -14,7 +14,7 @@ export const NavbarItem: FC<PropsType> = ({ item }) => {
       onMouseEnter={() => setIsAble(true)}
       onMouseLeave={() => setIsAble(false)}
       className='relative flex items-center px-3.5 py-2.5 cursor-pointer hover:shadow hover:underline '>
-      <NavLink to={`page/${item.toLowerCase()}`}>{item}</NavLink>
+      <NavLink to={`section/${item.toLowerCase()}`}>{item}</NavLink>
       {isAble && <NavbarSubItem itemsArray={NAVBARSUBITEMS[item]} />}
     </div>
   );

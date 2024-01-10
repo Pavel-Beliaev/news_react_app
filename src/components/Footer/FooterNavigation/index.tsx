@@ -13,7 +13,7 @@ export const FooterNavigation: FC = () => {
             {NAVBARSUBITEMS[item].map((el) => (
               <li key={el} className='w-full'>
                 <NavLink
-                  to={`page/${el.toLowerCase()}`}
+                  to={`section/${el.toLowerCase()}`}
                   className='inline-block hover:underline w-[110px] h-[25px] text-[14px] leading-[16px]'>
                   {el}
                 </NavLink>

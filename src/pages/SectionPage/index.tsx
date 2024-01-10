@@ -1,5 +1,5 @@
 import React from 'react';
 
 export const SectionPage = () => {
-  return <div></div>;
+  return <div>section</div>;
 };

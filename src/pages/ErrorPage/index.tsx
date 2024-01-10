@@ -1,5 +1,5 @@
 import React from 'react';
 
 export const ErrorPage = () => {
-  return <div></div>;
+  return <div>error</div>;
 };
