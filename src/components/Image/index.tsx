@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 
 type PropsType = {
   url: string;
-  imgAuthor: string;
+  imgAuthor?: string;
 };
 export const Image: FC<PropsType> = ({ url, imgAuthor }) => {
   return (

@@ -7,11 +7,11 @@ export type TextCardType = {
 };
 
 export type TextCardWithImgYType = TextCardType & {
-  isShare: boolean;
-  by: string;
+  isShare?: boolean;
+  by?: string;
   url: string;
-  imgAuthor: string;
-  isRevers: boolean;
+  imgAuthor?: string;
+  isRevers?: boolean;
 };
 
 export type TextCardWithImgRightType = Omit<

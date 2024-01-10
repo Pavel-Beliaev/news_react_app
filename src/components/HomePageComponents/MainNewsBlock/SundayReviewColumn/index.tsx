@@ -22,11 +22,9 @@ export const SundayReviewColumn = () => {
               title={n.title}
               time='3'
               size='S'
-              isShare
-              by=''
               url={n.multimedia[1].url}
-              imgAuthor=''
               isRevers
+              isShare
             />
           ) : (
             <Post.TextCardWithImgRight
@@ -35,7 +33,6 @@ export const SundayReviewColumn = () => {
               time='4'
               size='S'
               isShare
-              by=''
               url={n.multimedia[1].url}
             />
           ),

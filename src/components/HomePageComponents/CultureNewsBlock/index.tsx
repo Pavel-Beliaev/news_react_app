@@ -1,45 +1,28 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Wrapper } from '../../Wrapper';
 import { Heading } from '../../Heading';
 import { Post } from '../../Posts';
 import { useSelector } from 'react-redux';
 import { newsSlice } from '../../../store/mainNewsSlice/slice';
+import { CultureMainColumn } from './CultureMainColumn';
+import { CultureRightColumn } from './CultureRightColumn';
 
-export const CultureNewsBlock = () => {
+export const CultureNewsBlock: FC = () => {
   const {
-    cultureNews: { mainNews, rightColumn },
+    cultureNews: { rightColumn },
   } = useSelector(newsSlice);
   return (
     <>
       <Heading heading='Culture and Lifestyle' />
       <Wrapper.LeftColumn>
-        {!!mainNews.title && (
-          <Post.TextCardWithImgY
-            title={mainNews.title}
-            text={mainNews.abstract}
-            time='5'
-            size='L'
-            isShare
-            by=''
-            url={mainNews.multimedia[1].url}
-            imgAuthor={mainNews.multimedia[1].copyright}
-            isRevers={false}
-          />
-        )}
+        <CultureMainColumn />
       </Wrapper.LeftColumn>
       <Wrapper.RightColumn>
-        {rightColumn.map((n) => (
-          <Post.TextCardWithImgRight
-            key={n.url}
-            title={n.title}
-            text={n.abstract}
-            time='5'
-            size='S'
-            isShare
-            by=''
-            url={n.multimedia[1].url}
-          />
-        ))}
+        <CultureRightColumn
+          news={rightColumn.slice(0, 2)}
+          className='after:border-b after:absolute after:border-[#C7C7C7] after:w-full after:bottom-[-12px]'
+        />
+        <CultureRightColumn news={rightColumn.slice(2)} />
       </Wrapper.RightColumn>
     </>
   );

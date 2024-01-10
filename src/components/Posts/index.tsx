@@ -43,9 +43,9 @@ const TextCardWithImgY: FC<TextCardWithImgYType> = ({
     <div
       className={`flex ${
         isRevers ? 'flex-col-reverse' : 'flex-col'
-      } post group`}>
+      } post group gap-y-2.5`}>
       <Image url={url} imgAuthor={imgAuthor} />
-      <div>
+      <div className='flex flex-col'>
         {!!author && <Author author={author} />}
         <Title title={title} size={size} />
         {!!text && <Description text={text} />}

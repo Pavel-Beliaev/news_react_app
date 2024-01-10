@@ -22,10 +22,8 @@ export const OpinionColumn = () => {
               time='3'
               size='S'
               isShare
-              by=''
               url={n.multimedia[1].url}
               imgAuthor={i === 0 ? n.multimedia[1].copyright : ''}
-              isRevers={false}
             />
           </div>
         ))}

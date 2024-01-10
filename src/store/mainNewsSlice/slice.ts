@@ -91,7 +91,7 @@ export const newsData = createSlice({
     });
     builder.addCase(fetchCultureNews.pending, () => {});
     builder.addCase(fetchCultureNews.fulfilled, (state, action) => {
-      state.cultureNews.rightColumn = action.payload.results.slice(0, 3);
+      state.cultureNews.rightColumn = action.payload.results.slice(0, 4);
     });
     builder.addCase(fetchCultureNews.rejected, () => {
       console.log('error Culture News');
