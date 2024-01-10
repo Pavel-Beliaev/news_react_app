@@ -11,7 +11,7 @@ export const SundayReviewColumn = () => {
   } = useSelector(newsSlice);
 
   return (
-    <>
+    <div>
       <Heading heading='Sunday Review' />
       <div className='flex flex-col gap-y-2.5'>
         {sundayreview.map((n, i) =>
@@ -47,6 +47,6 @@ export const SundayReviewColumn = () => {
           ),
         )}
       </div>
-    </>
+    </div>
   );
 };

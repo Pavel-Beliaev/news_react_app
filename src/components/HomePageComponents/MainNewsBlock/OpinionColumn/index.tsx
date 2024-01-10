@@ -11,7 +11,7 @@ export const OpinionColumn = () => {
   } = useSelector(newsSlice);
 
   return (
-    <>
+    <div>
       <Heading heading='Opinion' />
       <div className='grid grid-cols-[repeat(2,2fr)] gap-[10px] border-b pb-[24px] border-black'>
         {opinions.map((n, i) => (
@@ -30,6 +30,6 @@ export const OpinionColumn = () => {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 };
