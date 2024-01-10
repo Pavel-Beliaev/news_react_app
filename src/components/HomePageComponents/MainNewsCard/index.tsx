@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { Image } from '../../Image';
 import { Post } from '../../Posts';
 import { NewsType } from '../../../store/mainNewsSlice/types';
+import { parserURL } from '../../../utils/parserURL';
 
 type PropsType = {
   news: NewsType[];
@@ -14,6 +15,7 @@ export const MainNewsCard: FC<PropsType> = ({ news }) => {
           (n, i) =>
             i < 2 && (
               <Post.TextCard
+                article={parserURL(n.uri)}
                 key={n.url}
                 title={n.title}
                 time='5'

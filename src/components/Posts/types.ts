@@ -4,6 +4,7 @@ export type TextCardType = {
   text?: string;
   time: string;
   size: 'S' | 'M' | 'L';
+  article: string;
 };
 
 export type TextCardWithImgYType = TextCardType & {

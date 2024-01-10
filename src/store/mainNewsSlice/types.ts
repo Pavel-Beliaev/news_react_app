@@ -10,6 +10,7 @@ export type NewsType = {
   multimedia: MediaType[];
   title: string;
   url: string;
+  uri: string;
   section: string;
   kicker: string;
   subsection: string;

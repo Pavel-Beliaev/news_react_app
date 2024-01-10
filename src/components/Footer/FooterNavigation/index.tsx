@@ -7,7 +7,7 @@ export const FooterNavigation: FC = () => {
   return (
     <div className='grid grid-cols-6 border-b border-[#C7C7C7] py-2.5'>
       {NAVBARITEMS.map((item) => (
-        <div>
+        <div key={item}>
           <Heading heading={item} />
           <ul>
             {NAVBARSUBITEMS[item].map((el) => (

@@ -3,6 +3,7 @@ import { Heading } from '../../../Heading';
 import { useSelector } from 'react-redux';
 import { newsSlice } from '../../../../store/mainNewsSlice/slice';
 import { Post } from '../../../Posts';
+import { parserURL } from '../../../../utils/parserURL';
 
 export const OpinionColumn = () => {
   const {
@@ -18,6 +19,7 @@ export const OpinionColumn = () => {
             key={n.url}
             className='first:col-start-1 first:col-end-3 last:col-start-1 last:col-end-3 '>
             <Post.TextCardWithImgY
+              article={parserURL(n.uri)}
               title={n.title}
               time='3'
               size='S'

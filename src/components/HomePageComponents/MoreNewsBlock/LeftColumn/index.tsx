@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { Post } from '../../../Posts';
 import { useSelector } from 'react-redux';
 import { newsSlice } from '../../../../store/mainNewsSlice/slice';
+import { parserURL } from '../../../../utils/parserURL';
 
 export const LeftColumn: FC = () => {
   const {
@@ -12,6 +13,7 @@ export const LeftColumn: FC = () => {
     <div className='grid col-start-[1] col-end-[6] delimiter gap-y-2.5'>
       {leftColumn.map((n) => (
         <Post.TextCard
+          article={parserURL(n.uri)}
           key={n.url}
           title={n.title}
           text={n.abstract}

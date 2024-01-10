@@ -11,6 +11,7 @@ export const CenterColumn: FC = () => {
     <div className='grid col-start-[6] col-end-[15]'>
       {centerColumn.title && (
         <Post.TextCardWithImgY
+          article={centerColumn.uri}
           title={centerColumn.title}
           text={centerColumn.abstract}
           time='6'

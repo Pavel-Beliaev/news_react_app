@@ -10,10 +10,20 @@ import {
   TextCardWithImgRightType,
   TextCardWithImgYType,
 } from './types';
+import { NavLink } from 'react-router-dom';
 
-const TextCard: FC<TextCardType> = ({ author, title, text, time, size }) => {
+const TextCard: FC<TextCardType> = ({
+  article,
+  author,
+  title,
+  text,
+  time,
+  size,
+}) => {
   return (
-    <div className='flex flex-col gap-y-1 post group'>
+    <NavLink
+      to={`article/${article}`}
+      className='flex flex-col gap-y-1 post group'>
       <div>
         {!!author && <Author author={author} />}
         <Title title={title} size={size} />
@@ -23,7 +33,7 @@ const TextCard: FC<TextCardType> = ({ author, title, text, time, size }) => {
         <Time time={time} />
         <ShareButton />
       </div>
-    </div>
+    </NavLink>
   );
 };
 
@@ -38,9 +48,11 @@ const TextCardWithImgY: FC<TextCardWithImgYType> = ({
   imgAuthor,
   size,
   isRevers,
+  article,
 }) => {
   return (
-    <div
+    <NavLink
+      to={`article/${article}`}
       className={`flex ${
         isRevers ? 'flex-col-reverse' : 'flex-col'
       } post group gap-y-2.5`}>
@@ -55,7 +67,7 @@ const TextCardWithImgY: FC<TextCardWithImgYType> = ({
           {isShare && <ShareButton />}
         </div>
       </div>
-    </div>
+    </NavLink>
   );
 };
 
@@ -68,9 +80,10 @@ const TextCardWithImgRight: FC<TextCardWithImgRightType> = ({
   by,
   isShare,
   url,
+  article,
 }) => {
   return (
-    <div className='flex gap-x-2 post  group'>
+    <NavLink to={`article/${article}`} className='flex gap-x-2 post  group'>
       <div className='flex flex-col flex-[0_1_50%] gap-y-1'>
         {!!author && <Author author={author} />}
         <Title title={title} size={size} />
@@ -84,7 +97,7 @@ const TextCardWithImgRight: FC<TextCardWithImgRightType> = ({
       <div className='flex-[0_1_50%]'>
         <Image url={url} imgAuthor='' />
       </div>
-    </div>
+    </NavLink>
   );
 };
 
