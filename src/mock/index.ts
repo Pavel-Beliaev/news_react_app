@@ -27,3 +27,19 @@ export const NAVBARSUBITEMS: MyObject = {
   'Lifestyle': ['Automobiles', 'Fashion', 'Food', 'Lifestyle', 'Travel'],
   'Opinion': ['Opinion'],
 };
+
+export const COPYRIGHTPANEL = [
+  '© 2024 Echo of News',
+  'Contact Us',
+  'Accessibility',
+  'Work with us',
+  'Advertise',
+  'T Brand Studio',
+  'Your Ad Choices',
+  'Privacy Policy',
+  'Terms of Service',
+  'Terms of Sale',
+  'Site Map',
+  'Help',
+  'Subscriptions',
+];

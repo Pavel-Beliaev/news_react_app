@@ -7,7 +7,7 @@
         @apply my-0 mx-auto max-w-[70%]
     }
     .post {
-        @apply cursor-pointer border-b border-[#DFDFDF] last:border-none pb-2 last:pb-0
+        @apply cursor-pointer border-b border-[#C7C7C7] last:border-none pb-2 last:pb-0
     }
 }
 
