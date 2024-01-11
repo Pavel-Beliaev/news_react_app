@@ -5,19 +5,17 @@ import { Logo } from '../../Logo';
 import { useLocation } from 'react-router-dom';
 import { SVG } from '../../../assets/SVG';
 
-export const Header: FC = () => {
+type PropsType = {
+  onClick: () => void;
+};
+export const Header: FC<PropsType> = ({ onClick }) => {
   const { pathname } = useLocation();
   const [isVisible, setIsVisible] = useState(true);
-  const [isAble, setIsAble] = useState(false);
   const isHome = pathname !== '/';
 
   const showInput = useCallback(() => {
     setIsVisible(!isVisible);
   }, [isVisible]);
-
-  const showSideBar = useCallback(() => {
-    setIsAble(!isAble);
-  }, [isAble]);
 
   return (
     <div className='relative'>
@@ -28,7 +26,7 @@ export const Header: FC = () => {
             : ''
         }`}>
         <div className='flex gap-x-2 self-center'>
-          <HeaderButton className='hover:bg-[#f7f7f7]' onCLick={showSideBar}>
+          <HeaderButton className='hover:bg-[#f7f7f7]' onCLick={onClick}>
             <SVG.BurgerIcon w='20' h='20' />
           </HeaderButton>
           <HeaderButton className='hover:bg-[#f7f7f7]' onCLick={showInput}>
