@@ -7,6 +7,7 @@ export * from './HeaderCmponents';
 export * from './Heading';
 export * from './HomePageComponents';
 export * from './Image';
+export * from './LeftSideBar';
 export * from './Logo';
 export * from './Posts';
 export * from './Time';

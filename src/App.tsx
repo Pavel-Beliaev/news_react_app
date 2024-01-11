@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 import { useAppDispatch } from './store/store';
-import { Content, Footer, Header } from './components';
+import { Content, Footer, Header, LeftSideBar } from './components';
 import {
   fetchCultureNews,
   fetchMoreNews,
@@ -21,8 +21,9 @@ function App() {
   }, []);
 
   return (
-    <div className='w-full h-auto bg-yellow-50 flex flex-col gap-y-0.5'>
+    <div className='w-full relative h-auto bg-yellow-50 flex flex-col gap-y-0.5'>
       <Header />
+      <LeftSideBar />
       <Content />
       <Footer />
     </div>
