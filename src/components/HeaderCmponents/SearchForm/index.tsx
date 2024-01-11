@@ -1,5 +1,9 @@
 import React, { FC, FormEvent, useState } from 'react';
 import { HeaderButton } from '../HeaderButton';
+import { useAppDispatch } from '../../../store/store';
+import { fetchSearchNews } from '../../../store/searchSlice/actions';
+import { useSelector } from 'react-redux';
+import { searchSlice } from '../../../store/searchSlice/slice';
 
 type PropsType = {
   isVisible: boolean;
@@ -7,9 +11,14 @@ type PropsType = {
 export const SearchForm: FC<PropsType> = ({ isVisible }) => {
   const [search, setSearch] = useState('');
 
+  const { page, sort } = useSelector(searchSlice);
+  const dispatch = useAppDispatch();
+
   const handlerSearch = (event: FormEvent) => {
     event.preventDefault();
+    dispatch(fetchSearchNews({ query: search, page: page, sort: sort }));
   };
+
   return (
     <form
       onSubmit={handlerSearch}
