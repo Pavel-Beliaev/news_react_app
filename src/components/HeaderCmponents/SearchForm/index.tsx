@@ -38,9 +38,12 @@ export const SearchForm: FC<PropsType> = ({ isVisible }) => {
           onChange={(event) => setSearch(event.target.value)}
           className='w-full min-w-[10%] h-[30px] border rounded border-[999999] focus-visible:border pl-2 pr-[60px]'
         />
-        <ClearButton onClick={clearButton} />
+        {!!search.length && <ClearButton onClick={clearButton} />}
       </div>
-      <HeaderButton className='bg-[#567b95] hover:bg-[#326891]' type={'submit'}>
+      <HeaderButton
+        className='bg-[#567b95] hover:bg-[#326891]'
+        type={'submit'}
+        isAble={!search.length}>
         go
       </HeaderButton>
     </form>
