@@ -3,13 +3,15 @@ import { NAVBARITEMS } from '../../mock';
 import { LeftSideBarItem } from './LeftSideBarItem';
 
 type PropsType = {
-  onMouse: () => void;
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
 };
-export const LeftSideBar: FC<PropsType> = ({ onMouse }) => {
+export const LeftSideBar: FC<PropsType> = ({ onMouseEnter, onMouseLeave }) => {
   return (
     <div
       className='fixed shadow-2xl h-full w-[15%] z-20 p-[10px_18px] flex flex-col gap-y-2.5'
-      onMouseLeave={onMouse}>
+      onMouseLeave={onMouseLeave}
+      onMouseEnter={onMouseEnter}>
       {NAVBARITEMS.map((item) => (
         <LeftSideBarItem key={item} item={item} />
       ))}
