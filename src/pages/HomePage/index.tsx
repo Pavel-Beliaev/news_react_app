@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import {
   BorderLine,
   CultureNewsBlock,
+  DropDownPanel,
   Logo,
   MainNewsBlock,
   MoreNewsBlock,
@@ -15,6 +16,7 @@ export const HomePage: FC = () => {
       <div className='flex justify-center border-b-4 border-black py-2.5'>
         <Logo size='text-6xl' />
       </div>
+      <DropDownPanel />
       <Navbar />
       <Wrapper.NewsBlock>
         <MainNewsBlock />
