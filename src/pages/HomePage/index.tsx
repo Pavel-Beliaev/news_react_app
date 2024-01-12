@@ -22,7 +22,7 @@ export const HomePage: FC = () => {
       <div className='flex justify-center border-b-4 border-black py-2.5'>
         <Logo size='text-6xl' />
       </div>
-      {isShow && <DropDownPanel />}
+      <DropDownPanel isShow={isShow} />
       <Navbar refElem={elementRef} />
       <Wrapper.NewsBlock>
         <MainNewsBlock />
