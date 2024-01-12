@@ -5,19 +5,21 @@ import { fetchSearchNews } from '../../../store/searchSlice/actions';
 import { useSelector } from 'react-redux';
 import { searchSlice } from '../../../store/searchSlice/slice';
 import { ClearButton } from '../ClearButton';
+import { useNavigate } from 'react-router-dom';
 
 type PropsType = {
   isVisible: boolean;
 };
 export const SearchForm: FC<PropsType> = ({ isVisible }) => {
   const [search, setSearch] = useState('');
-
+  const navigate = useNavigate();
   const { page, sort } = useSelector(searchSlice);
   const dispatch = useAppDispatch();
 
   const handlerSearch = (event: FormEvent) => {
     event.preventDefault();
     dispatch(fetchSearchNews({ query: search, page: page, sort: sort }));
+    navigate(`search/query=${search}}`);
   };
 
   const clearButton = useCallback(() => {
