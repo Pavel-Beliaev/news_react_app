@@ -3,6 +3,7 @@ export type SearchNewsSlice = {
   page: number;
   sort: 'newest' | 'oldest' | 'relevance';
   status: 'loading' | 'success' | 'error';
+  code: string;
 };
 
 export type ParamsType = {

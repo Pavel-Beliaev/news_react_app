@@ -10,6 +10,7 @@ import {
 } from './actions';
 
 const initialState: NewsDataSlice = {
+  status: 'loading',
   mainNews: {
     mainColumn: [],
     opinions: [],

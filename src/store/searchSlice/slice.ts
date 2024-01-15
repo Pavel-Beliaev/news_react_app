@@ -8,6 +8,7 @@ const initialState: SearchNewsSlice = {
   page: 1,
   sort: 'relevance',
   status: 'loading',
+  code: '',
 };
 
 export const searchNews = createSlice({
@@ -24,7 +25,9 @@ export const searchNews = createSlice({
     });
     builder.addCase(fetchSearchNews.rejected, (state, action) => {
       state.status = 'error';
-      console.log(action.error.message);
+      if (action.error.message) {
+        state.code = action.error.message.split(' ').slice(-1).join('');
+      }
     });
   },
 });

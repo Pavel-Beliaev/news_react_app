@@ -8,11 +8,16 @@ import {
   fetchSundayreview,
   fetchTopStories,
 } from './store/mainNewsSlice/actions';
+import { ErrorRequest } from './components/ErrorRequest';
+import { useSelector } from 'react-redux';
+import { searchSlice } from './store/searchSlice/slice';
 
 function App() {
   const [isAble, setIsAble] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const dispatch = useAppDispatch();
+  const { status } = useSelector(searchSlice);
+  const isError = status === 'error';
 
   const onComponentCursor = useCallback(() => {
     setIsActive(!isActive);
@@ -43,6 +48,7 @@ function App() {
 
   return (
     <div className='w-full relative h-auto bg-yellow-50 flex flex-col gap-y-0.5'>
+      {isError && <ErrorRequest />}
       <Header onClick={showSideBar} />
       {isAble && (
         <LeftSideBar

@@ -17,6 +17,7 @@ export type NewsType = {
 };
 
 export type NewsDataSlice = {
+  status: 'loading' | 'success' | 'error';
   mainNews: {
     mainColumn: NewsType[][];
     opinions: NewsType[];
