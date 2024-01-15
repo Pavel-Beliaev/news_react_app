@@ -11,6 +11,7 @@ import {
 import { ErrorRequest } from './components/ErrorRequest';
 import { useSelector } from 'react-redux';
 import { searchSlice } from './store/searchSlice/slice';
+import { newsSlice } from './store/mainNewsSlice/slice';
 
 function App() {
   const [isAble, setIsAble] = useState(false);
@@ -18,7 +19,6 @@ function App() {
   const dispatch = useAppDispatch();
   const { status } = useSelector(searchSlice);
   const isError = status === 'error';
-
   const onComponentCursor = useCallback(() => {
     setIsActive(!isActive);
   }, [isActive]);
