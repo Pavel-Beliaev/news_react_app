@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
 import { SVGType } from '../types';
 
-export const ArrowIcon: FC<SVGType> = ({ w, h, fill, stroke }) => {
+export const ArrowIcon: FC<SVGType> = ({ w, h, fill, stroke, className }) => {
   return (
     <svg
+      className={className}
       width={w}
       height={h}
       fill={fill || 'currentColor'}

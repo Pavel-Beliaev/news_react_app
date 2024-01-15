@@ -70,8 +70,8 @@ export const newsData = createSlice({
       )[0];
       state.cultureNews.mainNews = action.payload.results.pop();
     });
-    builder.addCase(fetchTopStories.rejected, () => {
-      console.log('error Top Stories');
+    builder.addCase(fetchTopStories.rejected, (state, action) => {
+      console.log(action.error.message);
     });
     builder.addCase(fetchSundayreview.pending, () => {});
     builder.addCase(fetchSundayreview.fulfilled, (state, action) => {
@@ -79,8 +79,8 @@ export const newsData = createSlice({
         (n: NewsType, i: number) => i < 8,
       );
     });
-    builder.addCase(fetchSundayreview.rejected, () => {
-      console.log('error Sunday Review');
+    builder.addCase(fetchSundayreview.rejected, (state, action) => {
+      console.log(action.error.message);
     });
     builder.addCase(fetchMoreNews.pending, () => {});
     builder.addCase(fetchMoreNews.fulfilled, (state, action) => {
@@ -88,15 +88,15 @@ export const newsData = createSlice({
         (n: NewsType, i: number) => i < 5,
       );
     });
-    builder.addCase(fetchMoreNews.rejected, () => {
-      console.log('error More News');
+    builder.addCase(fetchMoreNews.rejected, (state, action) => {
+      console.log(action.error.message);
     });
     builder.addCase(fetchCultureNews.pending, () => {});
     builder.addCase(fetchCultureNews.fulfilled, (state, action) => {
       state.cultureNews.rightColumn = action.payload.results.slice(0, 4);
     });
-    builder.addCase(fetchCultureNews.rejected, () => {
-      console.log('error Culture News');
+    builder.addCase(fetchCultureNews.rejected, (state, action) => {
+      console.log(action.error.message);
     });
   },
 });

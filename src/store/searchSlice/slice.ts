@@ -22,8 +22,9 @@ export const searchNews = createSlice({
       state.status = 'success';
       state.searchData = action.payload.response.docs;
     });
-    builder.addCase(fetchSearchNews.rejected, (state) => {
+    builder.addCase(fetchSearchNews.rejected, (state, action) => {
       state.status = 'error';
+      console.log(action.error.message);
     });
   },
 });
