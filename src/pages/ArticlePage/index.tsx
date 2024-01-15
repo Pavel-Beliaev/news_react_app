@@ -1,22 +1,18 @@
 import React, { FC } from 'react';
 import { Image } from '../../components';
+import { ArticleHeading } from '../../components/ArticleComponents';
 
 export const ArticlePage: FC = () => {
   return (
     <div className='flex flex-col gap-y-2.5 my-3.5'>
-      <div className='container'>
-        <h1>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, hic.
-        </h1>
-        <h2>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores
-          consectetur earum non, odio sed totam.
-        </h2>
-      </div>
+      <ArticleHeading
+        title='Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+        subTitle='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos dolore facere fugiat ipsum, nobis officiis.'
+      />
       <div>link origin article</div>
       <div className='container'>
         <button>share</button>
-        <button>save</button>
+        <button></button>
       </div>
       <div>
         <Image url='' />
