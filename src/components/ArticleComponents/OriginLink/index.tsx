@@ -1,5 +1,15 @@
-import React from 'react';
+import React, { FC } from 'react';
+import { NavLink } from 'react-router-dom';
 
-export const OriginLink = () => {
-  return <div></div>;
+type PropsType = {
+  url: string;
+};
+export const OriginLink: FC<PropsType> = ({ url }) => {
+  return (
+    <NavLink
+      to={url}
+      className='container flex justify-center self-center text-xl font-semibold text-blue-900 hover:underline'>
+      Link to origin article on NYT
+    </NavLink>
+  );
 };
