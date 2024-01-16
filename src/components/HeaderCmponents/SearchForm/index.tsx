@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { searchSlice } from '../../../store/searchSlice/slice';
 import { ClearButton } from '../ClearButton';
 import { useNavigate } from 'react-router-dom';
-import { HeaderButton } from '../../CustomButton';
+import { CustomButton } from '../../CustomButton';
 
 type PropsType = {
   isVisible: boolean;
@@ -42,9 +42,9 @@ export const SearchForm: FC<PropsType> = ({ isVisible }) => {
         />
         {!!search.length && <ClearButton onClick={clearButton} />}
       </div>
-      <HeaderButton type={'submit'} isAble={!search.length} skin='form'>
+      <CustomButton type={'submit'} isAble={!search.length} skin='form'>
         go
-      </HeaderButton>
+      </CustomButton>
     </form>
   );
 };

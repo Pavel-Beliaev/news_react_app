@@ -10,7 +10,7 @@ import {
   TextCardWithImgYType,
 } from './types';
 import { NavLink } from 'react-router-dom';
-import { HeaderButton } from '../CustomButton';
+import { CustomButton } from '../CustomButton';
 import { DotsIcon } from '../../assets/SVG/DotsIcon';
 
 const TextCard: FC<TextCardType> = ({
@@ -32,14 +32,14 @@ const TextCard: FC<TextCardType> = ({
       {!!text && <Description text={text} />}
       <div className='flex items-center justify-between'>
         <Time time={time} />
-        <HeaderButton skin='dots'>
+        <CustomButton skin='dots'>
           <DotsIcon
             w='14'
             h='14'
             fill='#727272'
             className='hover:fill-[#121212]'
           />
-        </HeaderButton>
+        </CustomButton>
       </div>
     </NavLink>
   );
@@ -73,14 +73,14 @@ const TextCardWithImgY: FC<TextCardWithImgYType> = ({
           <Time time={time} />
           {!!by && <span>{by}</span>}
           {isShare && (
-            <HeaderButton skin='dots'>
+            <CustomButton skin='dots'>
               <DotsIcon
                 w='14'
                 h='14'
                 fill='#727272'
                 className='hover:fill-[#121212]'
               />
-            </HeaderButton>
+            </CustomButton>
           )}
         </div>
       </div>
@@ -109,14 +109,14 @@ const TextCardWithImgRight: FC<TextCardWithImgRightType> = ({
           <Time time={time} />
           {!!by && <span>{by}</span>}
           {isShare && (
-            <HeaderButton skin='dots'>
+            <CustomButton skin='dots'>
               <DotsIcon
                 w='14'
                 h='14'
                 fill='#727272'
                 className='hover:fill-[#121212]'
               />
-            </HeaderButton>
+            </CustomButton>
           )}
         </div>
       </div>

@@ -3,7 +3,7 @@ import { SearchForm } from '../SearchForm';
 import { Logo } from '../../Logo';
 import { useLocation } from 'react-router-dom';
 import { SVG } from '../../../assets/SVG';
-import { HeaderButton } from '../../CustomButton';
+import { CustomButton } from '../../CustomButton';
 
 type PropsType = {
   onClick: () => void;
@@ -26,12 +26,12 @@ export const Header: FC<PropsType> = ({ onClick }) => {
             : ''
         }`}>
         <div className='flex gap-x-2 self-center'>
-          <HeaderButton onClick={onClick} skin='default'>
+          <CustomButton onClick={onClick} skin='default'>
             <SVG.BurgerIcon w='20' h='20' />
-          </HeaderButton>
-          <HeaderButton onClick={showInput} skin='default'>
+          </CustomButton>
+          <CustomButton onClick={showInput} skin='default'>
             <SVG.SearchIcon w='20' h='20' fill='transparent' />
-          </HeaderButton>
+          </CustomButton>
           <SearchForm isVisible={isVisible} />
         </div>
         <div className='grid place-self-center '>

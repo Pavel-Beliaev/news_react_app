@@ -7,7 +7,7 @@ type PropsType = {
   isAble?: boolean;
   skin: 'form' | 'dots' | 'share' | 'error' | 'default';
 };
-export const HeaderButton: FC<PropsType> = ({
+export const CustomButton: FC<PropsType> = ({
   children,
   onClick,
   type,
