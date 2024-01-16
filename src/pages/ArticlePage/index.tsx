@@ -8,7 +8,7 @@ import {
 
 export const ArticlePage: FC = () => {
   return (
-    <div className='flex flex-col gap-y-2.5 my-3.5'>
+    <div className='flex flex-col gap-y-3.5 my-3.5'>
       <ArticleHeading
         title='Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
         subTitle='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos dolore facere fugiat ipsum, nobis officiis.'

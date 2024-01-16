@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 import { Author } from '../Author';
 import { Title } from '../Title';
 import { Time } from '../Time';
-import { ShareButton } from '../HomePageComponents';
 import { Description } from '../Description';
 import { Image } from '../Image';
 import {
@@ -11,6 +10,8 @@ import {
   TextCardWithImgYType,
 } from './types';
 import { NavLink } from 'react-router-dom';
+import { HeaderButton } from '../CustomButton';
+import { DotsIcon } from '../../assets/SVG/DotsIcon';
 
 const TextCard: FC<TextCardType> = ({
   article,
@@ -31,7 +32,14 @@ const TextCard: FC<TextCardType> = ({
       {!!text && <Description text={text} />}
       <div className='flex items-center justify-between'>
         <Time time={time} />
-        <ShareButton />
+        <HeaderButton skin='dots'>
+          <DotsIcon
+            w='14'
+            h='14'
+            fill='#727272'
+            className='hover:fill-[#121212]'
+          />
+        </HeaderButton>
       </div>
     </NavLink>
   );
@@ -64,7 +72,16 @@ const TextCardWithImgY: FC<TextCardWithImgYType> = ({
         <div className='flex items-center justify-between'>
           <Time time={time} />
           {!!by && <span>{by}</span>}
-          {isShare && <ShareButton />}
+          {isShare && (
+            <HeaderButton skin='dots'>
+              <DotsIcon
+                w='14'
+                h='14'
+                fill='#727272'
+                className='hover:fill-[#121212]'
+              />
+            </HeaderButton>
+          )}
         </div>
       </div>
     </NavLink>
@@ -91,7 +108,16 @@ const TextCardWithImgRight: FC<TextCardWithImgRightType> = ({
         <div className='flex items-center justify-between'>
           <Time time={time} />
           {!!by && <span>{by}</span>}
-          {isShare && <ShareButton />}
+          {isShare && (
+            <HeaderButton skin='dots'>
+              <DotsIcon
+                w='14'
+                h='14'
+                fill='#727272'
+                className='hover:fill-[#121212]'
+              />
+            </HeaderButton>
+          )}
         </div>
       </div>
       <div className='flex-[0_1_50%]'>

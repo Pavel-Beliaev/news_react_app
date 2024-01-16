@@ -1,11 +1,11 @@
 import React, { FC, FormEvent, useCallback, useState } from 'react';
-import { HeaderButton } from '../HeaderButton';
 import { useAppDispatch } from '../../../store/store';
 import { fetchSearchNews } from '../../../store/searchSlice/actions';
 import { useSelector } from 'react-redux';
 import { searchSlice } from '../../../store/searchSlice/slice';
 import { ClearButton } from '../ClearButton';
 import { useNavigate } from 'react-router-dom';
+import { HeaderButton } from '../../CustomButton';
 
 type PropsType = {
   isVisible: boolean;
@@ -42,10 +42,7 @@ export const SearchForm: FC<PropsType> = ({ isVisible }) => {
         />
         {!!search.length && <ClearButton onClick={clearButton} />}
       </div>
-      <HeaderButton
-        className='bg-[#567b95] hover:bg-[#326891]'
-        type={'submit'}
-        isAble={!search.length}>
+      <HeaderButton type={'submit'} isAble={!search.length} skin='form'>
         go
       </HeaderButton>
     </form>

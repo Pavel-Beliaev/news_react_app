@@ -1,9 +1,9 @@
 import React, { FC, useCallback, useState } from 'react';
-import { HeaderButton } from '../HeaderButton';
 import { SearchForm } from '../SearchForm';
 import { Logo } from '../../Logo';
 import { useLocation } from 'react-router-dom';
 import { SVG } from '../../../assets/SVG';
+import { HeaderButton } from '../../CustomButton';
 
 type PropsType = {
   onClick: () => void;
@@ -26,10 +26,10 @@ export const Header: FC<PropsType> = ({ onClick }) => {
             : ''
         }`}>
         <div className='flex gap-x-2 self-center'>
-          <HeaderButton className='hover:bg-[#f7f7f7]' onCLick={onClick}>
+          <HeaderButton onClick={onClick} skin='default'>
             <SVG.BurgerIcon w='20' h='20' />
           </HeaderButton>
-          <HeaderButton className='hover:bg-[#f7f7f7]' onCLick={showInput}>
+          <HeaderButton onClick={showInput} skin='default'>
             <SVG.SearchIcon w='20' h='20' fill='transparent' />
           </HeaderButton>
           <SearchForm isVisible={isVisible} />

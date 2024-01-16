@@ -1,12 +1,15 @@
 import React, { FC, useCallback } from 'react';
-import { ErrorButton } from './ErrorButton';
 import { ErrorDescription } from './ErrorDescription';
 import { ErrorTitle } from './ErrorTitle';
 import { useSelector } from 'react-redux';
 import { searchSlice } from '../../store/searchSlice/slice';
+import { HeaderButton } from '../CustomButton';
+import { SVG } from '../../assets/SVG';
+import { useNavigate } from 'react-router-dom';
 
 export const Error: FC = () => {
   const { code } = useSelector(searchSlice);
+  const navigate = useNavigate();
 
   const errorMessage = useCallback((c: string) => {
     switch (c) {
@@ -23,7 +26,10 @@ export const Error: FC = () => {
     <div className='container p-3.5 flex flex-col  items-center gap-y-6 '>
       <ErrorTitle code={code} />
       <ErrorDescription message={errorMessage(code)} />
-      <ErrorButton />
+      <HeaderButton skin='error' onClick={() => navigate(-1)}>
+        <SVG.ArrowIcon w='10' h='12' className='rotate-180' />
+        Back
+      </HeaderButton>
     </div>
   );
 };
