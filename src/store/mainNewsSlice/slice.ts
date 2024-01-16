@@ -56,7 +56,6 @@ export const newsData = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchTopStories.pending, () => {});
     builder.addCase(fetchTopStories.fulfilled, (state, action) => {
-      console.log(action.payload);
       state.mainNews.mainColumn = groupByArrays(
         action.payload.results.filter(
           (n: NewsType, i: number) => i < 15 && n.section !== 'opinion',

@@ -9,7 +9,6 @@ export const OpinionColumn: FC = () => {
   const {
     mainNews: { opinions },
   } = useSelector(newsSlice);
-  console.log(opinions);
 
   return (
     <div>
