@@ -1,5 +1,5 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-export const ShareBar = () => {
-  return <div></div>;
+export const ShareBar: FC = () => {
+  return <div className='container'></div>;
 };

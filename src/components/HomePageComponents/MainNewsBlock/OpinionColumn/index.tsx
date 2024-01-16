@@ -9,6 +9,7 @@ export const OpinionColumn: FC = () => {
   const {
     mainNews: { opinions },
   } = useSelector(newsSlice);
+  console.log(opinions);
 
   return (
     <div>
@@ -17,15 +18,21 @@ export const OpinionColumn: FC = () => {
         {opinions.map((n, i) => (
           <div
             key={n.url}
-            className='first:col-start-1 first:col-end-3 last:col-start-1 last:col-end-3 '>
+            className={
+              opinions.length < 4
+                ? 'col-start-1 col-end-3'
+                : 'first:col-start-1 first:col-end-3 last:col-start-1 last:col-end-3'
+            }>
             <Post.TextCardWithImgY
               article={parserURL(n.uri)}
               title={n.title}
               time='3'
               size='S'
               isShare
-              url={n.multimedia[1].url}
-              imgAuthor={i === 0 ? n.multimedia[1].copyright : ''}
+              url={n.multimedia ? n.multimedia[1].url : ''}
+              imgAuthor={
+                i === 0 && n.multimedia ? n.multimedia[1].copyright : ''
+              }
             />
           </div>
         ))}

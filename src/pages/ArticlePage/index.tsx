@@ -1,6 +1,10 @@
 import React, { FC } from 'react';
 import { Image } from '../../components';
-import { ArticleHeading, OriginLink } from '../../components/ArticleComponents';
+import {
+  ArticleHeading,
+  OriginLink,
+  ShareBar,
+} from '../../components/ArticleComponents';
 
 export const ArticlePage: FC = () => {
   return (
@@ -10,10 +14,7 @@ export const ArticlePage: FC = () => {
         subTitle='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos dolore facere fugiat ipsum, nobis officiis.'
       />
       <OriginLink url='/' />
-      <div className='container'>
-        <button>share</button>
-        <button></button>
-      </div>
+      <ShareBar />
       <div>
         <Image url='' />
         <p>desc</p>
