@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { Image } from '../../components';
 import {
   ArticleHeading,
+  ArticlePoster,
   OriginLink,
   ShareBar,
 } from '../../components/ArticleComponents';
@@ -15,10 +16,10 @@ export const ArticlePage: FC = () => {
       />
       <OriginLink url='/' />
       <ShareBar />
-      <div>
-        <Image url='' />
-        <p>desc</p>
-      </div>
+      <ArticlePoster
+        img='https://static01.nyt.com/images/2024/01/16/us/politics/16pol-nh-next-haley/16pol-nh-next-haley-superJumbo.jpg'
+        description='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti eaque illum ipsam libero, maxime natus praesentium quidem quos ratione veniam? Ab accusantium, ad at consectetur consequatur dolorum ea modi sint.'
+      />
       <div className='container'>
         <p>by...</p>
         <p>time</p>

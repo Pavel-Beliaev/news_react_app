@@ -117,7 +117,7 @@ const TextCardWithImgRight: FC<TextCardWithImgRightType> = memo(
 );
 
 export const Post = {
-  TextCard,
-  TextCardWithImgY,
-  TextCardWithImgRight,
+    TextCard,
+    TextCardWithImgY,
+    TextCardWithImgRight,
 };
