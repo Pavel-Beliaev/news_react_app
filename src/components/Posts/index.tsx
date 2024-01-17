@@ -14,7 +14,7 @@ import { CustomButton } from '../CustomButton';
 import { DotsIcon } from '../../assets/SVG/DotsIcon';
 
 const TextCard: FC<TextCardType> = memo(
-  ({ article, author, title, text, time, size }) => {
+  ({ article, author, title, text, time, size, articleData }) => {
     return (
       <NavLink
         to={`article/${article}`}
@@ -117,7 +117,7 @@ const TextCardWithImgRight: FC<TextCardWithImgRightType> = memo(
 );
 
 export const Post = {
-    TextCard,
-    TextCardWithImgY,
-    TextCardWithImgRight,
+  TextCard,
+  TextCardWithImgY,
+  TextCardWithImgRight,
 };

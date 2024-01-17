@@ -5,6 +5,16 @@ export type TextCardType = {
   time: string;
   size: 'S' | 'M' | 'L';
   article: string;
+  articleData?: {
+    byline: string;
+    title: string;
+    caption: string;
+    copyright: string;
+    created_date: string;
+    description: string;
+    img: string;
+    url: string;
+  };
 };
 
 export type TextCardWithImgYType = TextCardType & {

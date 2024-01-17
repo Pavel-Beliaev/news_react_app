@@ -15,6 +15,16 @@ export const MainNewsCard: FC<PropsType> = ({ news }) => {
           (n, i) =>
             i < 2 && (
               <Post.TextCard
+                articleData={{
+                  title: n.title,
+                  byline: n.byline,
+                  url: n.url,
+                  created_date: n.created_date,
+                  img: n.multimedia[0].url,
+                  copyright: n.multimedia[0].copyright,
+                  caption: n.multimedia[0].caption,
+                  description: n.abstract,
+                }}
                 article={parserURL(n.uri)}
                 key={n.url}
                 title={n.title}

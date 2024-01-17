@@ -19,6 +19,7 @@ const initialState: NewsDataSlice = {
   moreNews: {
     leftColumn: [],
     centerColumn: {
+      created_date: '',
       abstract: '',
       byline: '',
       des_facet: [],
@@ -34,6 +35,7 @@ const initialState: NewsDataSlice = {
   },
   cultureNews: {
     mainNews: {
+      created_date: '',
       abstract: '',
       byline: '',
       des_facet: [],

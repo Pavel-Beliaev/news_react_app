@@ -7,7 +7,6 @@ export const MainColumn: FC = () => {
   const {
     mainNews: { mainColumn },
   } = useSelector(newsSlice);
-  console.log(mainColumn);
   return (
     <div className='flex flex-col gap-y-3.5'>
       {mainColumn.map((groupNews, i) => (

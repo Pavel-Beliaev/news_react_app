@@ -1,6 +1,7 @@
 type MediaType = {
   copyright: string;
   url: string;
+  caption: string;
 };
 
 export type NewsType = {
@@ -14,6 +15,7 @@ export type NewsType = {
   section: string;
   kicker: string;
   subsection: string;
+  created_date: string;
 };
 
 export type NewsDataSlice = {
