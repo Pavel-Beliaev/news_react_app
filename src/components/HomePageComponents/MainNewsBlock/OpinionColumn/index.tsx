@@ -22,14 +22,25 @@ export const OpinionColumn: FC = () => {
                 ? 'col-start-1 col-end-3'
                 : 'first:col-start-1 first:col-end-3 last:col-start-1 last:col-end-3'
             }>
-            <Post.TextCardWithImgY
-              article={parserURL(n.uri)}
+            <Post
+              type='imgUpDown'
+              articleData={{
+                title: n.title,
+                byline: n.byline,
+                url: n.url,
+                created_date: n.created_date,
+                img: n.multimedia[0].url,
+                copyright: n.multimedia[0].copyright,
+                caption: n.multimedia[0].caption,
+                description: n.abstract,
+              }}
               title={n.title}
-              time='3'
               size='S'
+              time='3'
+              idArticle={parserURL(n.uri)}
               isShare
-              url={n.multimedia ? n.multimedia[1].url : ''}
-              imgAuthor={
+              img={n.multimedia ? n.multimedia[1].url : ''}
+              copyright={
                 i === 0 && n.multimedia ? n.multimedia[1].copyright : ''
               }
             />

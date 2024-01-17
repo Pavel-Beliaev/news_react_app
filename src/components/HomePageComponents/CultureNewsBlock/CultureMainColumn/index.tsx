@@ -12,15 +12,26 @@ export const CultureMainColumn: FC = () => {
   return (
     <>
       {!!mainNews.title && (
-        <Post.TextCardWithImgY
-          article={parserURL(mainNews.uri)}
+        <Post
+          type='imgUpDown'
+          articleData={{
+            title: mainNews.title,
+            byline: mainNews.byline,
+            url: mainNews.url,
+            created_date: mainNews.created_date,
+            img: mainNews.multimedia[0].url,
+            copyright: mainNews.multimedia[0].copyright,
+            caption: mainNews.multimedia[0].caption,
+            description: mainNews.abstract,
+          }}
           title={mainNews.title}
-          text={mainNews.abstract}
-          time='5'
+          description={mainNews.abstract}
           size='L'
+          time='5'
+          idArticle={parserURL(mainNews.uri)}
           isShare
-          url={mainNews.multimedia[1].url}
-          imgAuthor={mainNews.multimedia[1].copyright}
+          img={mainNews.multimedia[1].url}
+          copyright={mainNews.multimedia[1].copyright}
         />
       )}
     </>

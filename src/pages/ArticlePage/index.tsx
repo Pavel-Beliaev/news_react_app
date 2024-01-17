@@ -7,8 +7,12 @@ import {
   OriginLink,
   ShareBar,
 } from '../../components/ArticleComponents';
+import { useSelector } from 'react-redux';
+import { articleSlice } from '../../store/articleSlice/slice';
 
 export const ArticlePage: FC = () => {
+  const { data } = useSelector(articleSlice);
+  console.log(data);
   return (
     <div className='flex flex-col gap-y-5 my-3.5'>
       <ArticleHeading

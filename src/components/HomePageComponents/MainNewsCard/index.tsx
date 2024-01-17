@@ -14,7 +14,9 @@ export const MainNewsCard: FC<PropsType> = ({ news }) => {
         {news.map(
           (n, i) =>
             i < 2 && (
-              <Post.TextCard
+              <Post
+                key={n.url}
+                type='notImg'
                 articleData={{
                   title: n.title,
                   byline: n.byline,
@@ -25,12 +27,11 @@ export const MainNewsCard: FC<PropsType> = ({ news }) => {
                   caption: n.multimedia[0].caption,
                   description: n.abstract,
                 }}
-                article={parserURL(n.uri)}
-                key={n.url}
                 title={n.title}
-                time='5'
                 size={i < 1 ? 'L' : 'M'}
-                text={i < 1 ? n.abstract : ''}
+                time='5'
+                description={i < 1 ? n.abstract : ''}
+                idArticle={parserURL(n.uri)}
               />
             ),
         )}

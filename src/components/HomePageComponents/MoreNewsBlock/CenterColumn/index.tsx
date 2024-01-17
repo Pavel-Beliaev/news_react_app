@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { Post } from '../../../Posts';
 import { useSelector } from 'react-redux';
 import { newsSlice } from '../../../../store/mainNewsSlice/slice';
+import { parserURL } from '../../../../utils/parserURL';
 
 export const CenterColumn: FC = () => {
   const {
@@ -10,14 +11,25 @@ export const CenterColumn: FC = () => {
   return (
     <div className='grid col-start-[6] col-end-[15]'>
       {centerColumn.title && (
-        <Post.TextCardWithImgY
-          article={centerColumn.uri}
+        <Post
+          type='imgUpDown'
+          articleData={{
+            title: centerColumn.title,
+            byline: centerColumn.byline,
+            url: centerColumn.url,
+            created_date: centerColumn.created_date,
+            img: centerColumn.multimedia[0].url,
+            copyright: centerColumn.multimedia[0].copyright,
+            caption: centerColumn.multimedia[0].caption,
+            description: centerColumn.abstract,
+          }}
           title={centerColumn.title}
-          text={centerColumn.abstract}
-          time='6'
           size='M'
-          url={centerColumn.multimedia[1].url}
-          imgAuthor={centerColumn.multimedia[1].copyright}
+          time='6'
+          idArticle={parserURL(centerColumn.uri)}
+          description={centerColumn.abstract}
+          img={centerColumn.multimedia[1].url}
+          copyright={centerColumn.multimedia[1].copyright}
           isShare
         />
       )}

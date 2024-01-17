@@ -12,14 +12,25 @@ export const CultureRightColumn: FC<PropsType> = ({ news, className }) => {
     <div className={`grid grid-cols-2 gap-8 relative ${className}`}>
       {news.map((n, i) => (
         <div key={n.url} className={`${i % 2 === 0 ? 'delimiter' : ''}`}>
-          <Post.TextCardWithImgY
-            article={parserURL(n.uri)}
+          <Post
+            type='imgUpDown'
+            articleData={{
+              title: n.title,
+              byline: n.byline,
+              url: n.url,
+              created_date: n.created_date,
+              img: n.multimedia[0].url,
+              copyright: n.multimedia[0].copyright,
+              caption: n.multimedia[0].caption,
+              description: n.abstract,
+            }}
             title={n.title}
-            text={n.abstract}
-            time='4'
-            size='S'
+            description={n.abstract}
             isShare
-            url={n.multimedia[1].url}
+            img={n.multimedia[1].url}
+            size='S'
+            time='4'
+            idArticle={parserURL(n.uri)}
           />
         </div>
       ))}

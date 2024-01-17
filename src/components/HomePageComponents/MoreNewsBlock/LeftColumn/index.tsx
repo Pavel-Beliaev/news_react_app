@@ -12,13 +12,24 @@ export const LeftColumn: FC = () => {
   return (
     <div className='grid col-start-[1] col-end-[6] delimiter gap-y-2.5'>
       {leftColumn.map((n) => (
-        <Post.TextCard
-          article={parserURL(n.uri)}
+        <Post
           key={n.url}
+          type='notImg'
+          articleData={{
+            title: n.title,
+            byline: n.byline,
+            url: n.url,
+            created_date: n.created_date,
+            img: n.multimedia[0].url,
+            copyright: n.multimedia[0].copyright,
+            caption: n.multimedia[0].caption,
+            description: n.abstract,
+          }}
           title={n.title}
-          text={n.abstract}
-          time='4'
+          description={n.abstract}
           size='M'
+          time='4'
+          idArticle={parserURL(n.uri)}
         />
       ))}
     </div>
