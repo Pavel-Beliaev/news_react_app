@@ -6,6 +6,7 @@ import { searchSlice } from '../../../store/searchSlice/slice';
 import { ClearButton } from '../ClearButton';
 import { useNavigate } from 'react-router-dom';
 import { CustomButton } from '../../CustomButton';
+import { CustomInput } from '../../CustomInput';
 
 type PropsType = {
   isVisible: boolean;
@@ -33,13 +34,7 @@ export const SearchForm: FC<PropsType> = ({ isVisible }) => {
         isVisible ? 'hidden' : ''
       }`}>
       <div className='relative flex items-center'>
-        <input
-          type='text'
-          placeholder='SEARCH'
-          value={search}
-          onChange={(event) => setSearch(event.target.value)}
-          className='w-full min-w-[10%] h-[30px] border rounded border-[999999] focus-visible:border pl-2 pr-[60px]'
-        />
+        <CustomInput placeholder='SEARCH' value={search} onChange={setSearch} />
         {!!search.length && <ClearButton onClick={clearButton} />}
       </div>
       <CustomButton type={'submit'} isAble={!search.length} skin='form'>
