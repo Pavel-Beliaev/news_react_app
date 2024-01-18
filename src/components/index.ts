@@ -1,5 +1,7 @@
+export * from './ArticleComponents';
 export * from './Author';
 export * from './BorderLine';
+export * from './CommentsBlock';
 export * from './Content';
 export * from './Description';
 export * from './Error';

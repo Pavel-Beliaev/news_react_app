@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { CustomButton } from '../../../CustomButton';
+import { CustomButton } from '../../CustomButton';
 
 export const CommentsForm: FC = () => {
   return (

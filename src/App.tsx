@@ -1,18 +1,20 @@
 import React, { useCallback, useEffect, useState } from 'react';
-
 import { useAppDispatch } from './store/store';
-import { Content, Footer, Header, LeftSideBar } from './components';
+import {
+  Content,
+  ErrorRequest,
+  Footer,
+  Header,
+  LeftSideBar,
+} from './components';
 import {
   fetchCultureNews,
   fetchMoreNews,
   fetchSundayreview,
   fetchTopStories,
 } from './store/mainNewsSlice/actions';
-import { ErrorRequest } from './components/ErrorRequest';
 import { useSelector } from 'react-redux';
 import { searchSlice } from './store/searchSlice/slice';
-import { newsSlice } from './store/mainNewsSlice/slice';
-import { Comments } from './components/ArticleComponents/CommentsBlock';
 
 function App() {
   const [isAble, setIsAble] = useState(false);

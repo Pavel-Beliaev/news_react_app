@@ -1,15 +1,15 @@
 import React, { FC } from 'react';
+import { useSelector } from 'react-redux';
+import { articleSlice } from '../../store/articleSlice/slice';
 import {
   ArticleDescription,
   ArticleHeading,
   ArticlePoster,
   Byline,
+  CommentsBlock,
   OriginLink,
   ShareBar,
-} from '../../components/ArticleComponents';
-import { useSelector } from 'react-redux';
-import { articleSlice } from '../../store/articleSlice/slice';
-import { CommentsBlock } from '../../components/ArticleComponents/CommentsBlock';
+} from '../../components';
 
 export const ArticlePage: FC = () => {
   const { data } = useSelector(articleSlice);
