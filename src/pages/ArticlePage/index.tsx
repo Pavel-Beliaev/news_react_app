@@ -9,6 +9,7 @@ import {
 } from '../../components/ArticleComponents';
 import { useSelector } from 'react-redux';
 import { articleSlice } from '../../store/articleSlice/slice';
+import { Comments } from '../../components/ArticleComponents/Comments';
 
 export const ArticlePage: FC = () => {
   const { data } = useSelector(articleSlice);
@@ -24,6 +25,7 @@ export const ArticlePage: FC = () => {
   } = data;
   return (
     <div className='flex flex-col gap-y-5 my-3.5'>
+      <Comments />
       <ArticleHeading title={title} subTitle={description} />
       <OriginLink url={url} />
       <ShareBar />
