@@ -15,7 +15,16 @@ export const CommentsForm: FC = () => {
 
   const handlerComments = (event: FormEvent) => {
     event.preventDefault();
-    dispatch(setComments([{ name: name, text: comment, id: id }]));
+    dispatch(
+      setComments([
+        {
+          name: name,
+          text: comment,
+          id: id,
+          time: Math.floor(Date.now() / 1000),
+        },
+      ]),
+    );
     setComment('');
     setName('');
   };
