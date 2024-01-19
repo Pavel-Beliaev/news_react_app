@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useCallback, useState } from 'react';
 import { Avatar } from '../Avatar';
 import { Body } from '../Body';
 import { CommentBar } from '../CommentBar';
@@ -13,6 +13,12 @@ type PropsType = {
   time: number;
 };
 export const Comment: FC<PropsType> = ({ name, text, time }) => {
+  const [editAble, setEditAble] = useState(false);
+
+  const handlerEdit = useCallback(() => {
+    setEditAble(!editAble);
+  }, [editAble]);
+
   return (
     <div className='flex gap-x-2 border-b border-[#C7C7C7] last:border-none pb-2.5 '>
       <Avatar avatar={getFirstLetter(name)} />
@@ -21,8 +27,12 @@ export const Comment: FC<PropsType> = ({ name, text, time }) => {
           <Name name={name} />
           <CreatedTime time={getDateNow(time)} />
         </div>
-        <Body isEditable={false} text={text} />
-        <CommentBar onDelete={() => {}} onEdit={() => {}} />
+        <Body isEditable={editAble} text={text} />
+        <CommentBar
+          onDelete={() => {}}
+          onEdit={handlerEdit}
+          isEdit={editAble}
+        />
       </div>
     </div>
   );

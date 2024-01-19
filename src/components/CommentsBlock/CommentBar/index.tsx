@@ -4,12 +4,13 @@ import { CustomButton } from '../../CustomButton';
 type PropsType = {
   onEdit: () => void;
   onDelete: () => void;
+  isEdit: boolean;
 };
-export const CommentBar: FC<PropsType> = ({ onEdit, onDelete }) => {
+export const CommentBar: FC<PropsType> = ({ onEdit, onDelete, isEdit }) => {
   return (
     <div className='flex gap-x-2.5'>
       <CustomButton skin='form' onClick={onEdit}>
-        Edit
+        {isEdit ? 'Save' : 'Edit'}
       </CustomButton>
       <CustomButton skin='form' onClick={onDelete}>
         Delete
