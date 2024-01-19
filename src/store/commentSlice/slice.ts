@@ -15,9 +15,12 @@ export const commentsData = createSlice({
       state.comments.push(...actions.payload);
       state.id += 1;
     },
+    setDelete(state, actions: PayloadAction<number>) {
+      state.comments = state.comments.filter((c) => c.id !== actions.payload);
+    },
   },
 });
 
-export const { setComments } = commentsData.actions;
+export const { setComments, setDelete } = commentsData.actions;
 export const commentsSlice = (state: RootState) => state.comments;
 export default commentsData.reducer;
