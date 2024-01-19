@@ -1,17 +1,23 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store';
-import { CommentsSLiceType } from './types';
+import { CommentsSLiceType, CommentType } from './types';
 
 const initialState: CommentsSLiceType = {
   comments: [],
+  id: 1,
 };
 
 export const commentsData = createSlice({
   name: 'comments',
   initialState,
-  reducers: {},
+  reducers: {
+    setComments(state, actions: PayloadAction<CommentType[]>) {
+      state.comments.push(...actions.payload);
+      state.id += 1;
+    },
+  },
 });
 
-export const {} = commentsData.actions;
+export const { setComments } = commentsData.actions;
 export const commentsSlice = (state: RootState) => state.comments;
 export default commentsData.reducer;
