@@ -7,5 +7,4 @@ export type CommentType = {
 
 export type CommentsSLiceType = {
   comments: CommentType[];
-  id: number;
 };

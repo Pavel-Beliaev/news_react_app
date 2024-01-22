@@ -3,13 +3,11 @@ import { CustomButton } from '../../CustomButton';
 import { CustomInput } from '../../CustomInput';
 import { CustomTextarea } from '../../CustomTextarea';
 import { useAppDispatch } from '../../../store/store';
-import { commentsSlice, setComments } from '../../../store/commentSlice/slice';
-import { useSelector } from 'react-redux';
+import { setComments } from '../../../store/commentSlice/slice';
 
 export const CommentsForm: FC = () => {
   const [name, setName] = useState('');
   const [comment, setComment] = useState('');
-  const { id } = useSelector(commentsSlice);
   const dispatch = useAppDispatch();
   const isAble = !!name && !!comment;
 
@@ -20,7 +18,7 @@ export const CommentsForm: FC = () => {
         {
           name: name,
           text: comment,
-          id: id,
+          id: Math.floor(Date.now() / 1000),
           time: Math.floor(Date.now() / 1000),
         },
       ]),
