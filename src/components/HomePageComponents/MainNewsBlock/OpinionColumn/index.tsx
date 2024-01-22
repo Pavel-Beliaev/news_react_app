@@ -29,9 +29,9 @@ export const OpinionColumn: FC = () => {
                 byline: n.byline,
                 url: n.url,
                 created_date: n.created_date,
-                img: n.multimedia[0].url,
-                copyright: n.multimedia[0].copyright,
-                caption: n.multimedia[0].caption,
+                img: !!n.multimedia ? n.multimedia[0].url : '',
+                copyright: !!n.multimedia ? n.multimedia[0].copyright : '',
+                caption: !!n.multimedia ? n.multimedia[0].caption : '',
                 description: n.abstract,
               }}
               title={n.title}
@@ -39,9 +39,9 @@ export const OpinionColumn: FC = () => {
               time='3'
               idArticle={parserURL(n.uri)}
               isShare
-              img={n.multimedia ? n.multimedia[1].url : ''}
+              img={!!n.multimedia ? n.multimedia[1].url : ''}
               copyright={
-                i === 0 && n.multimedia ? n.multimedia[1].copyright : ''
+                i === 0 && !!n.multimedia ? n.multimedia[1].copyright : ''
               }
             />
           </div>
