@@ -2,13 +2,13 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store';
 import { CommentsSLiceType, CommentType } from './types';
 
-const getMeData = () => {
+const getComments = () => {
   const data = localStorage.getItem('comments');
   return data ? JSON.parse(data) : [];
 };
 
 const initialState: CommentsSLiceType = {
-  comments: getMeData(),
+  comments: getComments(),
 };
 
 export const commentsData = createSlice({

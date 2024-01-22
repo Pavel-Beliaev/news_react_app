@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { articleSlice } from '../../store/articleSlice/slice';
 import {
@@ -12,7 +12,18 @@ import {
 } from '../../components';
 
 export const ArticlePage: FC = () => {
+  const [isAble, setIsAble] = useState(false);
   const { data } = useSelector(articleSlice);
+
+  useEffect(() => {
+    const json = JSON.stringify(data);
+    localStorage.setItem('article', json);
+  }, [data]);
+
+  const showComments = () => {
+    setIsAble(!isAble);
+  };
+
   const {
     byline,
     caption,
@@ -25,10 +36,10 @@ export const ArticlePage: FC = () => {
   } = data;
   return (
     <div className='flex flex-col gap-y-5 my-3.5'>
-      <CommentsBlock />
+      {isAble && <CommentsBlock />}
       <ArticleHeading title={title} subTitle={description} />
       <OriginLink url={url} />
-      <ShareBar />
+      <ShareBar onComments={showComments} />
       <ArticlePoster img={img} description={caption} copyright={copyright} />
       <Byline byline={byline} date={created_date} />
       <ArticleDescription />

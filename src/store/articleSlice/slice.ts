@@ -2,17 +2,13 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store';
 import { ArticleDataSLice, ArticleDataType } from './types';
 
+const getArticle = () => {
+  const data = localStorage.getItem('article');
+  return data ? JSON.parse(data) : {};
+};
+
 const initialState: ArticleDataSLice = {
-  data: {
-    byline: '',
-    title: '',
-    caption: '',
-    copyright: '',
-    created_date: '',
-    description: '',
-    img: '',
-    url: '',
-  },
+  data: getArticle(),
 };
 
 export const articleData = createSlice({
