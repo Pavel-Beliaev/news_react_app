@@ -10,10 +10,13 @@ import {
   OriginLink,
   ShareBar,
 } from '../../components';
+import { commentsSlice } from '../../store/commentSlice/slice';
 
 export const ArticlePage: FC = () => {
   const [isAble, setIsAble] = useState(false);
   const { data } = useSelector(articleSlice);
+  const { comments } = useSelector(commentsSlice);
+  const commentsCount = comments.length;
 
   useEffect(() => {
     const json = JSON.stringify(data);
@@ -39,7 +42,7 @@ export const ArticlePage: FC = () => {
       {isAble && <CommentsBlock />}
       <ArticleHeading title={title} subTitle={description} />
       <OriginLink url={url} />
-      <ShareBar onComments={showComments} />
+      <ShareBar onComments={showComments} commentsCount={commentsCount} />
       <ArticlePoster img={img} description={caption} copyright={copyright} />
       <Byline byline={byline} date={created_date} />
       <ArticleDescription />

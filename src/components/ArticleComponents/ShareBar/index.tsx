@@ -4,8 +4,9 @@ import { SVG } from '../../../assets/SVG';
 
 type PropsType = {
   onComments: () => void;
+  commentsCount: number;
 };
-export const ShareBar: FC<PropsType> = ({ onComments }) => {
+export const ShareBar: FC<PropsType> = ({ onComments, commentsCount }) => {
   return (
     <div className='container flex gap-x-2.5 border-t border-[#C7C7C7] pt-5'>
       <CustomButton onClick={() => {}} skin='share'>
@@ -21,7 +22,7 @@ export const ShareBar: FC<PropsType> = ({ onComments }) => {
           fill='transparent'
           stroke='transparent'
         />
-        <span className='p-0.5'>Comments {0}</span>
+        <span className='p-0.5'>Comments {commentsCount}</span>
       </CustomButton>
     </div>
   );
