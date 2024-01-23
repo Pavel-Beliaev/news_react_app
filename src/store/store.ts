@@ -4,6 +4,7 @@ import news from './mainNewsSlice/slice';
 import search from './searchSlice/slice';
 import article from './articleSlice/slice';
 import comments from './commentSlice/slice';
+import sections from './sectionsSlice/slice';
 
 export const store = configureStore({
   reducer: {
@@ -11,6 +12,7 @@ export const store = configureStore({
     search,
     article,
     comments,
+    sections,
   },
 });
 

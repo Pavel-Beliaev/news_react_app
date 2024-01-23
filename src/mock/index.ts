@@ -1,7 +1,7 @@
 import { MyObject, MyObject2 } from './type';
 
 export const NAVBARITEMS = [
-  'U.S.',
+  'U.S',
   'World',
   'Business',
   'Arts',
@@ -10,16 +10,16 @@ export const NAVBARITEMS = [
 ];
 
 export const NAVBARSUBITEMS: MyObject = {
-  'U.S.': [
+  'U.S': [
     'Health',
     'Magazine',
     'Obituaries',
     'Politics',
     'Science',
-    'Sport',
+    'Sports',
     'Technology',
     'The Upshot',
-    'U.S.',
+    'U.S',
   ],
   'World': ['Health', 'Obituaries', 'Science', 'World'],
   'Business': ['Business', 'Technology'],
