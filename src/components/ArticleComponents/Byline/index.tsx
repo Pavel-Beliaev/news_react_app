@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 import { changeFormatDate } from '../../../utils/changeDateFormat';
 
 type PropsType = {
@@ -6,7 +6,7 @@ type PropsType = {
   date: string;
 };
 
-export const Byline: FC<PropsType> = ({ byline, date }) => {
+export const Byline: FC<PropsType> = memo(({ byline, date }) => {
   return (
     <div className='container flex flex-col gap-y-[5px] my-2.5'>
       <p className='font-bold text-[15px] leading-[20px] font-serif'>
@@ -17,4 +17,4 @@ export const Byline: FC<PropsType> = ({ byline, date }) => {
       </p>
     </div>
   );
-};
+});

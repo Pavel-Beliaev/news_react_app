@@ -1,4 +1,11 @@
-import React, { FC, useEffect, useRef, useState } from 'react';
+import React, {
+  FC,
+  memo,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import { useSelector } from 'react-redux';
 import { articleSlice } from '../../store/articleSlice/slice';
 import {
@@ -12,20 +19,20 @@ import {
 } from '../../components';
 import { commentsSlice } from '../../store/commentSlice/slice';
 
-export const ArticlePage: FC = () => {
+export const ArticlePage: FC = memo(() => {
   const [isAble, setIsAble] = useState(false);
   const { data } = useSelector(articleSlice);
   const { comments } = useSelector(commentsSlice);
   const commentsCount = comments.length;
 
+  const showComments = useCallback(() => {
+    setIsAble(!isAble);
+  }, [isAble]);
+
   useEffect(() => {
     const json = JSON.stringify(data);
     localStorage.setItem('article', json);
   }, [data]);
-
-  const showComments = () => {
-    setIsAble(!isAble);
-  };
 
   const {
     byline,
@@ -50,4 +57,4 @@ export const ArticlePage: FC = () => {
       <ArticleDescription />
     </div>
   );
-};
+});

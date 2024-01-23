@@ -1,10 +1,10 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 import { NavLink } from 'react-router-dom';
 
 type PropsType = {
   url: string;
 };
-export const OriginLink: FC<PropsType> = ({ url }) => {
+export const OriginLink: FC<PropsType> = memo(({ url }) => {
   return (
     <NavLink
       to={url}
@@ -12,4 +12,4 @@ export const OriginLink: FC<PropsType> = ({ url }) => {
       Link to origin article on NYT
     </NavLink>
   );
-};
+});

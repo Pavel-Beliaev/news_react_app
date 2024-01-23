@@ -1,10 +1,10 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 
 type PropsType = {
   title: string;
   subTitle: string;
 };
-export const ArticleHeading: FC<PropsType> = ({ title, subTitle }) => {
+export const ArticleHeading: FC<PropsType> = memo(({ title, subTitle }) => {
   return (
     <div className='container flex flex-col gap-y-2.5'>
       <h1 className='leading-[46px] text-[40px] font-serif font-bold italic'>
@@ -15,4 +15,4 @@ export const ArticleHeading: FC<PropsType> = ({ title, subTitle }) => {
       </h2>
     </div>
   );
-};
+});
