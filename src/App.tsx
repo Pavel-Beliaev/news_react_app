@@ -1,5 +1,12 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { useAppDispatch } from './store/store';
+import {
+  fetchCultureNews,
+  fetchMoreNews,
+  fetchSundayreview,
+  fetchTopStories,
+  searchSlice,
+  useAppDispatch,
+} from './store';
 import {
   Content,
   ErrorRequest,
@@ -7,14 +14,7 @@ import {
   Header,
   LeftSideBar,
 } from './components';
-import {
-  fetchCultureNews,
-  fetchMoreNews,
-  fetchSundayreview,
-  fetchTopStories,
-} from './store/mainNewsSlice/actions';
 import { useSelector } from 'react-redux';
-import { searchSlice } from './store/searchSlice/slice';
 
 function App() {
   const [isAble, setIsAble] = useState(false);

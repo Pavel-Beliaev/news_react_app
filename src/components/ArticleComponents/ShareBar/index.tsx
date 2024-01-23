@@ -1,6 +1,6 @@
 import React, { FC, memo, useCallback, useState } from 'react';
 import { CustomButton } from '../../CustomButton';
-import { SVG } from '../../../assets/SVG';
+import { SVG } from '../../../assets';
 
 type PropsType = {
   onComments: () => void;

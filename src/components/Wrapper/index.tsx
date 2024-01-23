@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { WrapperType } from './type';
+import { WrapperType } from './types';
 
 const LeftColumn: FC<WrapperType> = ({ children }) => {
   return (

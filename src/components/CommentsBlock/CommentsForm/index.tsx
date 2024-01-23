@@ -2,8 +2,7 @@ import React, { FC, FormEvent, useState } from 'react';
 import { CustomButton } from '../../CustomButton';
 import { CustomInput } from '../../CustomInput';
 import { CustomTextarea } from '../../CustomTextarea';
-import { useAppDispatch } from '../../../store/store';
-import { setComments } from '../../../store/commentSlice/slice';
+import { setComments, useAppDispatch } from '../../../store';
 
 export const CommentsForm: FC = () => {
   const [name, setName] = useState('');

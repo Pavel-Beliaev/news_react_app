@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef, useState } from 'react';
+import React, { FC, useRef, useState } from 'react';
 import {
   BorderLine,
   CultureNewsBlock,
@@ -9,7 +9,7 @@ import {
   Navbar,
   Wrapper,
 } from '../../components';
-import { useObserver } from '../../hoocks/useObserver';
+import { useObserver } from '../../hoocks';
 
 export const HomePage: FC = () => {
   const [isShow, setIsShow] = useState(false);

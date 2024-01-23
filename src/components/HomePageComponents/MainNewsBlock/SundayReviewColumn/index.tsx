@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { Heading } from '../../../Heading';
 import { useSelector } from 'react-redux';
-import { newsSlice } from '../../../../store/mainNewsSlice/slice';
 import { Post } from '../../../Posts';
-import { parserURL } from '../../../../utils/parserURL';
+import { newsSlice } from '../../../../store';
+import { parserURL } from '../../../../utils';
 
 export const SundayReviewColumn: FC = () => {
   const {

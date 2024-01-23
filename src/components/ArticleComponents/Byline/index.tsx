@@ -1,5 +1,5 @@
 import React, { FC, memo } from 'react';
-import { changeFormatDate } from '../../../utils/changeDateFormat';
+import { changeFormatDate } from '../../../utils';
 
 type PropsType = {
   byline: string;

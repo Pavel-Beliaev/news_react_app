@@ -1,8 +1,8 @@
 import React, { FC, useState } from 'react';
-import { SVG } from '../../../assets/SVG';
 import { NAVBARSUBITEMS } from '../../../mock';
 import { LeftSideBarSubItem } from '../LeftSideBarSubItem';
 import { NavLink } from 'react-router-dom';
+import { SVG } from '../../../assets';
 
 type PropsType = {
   item: string;

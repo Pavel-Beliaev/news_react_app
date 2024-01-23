@@ -3,7 +3,7 @@ import { CommentsForm } from './CommentsForm';
 import { Comment } from './Comment';
 import { Comments } from './Comments';
 import { useSelector } from 'react-redux';
-import { commentsSlice } from '../../store/commentSlice/slice';
+import { commentsSlice } from '../../store';
 
 export const CommentsBlock: FC = () => {
   const { comments } = useSelector(commentsSlice);

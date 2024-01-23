@@ -2,9 +2,9 @@ import React, { FC } from 'react';
 import { Wrapper } from '../../Wrapper';
 import { Heading } from '../../Heading';
 import { useSelector } from 'react-redux';
-import { newsSlice } from '../../../store/mainNewsSlice/slice';
 import { CultureMainColumn } from './CultureMainColumn';
 import { CultureRightColumn } from './CultureRightColumn';
+import { newsSlice } from '../../../store';
 
 export const CultureNewsBlock: FC = () => {
   const {

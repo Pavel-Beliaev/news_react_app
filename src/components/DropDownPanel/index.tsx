@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import { Navigation } from '../../Navigation';
-import { NAVBARITEMS } from '../../../mock';
+import { NAVBARITEMS } from '../../mock';
+import { Navigation } from '../HomePageComponents/Navbar';
 
 type PropsType = {
   isShow: boolean;

@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { RootState } from '../store';
 import { SearchNewsSlice } from './types';
 import { fetchSearchNews } from './actions';
 
@@ -34,5 +33,4 @@ export const searchNews = createSlice({
 
 // eslint-disable-next-line no-empty-pattern
 export const {} = searchNews.actions;
-export const searchSlice = (state: RootState) => state.search;
 export default searchNews.reducer;

@@ -2,10 +2,10 @@ import React, { FC, useCallback } from 'react';
 import { ErrorDescription } from './ErrorDescription';
 import { ErrorTitle } from './ErrorTitle';
 import { useSelector } from 'react-redux';
-import { searchSlice } from '../../store/searchSlice/slice';
 import { CustomButton } from '../CustomButton';
-import { SVG } from '../../assets/SVG';
 import { useNavigate } from 'react-router-dom';
+import { searchSlice } from '../../store';
+import { SVG } from '../../assets';
 
 export const Error: FC = () => {
   const { code } = useSelector(searchSlice);

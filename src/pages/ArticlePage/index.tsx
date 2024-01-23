@@ -1,13 +1,5 @@
-import React, {
-  FC,
-  memo,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import React, { FC, memo, useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { articleSlice } from '../../store/articleSlice/slice';
 import {
   ArticleDescription,
   ArticleHeading,
@@ -17,7 +9,7 @@ import {
   OriginLink,
   ShareBar,
 } from '../../components';
-import { commentsSlice } from '../../store/commentSlice/slice';
+import { articleSlice, commentsSlice } from '../../store';
 
 export const ArticlePage: FC = memo(() => {
   const [isAble, setIsAble] = useState(false);

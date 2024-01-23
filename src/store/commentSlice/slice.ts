@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from '../store';
 import { CommentsSLiceType, CommentType } from './types';
-import { getDataFromLocalStorage } from '../../utils/getDataFromLocalStorage';
+import { getDataFromLocalStorage } from '../../utils';
 
 const initialState: CommentsSLiceType = {
   comments: getDataFromLocalStorage('comments', []),
@@ -21,5 +20,4 @@ export const commentsData = createSlice({
 });
 
 export const { setComments, setDelete } = commentsData.actions;
-export const commentsSlice = (state: RootState) => state.comments;
 export default commentsData.reducer;

@@ -1,12 +1,10 @@
 import React, { FC, FormEvent, useCallback, useState } from 'react';
-import { useAppDispatch } from '../../../store/store';
-import { fetchSearchNews } from '../../../store/searchSlice/actions';
 import { useSelector } from 'react-redux';
-import { searchSlice } from '../../../store/searchSlice/slice';
 import { ClearButton } from '../ClearButton';
 import { useNavigate } from 'react-router-dom';
 import { CustomButton } from '../../CustomButton';
 import { CustomInput } from '../../CustomInput';
+import { fetchSearchNews, searchSlice, useAppDispatch } from '../../../store';
 
 type PropsType = {
   isVisible: boolean;

@@ -1,6 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { RootState } from '../store';
-import { groupByArrays } from '../../utils/groupByArrays';
 import { NewsDataSlice, NewsType } from './types';
 import {
   fetchCultureNews,
@@ -8,6 +6,7 @@ import {
   fetchSundayreview,
   fetchTopStories,
 } from './actions';
+import { groupByArrays } from '../../utils';
 
 const initialState: NewsDataSlice = {
   status: 'loading',
@@ -106,5 +105,4 @@ export const newsData = createSlice({
 
 // eslint-disable-next-line no-empty-pattern
 export const {} = newsData.actions;
-export const newsSlice = (state: RootState) => state.news;
 export default newsData.reducer;

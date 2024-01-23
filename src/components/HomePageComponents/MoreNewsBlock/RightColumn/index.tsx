@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { Post } from '../../../Posts';
 import { useSelector } from 'react-redux';
-import { newsSlice } from '../../../../store/mainNewsSlice/slice';
-import { parserURL } from '../../../../utils/parserURL';
+import { newsSlice } from '../../../../store';
+import { parserURL } from '../../../../utils';
 
 export const RightColumn: FC = () => {
   const {

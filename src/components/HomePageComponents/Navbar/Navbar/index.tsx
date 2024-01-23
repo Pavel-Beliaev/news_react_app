@@ -1,6 +1,6 @@
 import React, { FC, RefObject } from 'react';
-import { NAVBARITEMS } from '../../../mock';
-import { Navigation } from '../../Navigation';
+import { NAVBARITEMS } from '../../../../mock';
+import { Navigation } from '../Navigation';
 
 type PropsType = {
   refElem: RefObject<HTMLDivElement>;

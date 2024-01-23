@@ -2,8 +2,8 @@ import React, { FC, useCallback, useState } from 'react';
 import { SearchForm } from '../SearchForm';
 import { Logo } from '../../Logo';
 import { useLocation } from 'react-router-dom';
-import { SVG } from '../../../assets/SVG';
 import { CustomButton } from '../../CustomButton';
+import { SVG } from '../../../assets';
 
 type PropsType = {
   onClick: () => void;

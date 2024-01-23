@@ -6,10 +6,8 @@ import { Description } from '../Description';
 import { Image } from '../Image';
 import { NavLink } from 'react-router-dom';
 import { CustomButton } from '../CustomButton';
-import { DotsIcon } from '../../assets/SVG/DotsIcon';
-import { ArticleDataType } from '../../store/articleSlice/types';
-import { useAppDispatch } from '../../store/store';
-import { setArticleData } from '../../store/articleSlice/slice';
+import { SVG } from '../../assets';
+import { ArticleDataType, setArticleData, useAppDispatch } from '../../store';
 
 type PropsType = {
   type: 'notImg' | 'imgUpDown' | 'imgRight';
@@ -62,7 +60,7 @@ export const Post: FC<PropsType> = ({
           <div className='flex items-center justify-between'>
             <Time time={time} />
             <CustomButton skin='dots'>
-              <DotsIcon
+              <SVG.DotsIcon
                 w='14'
                 h='14'
                 fill='#727272'
@@ -90,7 +88,7 @@ export const Post: FC<PropsType> = ({
               {!!byline && <span>{byline}</span>}
               {isShare && (
                 <CustomButton skin='dots'>
-                  <DotsIcon
+                  <SVG.DotsIcon
                     w='14'
                     h='14'
                     fill='#727272'
@@ -117,7 +115,7 @@ export const Post: FC<PropsType> = ({
               {!!byline && <span>{byline}</span>}
               {isShare && (
                 <CustomButton skin='dots'>
-                  <DotsIcon
+                  <SVG.DotsIcon
                     w='14'
                     h='14'
                     fill='#727272'

@@ -4,10 +4,8 @@ import { Body } from '../Body';
 import { CommentBar } from '../CommentBar';
 import { CreatedTime } from '../CreatedTime';
 import { Name } from '../Name';
-import { getFirstLetter } from '../../../utils/getFirstLetter';
-import { getDateNow } from '../../../utils/getDateNow';
-import { useAppDispatch } from '../../../store/store';
-import { setDelete } from '../../../store/commentSlice/slice';
+import { setDelete, useAppDispatch } from '../../../store';
+import { getDateNow, getFirstLetter } from '../../../utils';
 
 type PropsType = {
   name: string;

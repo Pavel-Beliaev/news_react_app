@@ -13,4 +13,3 @@ export const fetchSearchNews = createAsyncThunk<FetchDataType, ParamsType>(
     return data;
   },
 );
-// https://static01.nyt.com/

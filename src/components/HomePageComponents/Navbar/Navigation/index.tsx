@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { NavbarItem } from '../HomePageComponents/Navbar/NavbarItem';
+import { NavbarItem } from '../NavbarItem';
 
 type PropsType = {
   itemsArray: string[];

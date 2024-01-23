@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import { MainNewsCard } from '../../MainNewsCard';
+import { MainNewsCard } from '../MainNewsCard';
 import { useSelector } from 'react-redux';
-import { newsSlice } from '../../../../store/mainNewsSlice/slice';
+import { newsSlice } from '../../../../store';
 
 export const MainColumn: FC = () => {
   const {
