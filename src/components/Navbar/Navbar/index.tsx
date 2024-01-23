@@ -1,5 +1,5 @@
 import React, { FC, RefObject } from 'react';
-import { NAVBARITEMS } from '../../../../mock';
+import { NAVBARITEMS } from '../../../mock';
 import { Navigation } from '../Navigation';
 
 type PropsType = {

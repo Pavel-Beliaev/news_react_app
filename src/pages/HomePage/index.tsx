@@ -1,4 +1,6 @@
 import React, { FC, useRef, useState } from 'react';
+
+import { useObserver } from '../../hoocks';
 import {
   BorderLine,
   CultureNewsBlock,
@@ -9,7 +11,6 @@ import {
   Navbar,
   Wrapper,
 } from '../../components';
-import { useObserver } from '../../hoocks';
 
 export const HomePage: FC = () => {
   const [isShow, setIsShow] = useState(false);
@@ -22,8 +23,8 @@ export const HomePage: FC = () => {
       <div className='flex justify-center border-b-4 border-black py-2.5'>
         <Logo size='text-6xl' />
       </div>
-      <DropDownPanel isShow={isShow} />
       <Navbar refElem={elementRef} />
+      <DropDownPanel isShow={isShow} />
       <Wrapper.NewsBlock>
         <MainNewsBlock />
         <BorderLine />

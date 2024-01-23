@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { NAVBARSUBITEMS } from '../../../../mock';
+import { NAVBARSUBITEMS } from '../../../mock';
 import { NavbarSubItem } from '../NavbarSubItem';
 import { NavLink } from 'react-router-dom';
 
