@@ -19,6 +19,7 @@ export * from './Navbar';
 export * from './LeftSideBar';
 export * from './Logo';
 export * from './Posts';
+export * from './SectionPageComponents';
 export * from './Time';
 export * from './Title';
 export * from './Wrapper';
