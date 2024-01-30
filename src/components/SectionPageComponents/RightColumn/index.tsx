@@ -10,10 +10,11 @@ export const RightColumn: FC = () => {
   } = useSelector(sectionsSlice);
 
   return (
-    <div className='col-start-[16] col-end-[21] grid gap-y-2.5'>
+    <div className='col-start-[17] col-end-[21] grid gap-y-2.5'>
       {rightColumn.map((n) => (
         <Post
-          type='imgRight'
+          key={n.url}
+          type='imgInner'
           articleData={{
             title: n.title,
             byline: n.byline,
@@ -29,7 +30,7 @@ export const RightColumn: FC = () => {
           img={n.multimedia[1].url}
           byline={n.byline}
           size='L'
-          time='4'
+          time={n.created_date}
           idArticle={parserURL(n.uri)}
         />
       ))}

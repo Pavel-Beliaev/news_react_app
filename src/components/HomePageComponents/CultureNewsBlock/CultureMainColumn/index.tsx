@@ -27,7 +27,7 @@ export const CultureMainColumn: FC = () => {
           title={mainNews.title}
           description={mainNews.abstract}
           size='L'
-          time='5'
+          time={mainNews.created_date}
           idArticle={parserURL(mainNews.uri)}
           isShare
           img={mainNews.multimedia[1].url}

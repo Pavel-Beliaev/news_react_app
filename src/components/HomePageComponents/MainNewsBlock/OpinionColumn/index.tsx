@@ -36,7 +36,7 @@ export const OpinionColumn: FC = () => {
               }}
               title={n.title}
               size='S'
-              time='3'
+              time={n.created_date}
               idArticle={parserURL(n.uri)}
               isShare
               img={!!n.multimedia ? n.multimedia[1].url : ''}

@@ -28,7 +28,7 @@ export const CustomButton: FC<PropsType> = memo(
         onClick={onClick}
         type={type}
         disabled={isAble}
-        className={`${handlerStyle(skin)}`}>
+        className={`${handlerStyle(skin)} justify-self-end `}>
         {children}
       </button>
     );

@@ -10,7 +10,7 @@ export const LeftColumn: FC = () => {
   } = useSelector(sectionsSlice);
 
   return (
-    <div className='col-start-[1] col-end-[11] delimiter'>
+    <div className='col-start-[1] col-end-[12] delimiter'>
       {leftColumn.multimedia.length && (
         <Post
           type='imgUpDown'
@@ -30,7 +30,7 @@ export const LeftColumn: FC = () => {
           copyright={leftColumn.multimedia[1].copyright}
           byline={leftColumn.byline}
           size='L'
-          time='2'
+          time={leftColumn.created_date}
           idArticle={parserURL(leftColumn.uri)}
         />
       )}

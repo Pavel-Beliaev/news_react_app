@@ -1,29 +1,14 @@
 import React, { FC } from 'react';
 import { Author } from '../Author';
 import { Title } from '../Title';
-import { Time } from '../Time';
 import { Description } from '../Description';
 import { Image } from '../Image';
 import { NavLink } from 'react-router-dom';
 import { CustomButton } from '../CustomButton';
 import { SVG } from '../../assets';
-import { ArticleDataType, setArticleData, useAppDispatch } from '../../store';
-
-type PropsType = {
-  type: 'notImg' | 'imgUpDown' | 'imgRight';
-  articleData: ArticleDataType;
-  title: string;
-  size: 'S' | 'M' | 'L';
-  time: string;
-  idArticle: string;
-  author?: string;
-  description?: string;
-  byline?: string;
-  img?: string;
-  isShare?: boolean;
-  copyright?: string;
-  isRevers?: boolean;
-};
+import { setArticleData, useAppDispatch } from '../../store';
+import { useTimeAgo } from '../../hoocks';
+import { PropsType } from './types';
 
 export const Post: FC<PropsType> = ({
   type,
@@ -44,6 +29,8 @@ export const Post: FC<PropsType> = ({
   const fetchArticleData = () => {
     dispatch(setArticleData(articleData));
   };
+  const dateCreated = time && new Date(time).toISOString();
+  const { timeAgo } = useTimeAgo(dateCreated);
 
   switch (type) {
     case 'notImg':
@@ -57,8 +44,8 @@ export const Post: FC<PropsType> = ({
             <Title title={title} size={size} />
           </div>
           {!!description && <Description text={description} />}
-          <div className='flex items-center justify-between'>
-            <Time time={time} />
+          <div className='flex items-center justify-between text-[10px] text-[#727272] uppercase'>
+            {timeAgo}
             <CustomButton skin='dots'>
               <SVG.DotsIcon
                 w='14'
@@ -83,9 +70,41 @@ export const Post: FC<PropsType> = ({
             {!!author && <Author author={author} />}
             <Title title={title} size={size} />
             {!!description && <Description text={description} />}
-            <div className='flex items-center justify-between'>
-              <Time time={time} />
-              {!!byline && <span>{byline}</span>}
+            <div className='grid grid-cols-[1fr_2fr_1fr] text-[10px] text-[#727272] uppercase'>
+              {timeAgo}
+              <span>{!!byline && byline}</span>
+              {isShare && (
+                <CustomButton skin='dots'>
+                  <SVG.DotsIcon
+                    w='14'
+                    h='14'
+                    fill='#727272'
+                    className='hover:fill-[#121212]'
+                  />
+                </CustomButton>
+              )}
+            </div>
+          </div>
+        </NavLink>
+      );
+    case 'imgInner':
+      return (
+        <NavLink
+          to={`article/${idArticle}`}
+          onClick={fetchArticleData}
+          className='flex gap-x-2 post  group'>
+          <div className='flex flex-col gap-y-2'>
+            {!!author && <Author author={author} />}
+            <Title title={title} size={size} />
+            <div>
+              <div className='pl-1 float-right w-[90px] h-[90px]'>
+                <Image url={img!} />
+              </div>
+              <Description text={description} />
+            </div>
+            <div className='grid grid-cols-[1fr_2fr_1fr] text-[10px] text-[#727272] uppercase'>
+              {timeAgo}
+              <span>{!!byline && byline}</span>
               {isShare && (
                 <CustomButton skin='dots'>
                   <SVG.DotsIcon
@@ -109,10 +128,9 @@ export const Post: FC<PropsType> = ({
           <div className='flex flex-col flex-[0_1_50%] gap-y-1'>
             {!!author && <Author author={author} />}
             <Title title={title} size={size} />
-            <Description text={description} />
-            <div className='flex items-center justify-between'>
-              <Time time={time} />
-              {!!byline && <span>{byline}</span>}
+            <div className='grid grid-cols-[1fr_2fr_1fr] text-[10px] text-[#727272] uppercase'>
+              {timeAgo}
+              <span>{!!byline && byline}</span>
               {isShare && (
                 <CustomButton skin='dots'>
                   <SVG.DotsIcon

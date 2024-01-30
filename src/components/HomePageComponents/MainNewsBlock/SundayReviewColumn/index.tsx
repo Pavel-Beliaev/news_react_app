@@ -31,7 +31,7 @@ export const SundayReviewColumn: FC = () => {
               }}
               title={n.title}
               size='S'
-              time='4'
+              time={n.created_date}
               idArticle={parserURL(n.uri)}
             />
           ) : i === 1 ? (
@@ -50,7 +50,7 @@ export const SundayReviewColumn: FC = () => {
               }}
               title={n.title}
               size='S'
-              time='3'
+              time={n.created_date}
               idArticle={parserURL(n.uri)}
               img={n.multimedia[1].url}
               isShare
@@ -72,7 +72,7 @@ export const SundayReviewColumn: FC = () => {
               }}
               title={n.title}
               size='S'
-              time='4'
+              time={n.created_date}
               idArticle={parserURL(n.uri)}
               isShare
               img={n.multimedia[1].url}

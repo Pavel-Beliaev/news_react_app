@@ -29,7 +29,7 @@ export const CultureRightColumn: FC<PropsType> = ({ news, className }) => {
             isShare
             img={n.multimedia[1].url}
             size='S'
-            time='4'
+            time={n.created_date}
             idArticle={parserURL(n.uri)}
           />
         </div>

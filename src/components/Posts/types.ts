@@ -1,31 +1,17 @@
-export type TextCardType = {
-  author?: string;
-  title: string;
-  text?: string;
-  time: string;
-  size: 'S' | 'M' | 'L';
-  article: string;
-  articleData?: {
-    byline: string;
-    title: string;
-    caption: string;
-    copyright: string;
-    created_date: string;
-    description: string;
-    img: string;
-    url: string;
-  };
-};
+import { ArticleDataType } from '../../store';
 
-export type TextCardWithImgYType = TextCardType & {
+export type PropsType = {
+  type: 'notImg' | 'imgUpDown' | 'imgRight' | 'imgInner';
+  articleData: ArticleDataType;
+  title: string;
+  size: 'S' | 'M' | 'L';
+  time: string;
+  idArticle: string;
+  author?: string;
+  description?: string;
+  byline?: string;
+  img?: string;
   isShare?: boolean;
-  by?: string;
-  url: string;
-  imgAuthor?: string;
+  copyright?: string;
   isRevers?: boolean;
 };
-
-export type TextCardWithImgRightType = Omit<
-  TextCardWithImgYType,
-  'isRevers' | 'imgAuthor'
->;

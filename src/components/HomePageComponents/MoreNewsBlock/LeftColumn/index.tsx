@@ -28,7 +28,7 @@ export const LeftColumn: FC = () => {
           title={n.title}
           description={n.abstract}
           size='M'
-          time='4'
+          time={n.created_date}
           idArticle={parserURL(n.uri)}
         />
       ))}

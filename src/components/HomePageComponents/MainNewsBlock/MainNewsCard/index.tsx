@@ -29,7 +29,7 @@ export const MainNewsCard: FC<PropsType> = ({ news }) => {
                 }}
                 title={n.title}
                 size={i < 1 ? 'L' : 'M'}
-                time='5'
+                time={n.created_date}
                 description={i < 1 ? n.abstract : ''}
                 idArticle={parserURL(n.uri)}
               />

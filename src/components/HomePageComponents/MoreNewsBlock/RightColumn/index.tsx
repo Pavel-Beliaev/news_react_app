@@ -27,7 +27,7 @@ export const RightColumn: FC = () => {
           }}
           title={n.title}
           size='M'
-          time='3'
+          time={n.created_date}
           idArticle={parserURL(n.uri)}
         />
       ))}

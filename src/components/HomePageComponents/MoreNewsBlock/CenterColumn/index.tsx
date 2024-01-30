@@ -25,7 +25,7 @@ export const CenterColumn: FC = () => {
           }}
           title={centerColumn.title}
           size='M'
-          time='6'
+          time={centerColumn.created_date}
           idArticle={parserURL(centerColumn.uri)}
           description={centerColumn.abstract}
           img={centerColumn.multimedia[1].url}
