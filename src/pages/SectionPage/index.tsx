@@ -6,6 +6,7 @@ import {
   CenterColumn,
   Image,
   LeftColumn,
+  NewsGrid,
   Post,
   RightColumn,
   Title,
@@ -43,35 +44,7 @@ export const SectionPage: FC = () => {
         <LeftColumn />
         <CenterColumn />
         <RightColumn />
-        <div className='grid col-start-[1] col-end-[21] grid-cols-5 gap-[33px] mt-[20px] pt-[20px] border-t border-black '>
-          {dataSections.map(
-            (n, i) =>
-              !!n.multimedia && (
-                <div
-                  key={n.url}
-                  className={`${(i + 1) % 5 ? 'delimiter' : ''}`}>
-                  <Post
-                    type='gridPosts'
-                    articleData={{
-                      title: n.title,
-                      byline: n.byline,
-                      url: n.url,
-                      created_date: n.created_date,
-                      img: n.multimedia[0].url,
-                      copyright: n.multimedia[0].copyright,
-                      caption: n.multimedia[0].caption,
-                      description: n.abstract,
-                    }}
-                    title={n.title}
-                    img={n.multimedia[1].url}
-                    size='S'
-                    time={''}
-                    idArticle={parserURL(n.uri)}
-                  />
-                </div>
-              ),
-          )}
-        </div>
+        <NewsGrid />
         <div>{/*archive*/}</div>
       </Wrapper.NewsBlock>
     </>
