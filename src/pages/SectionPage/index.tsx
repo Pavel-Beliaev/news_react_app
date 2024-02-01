@@ -1,13 +1,17 @@
 import React, { FC, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { fetchSectionsNews, sectionsSlice, useAppDispatch } from '../../store';
 import { useSelector } from 'react-redux';
 import {
   CenterColumn,
+  Image,
   LeftColumn,
+  Post,
   RightColumn,
+  Title,
   Wrapper,
 } from '../../components';
+import { parserURL } from '../../utils';
 
 export const SectionPage: FC = () => {
   const { pathname } = useLocation();
@@ -39,7 +43,35 @@ export const SectionPage: FC = () => {
         <LeftColumn />
         <CenterColumn />
         <RightColumn />
-        <div>{/*{dataSections}*/}</div>
+        <div className='grid col-start-[1] col-end-[21] grid-cols-5 gap-[33px] mt-[20px] pt-[20px] border-t border-black '>
+          {dataSections.map(
+            (n, i) =>
+              !!n.multimedia && (
+                <div
+                  key={n.url}
+                  className={`${(i + 1) % 5 ? 'delimiter' : ''}`}>
+                  <Post
+                    type='gridPosts'
+                    articleData={{
+                      title: n.title,
+                      byline: n.byline,
+                      url: n.url,
+                      created_date: n.created_date,
+                      img: n.multimedia[0].url,
+                      copyright: n.multimedia[0].copyright,
+                      caption: n.multimedia[0].caption,
+                      description: n.abstract,
+                    }}
+                    title={n.title}
+                    img={n.multimedia[1].url}
+                    size='S'
+                    time={''}
+                    idArticle={parserURL(n.uri)}
+                  />
+                </div>
+              ),
+          )}
+        </div>
         <div>{/*archive*/}</div>
       </Wrapper.NewsBlock>
     </>

@@ -36,7 +36,7 @@ export const Post: FC<PropsType> = ({
     case 'notImg':
       return (
         <NavLink
-          to={`article/${idArticle}`}
+          to={`/article/${idArticle}`}
           onClick={fetchArticleData}
           className='flex flex-col gap-y-1 post group'>
           <div>
@@ -60,7 +60,7 @@ export const Post: FC<PropsType> = ({
     case 'imgUpDown':
       return (
         <NavLink
-          to={`article/${idArticle}`}
+          to={`/article/${idArticle}`}
           onClick={fetchArticleData}
           className={`flex ${
             isRevers ? 'flex-col-reverse' : 'flex-col'
@@ -90,14 +90,14 @@ export const Post: FC<PropsType> = ({
     case 'imgInner':
       return (
         <NavLink
-          to={`article/${idArticle}`}
+          to={`/article/${idArticle}`}
           onClick={fetchArticleData}
           className='flex gap-x-2 post  group'>
           <div className='flex flex-col gap-y-2'>
             {!!author && <Author author={author} />}
             <Title title={title} size={size} />
             <div>
-              <div className='pl-1 float-right w-[90px] h-[90px]'>
+              <div className='pl-1 float-right w-[120px] h-auto'>
                 <Image url={img!} />
               </div>
               <Description text={description} />
@@ -119,10 +119,20 @@ export const Post: FC<PropsType> = ({
           </div>
         </NavLink>
       );
+    case 'gridPosts':
+      return (
+        <NavLink
+          to={`/article/${idArticle}`}
+          onClick={fetchArticleData}
+          className='flex flex-col gap-y-2'>
+          <Image url={img!} />
+          <Title title={title} size={size} />
+        </NavLink>
+      );
     default:
       return (
         <NavLink
-          to={`article/${idArticle}`}
+          to={`/article/${idArticle}`}
           onClick={fetchArticleData}
           className='flex gap-x-2 post  group'>
           <div className='flex flex-col flex-[0_1_50%] gap-y-1'>

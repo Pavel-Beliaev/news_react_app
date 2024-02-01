@@ -1,7 +1,7 @@
 import { ArticleDataType } from '../../store';
 
 export type PropsType = {
-  type: 'notImg' | 'imgUpDown' | 'imgRight' | 'imgInner';
+  type: 'notImg' | 'imgUpDown' | 'imgRight' | 'imgInner' | 'gridPosts';
   articleData: ArticleDataType;
   title: string;
   size: 'S' | 'M' | 'L';
