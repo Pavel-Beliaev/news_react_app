@@ -5,6 +5,7 @@ import { ArrowIcon } from './ArrowIcon';
 import { CommentsIcon } from './CommentsIcon';
 import { SaveIcon } from './SaveIcon';
 import { ShareIcon } from './ShareIcon';
+import { Cancel } from './Cancel';
 
 export const SVG = {
   BurgerIcon,
@@ -14,4 +15,5 @@ export const SVG = {
   CommentsIcon,
   ShareIcon,
   SaveIcon,
+  Cancel,
 };

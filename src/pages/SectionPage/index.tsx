@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { fetchSectionsNews, sectionsSlice, useAppDispatch } from '../../store';
 import { useSelector } from 'react-redux';
@@ -11,14 +11,13 @@ import {
   Title,
   Wrapper,
 } from '../../components';
-import { SVG } from '../../assets';
+import { ArchiveSearch } from '../../components/ArchiveComponents';
 
 export const SectionPage: FC = () => {
   const { pathname } = useLocation();
   const sectionName = pathname.split(/[\d/]/g).slice(-1).join('');
   const dispatch = useAppDispatch();
   const { topNews, dataSections } = useSelector(sectionsSlice);
-  const [value, setValue] = useState('');
 
   useEffect(() => {
     dispatch(
@@ -47,24 +46,7 @@ export const SectionPage: FC = () => {
         <NewsGrid />
       </Wrapper.NewsBlock>
       <div className='flex flex-col gap-y-2'>
-        <div className='translate-y-[-12px] border-b border-[#C7C7C7]'>
-          <div className='relative inline'>
-            <input
-              className='min-w-[20%] max-w-[60%] p-[12px_40px] border-[#C7C7C7] border-x border-t focus-visible:outline-0 translate-y-[1px] bg-yellow-50 '
-              type='text'
-              value={value}
-              placeholder='Search...'
-              onChange={(event) => setValue(event.target.value)}
-              style={{ width: `${value.length * 14}px` }}
-            />
-            <div className='absolute bottom-0 left-[10px]'>
-              <SVG.SearchIcon w='20' h='20' fill='transparent' />
-            </div>
-            <div className='absolute bottom-0 right-[10px]'>
-              <SVG.SearchIcon w='20' h='20' fill='transparent' />
-            </div>
-          </div>
-        </div>
+        <ArchiveSearch />
         <div className='flex flex-col'>
           <div className='flex'>
             <div>sort</div>
