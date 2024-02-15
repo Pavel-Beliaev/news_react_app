@@ -3,6 +3,7 @@ import { Post } from '../../../Posts';
 import { useSelector } from 'react-redux';
 import { newsSlice } from '../../../../store';
 import { parserURL } from '../../../../utils';
+import { isNotEmpty } from '../../../../utils/isEmptyMedia';
 
 export const RightColumn: FC = () => {
   const {
@@ -20,9 +21,9 @@ export const RightColumn: FC = () => {
             byline: n.byline,
             url: n.url,
             created_date: n.created_date,
-            img: n.multimedia[0].url,
-            copyright: n.multimedia[0].copyright,
-            caption: n.multimedia[0].caption,
+            img: isNotEmpty(n.multimedia, 0, 'url'),
+            copyright: isNotEmpty(n.multimedia, 0, 'copyright'),
+            caption: isNotEmpty(n.multimedia, 0, 'caption'),
             description: n.abstract,
           }}
           title={n.title}

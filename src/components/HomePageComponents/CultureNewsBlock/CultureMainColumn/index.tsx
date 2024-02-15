@@ -3,6 +3,7 @@ import { Post } from '../../../Posts';
 import { useSelector } from 'react-redux';
 import { newsSlice } from '../../../../store';
 import { parserURL } from '../../../../utils';
+import { isNotEmpty } from '../../../../utils/isEmptyMedia';
 
 export const CultureMainColumn: FC = () => {
   const {
@@ -19,9 +20,9 @@ export const CultureMainColumn: FC = () => {
             byline: mainNews.byline,
             url: mainNews.url,
             created_date: mainNews.created_date,
-            img: mainNews.multimedia[0].url,
-            copyright: mainNews.multimedia[0].copyright,
-            caption: mainNews.multimedia[0].caption,
+            img: isNotEmpty(mainNews.multimedia, 0, 'url'),
+            copyright: isNotEmpty(mainNews.multimedia, 0, 'copyright'),
+            caption: isNotEmpty(mainNews.multimedia, 0, 'caption'),
             description: mainNews.abstract,
           }}
           title={mainNews.title}
@@ -30,8 +31,8 @@ export const CultureMainColumn: FC = () => {
           time={mainNews.created_date}
           idArticle={parserURL(mainNews.uri)}
           isShare
-          img={mainNews.multimedia[1].url}
-          copyright={mainNews.multimedia[1].copyright}
+          img={isNotEmpty(mainNews.multimedia, 1, 'url')}
+          copyright={isNotEmpty(mainNews.multimedia, 1, 'copyright')}
         />
       )}
     </>

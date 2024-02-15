@@ -3,6 +3,7 @@ import { Image } from '../../../Image';
 import { Post } from '../../../Posts';
 import { NewsType } from '../../../../store';
 import { parserURL } from '../../../../utils';
+import { isNotEmpty } from '../../../../utils/isEmptyMedia';
 
 type PropsType = {
   news: NewsType[];
@@ -22,9 +23,9 @@ export const MainNewsCard: FC<PropsType> = ({ news }) => {
                   byline: n.byline,
                   url: n.url,
                   created_date: n.created_date,
-                  img: n.multimedia[0].url,
-                  copyright: n.multimedia[0].copyright,
-                  caption: n.multimedia[0].caption,
+                  img: isNotEmpty(n.multimedia, 0, 'url'),
+                  copyright: isNotEmpty(n.multimedia, 0, 'copyright'),
+                  caption: isNotEmpty(n.multimedia, 0, 'caption'),
                   description: n.abstract,
                 }}
                 title={n.title}
@@ -38,8 +39,8 @@ export const MainNewsCard: FC<PropsType> = ({ news }) => {
       </div>
       <div className='grid col-start-[6] col-end-[15]'>
         <Image
-          url={news[0].multimedia[1].url}
-          imgAuthor={news[0].multimedia[1].copyright}
+          url={isNotEmpty(news[0].multimedia, 1, 'url')}
+          imgAuthor={isNotEmpty(news[0].multimedia, 1, 'copyright')}
         />
       </div>
     </div>

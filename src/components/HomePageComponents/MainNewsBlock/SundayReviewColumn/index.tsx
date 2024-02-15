@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { Post } from '../../../Posts';
 import { newsSlice } from '../../../../store';
 import { parserURL } from '../../../../utils';
+import { isNotEmpty } from '../../../../utils/isEmptyMedia';
 
 export const SundayReviewColumn: FC = () => {
   const {
@@ -24,9 +25,9 @@ export const SundayReviewColumn: FC = () => {
                 byline: n.byline,
                 url: n.url,
                 created_date: n.created_date,
-                img: n.multimedia[0].url,
-                copyright: n.multimedia[0].copyright,
-                caption: n.multimedia[0].caption,
+                img: isNotEmpty(n.multimedia, 0, 'url'),
+                copyright: isNotEmpty(n.multimedia, 0, 'copyright'),
+                caption: isNotEmpty(n.multimedia, 0, 'caption'),
                 description: n.abstract,
               }}
               title={n.title}
@@ -43,16 +44,16 @@ export const SundayReviewColumn: FC = () => {
                 byline: n.byline,
                 url: n.url,
                 created_date: n.created_date,
-                img: n.multimedia[0].url,
-                copyright: n.multimedia[0].copyright,
-                caption: n.multimedia[0].caption,
+                img: isNotEmpty(n.multimedia, 0, 'url'),
+                copyright: isNotEmpty(n.multimedia, 0, 'copyright'),
+                caption: isNotEmpty(n.multimedia, 0, 'caption'),
                 description: n.abstract,
               }}
               title={n.title}
               size='S'
               time={n.created_date}
               idArticle={parserURL(n.uri)}
-              img={n.multimedia[1].url}
+              img={isNotEmpty(n.multimedia, 1, 'url')}
               isShare
               isRevers
             />
@@ -65,9 +66,9 @@ export const SundayReviewColumn: FC = () => {
                 byline: n.byline,
                 url: n.url,
                 created_date: n.created_date,
-                img: n.multimedia[0].url,
-                copyright: n.multimedia[0].copyright,
-                caption: n.multimedia[0].caption,
+                img: isNotEmpty(n.multimedia, 0, 'url'),
+                copyright: isNotEmpty(n.multimedia, 0, 'copyright'),
+                caption: isNotEmpty(n.multimedia, 0, 'caption'),
                 description: n.abstract,
               }}
               title={n.title}
@@ -75,7 +76,7 @@ export const SundayReviewColumn: FC = () => {
               time={n.created_date}
               idArticle={parserURL(n.uri)}
               isShare
-              img={n.multimedia[1].url}
+              img={isNotEmpty(n.multimedia, 1, 'url')}
             />
           ),
         )}

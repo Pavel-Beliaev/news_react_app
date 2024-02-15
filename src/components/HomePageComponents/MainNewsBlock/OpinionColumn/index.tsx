@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { Post } from '../../../Posts';
 import { newsSlice } from '../../../../store';
 import { parserURL } from '../../../../utils';
+import { isNotEmpty } from '../../../../utils/isEmptyMedia';
 
 export const OpinionColumn: FC = () => {
   const {
@@ -29,9 +30,9 @@ export const OpinionColumn: FC = () => {
                 byline: n.byline,
                 url: n.url,
                 created_date: n.created_date,
-                img: !!n.multimedia ? n.multimedia[0].url : '',
-                copyright: !!n.multimedia ? n.multimedia[0].copyright : '',
-                caption: !!n.multimedia ? n.multimedia[0].caption : '',
+                img: isNotEmpty(n.multimedia, 0, 'url'),
+                copyright: isNotEmpty(n.multimedia, 0, 'copyright'),
+                caption: isNotEmpty(n.multimedia, 0, 'caption'),
                 description: n.abstract,
               }}
               title={n.title}
@@ -39,10 +40,8 @@ export const OpinionColumn: FC = () => {
               time={n.created_date}
               idArticle={parserURL(n.uri)}
               isShare
-              img={!!n.multimedia ? n.multimedia[1].url : ''}
-              copyright={
-                i === 0 && !!n.multimedia ? n.multimedia[1].copyright : ''
-              }
+              img={isNotEmpty(n.multimedia, 1, 'url')}
+              copyright={isNotEmpty(n.multimedia, 1, 'copyright')}
             />
           </div>
         ))}
