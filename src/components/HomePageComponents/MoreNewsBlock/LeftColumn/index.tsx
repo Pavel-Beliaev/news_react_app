@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
 import { Post } from '../../../Posts';
 import { useSelector } from 'react-redux';
-import { newsSlice, NewsType } from '../../../../store';
+import { newsSlice } from '../../../../store';
 import { parserURL } from '../../../../utils';
 import { isNotEmpty } from '../../../../utils/isEmptyMedia';
 
 export const LeftColumn: FC = () => {
   const {
-    moreNews: { leftColumn },
+    moreNewsBlock: { leftColumn },
   } = useSelector(newsSlice);
 
   return (

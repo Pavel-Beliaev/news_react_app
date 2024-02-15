@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchSectionsNews } from './actions';
-import { NewsType } from '../mainNewsSlice';
+import { NewsType } from '../types';
 
 export type SectionsSliceType = {
   status: 'loading' | 'success' | 'error';
@@ -20,12 +20,10 @@ const initialState: SectionsSliceType = {
       created_date: '',
       abstract: '',
       byline: '',
-      des_facet: [],
       multimedia: [],
       title: '',
       url: '',
       section: '',
-      kicker: '',
       subsection: '',
       uri: '',
     },
@@ -33,12 +31,10 @@ const initialState: SectionsSliceType = {
       created_date: '',
       abstract: '',
       byline: '',
-      des_facet: [],
       multimedia: [],
       title: '',
       url: '',
       section: '',
-      kicker: '',
       subsection: '',
       uri: '',
     },

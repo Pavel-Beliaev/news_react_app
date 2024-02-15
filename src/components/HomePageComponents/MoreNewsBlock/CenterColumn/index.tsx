@@ -7,7 +7,7 @@ import { isNotEmpty } from '../../../../utils/isEmptyMedia';
 
 export const CenterColumn: FC = () => {
   const {
-    moreNews: { centerColumn },
+    moreNewsBlock: { centerColumn },
   } = useSelector(newsSlice);
 
   return (

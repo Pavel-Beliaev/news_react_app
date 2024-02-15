@@ -8,7 +8,7 @@ import { newsSlice } from '../../../store';
 
 export const CultureNewsBlock: FC = () => {
   const {
-    cultureNews: { rightColumn },
+    cultureNewsBlock: { rightColumn },
   } = useSelector(newsSlice);
   return (
     <>

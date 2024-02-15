@@ -5,7 +5,6 @@ import {
   fetchSundayreview,
   fetchTopStories,
   searchSlice,
-  useAppDispatch,
 } from './store';
 import {
   Content,
@@ -15,13 +14,23 @@ import {
   LeftSideBar,
 } from './components';
 import { useSelector } from 'react-redux';
+import { useFetching } from './hoocks/useFetching/useFetching';
 
 function App() {
   const [isAble, setIsAble] = useState(false);
   const [isActive, setIsActive] = useState(false);
-  const dispatch = useAppDispatch();
+
   const { status } = useSelector(searchSlice);
+
+  const isStatus = useFetching(
+    fetchTopStories,
+    fetchSundayreview,
+    fetchMoreNews,
+    fetchCultureNews,
+  );
+
   const isError = status === 'error';
+
   const onComponentCursor = useCallback(() => {
     setIsActive(!isActive);
   }, [isActive]);
@@ -40,14 +49,6 @@ function App() {
       clearTimeout(timer);
     };
   }, [isActive]);
-
-  useEffect(() => {
-    dispatch(fetchTopStories());
-    dispatch(fetchSundayreview());
-    dispatch(fetchMoreNews());
-    dispatch(fetchCultureNews());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <div className='w-full relative h-auto bg-yellow-50 flex flex-col gap-y-0.5'>

@@ -5,11 +5,11 @@ import { newsSlice } from '../../../../store';
 
 export const MainColumn: FC = () => {
   const {
-    mainNews: { mainColumn },
+    mainNewsBlock: { leftColumn },
   } = useSelector(newsSlice);
   return (
     <div className='flex flex-col gap-y-3.5'>
-      {mainColumn.map((groupNews, i) => (
+      {leftColumn.map((groupNews, i) => (
         <MainNewsCard key={i} news={groupNews} />
       ))}
     </div>

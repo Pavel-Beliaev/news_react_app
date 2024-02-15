@@ -8,14 +8,16 @@ import { isNotEmpty } from '../../../../utils/isEmptyMedia';
 
 export const OpinionColumn: FC = () => {
   const {
-    mainNews: { opinions },
+    mainNewsBlock: {
+      rightColumn: { opinions },
+    },
   } = useSelector(newsSlice);
 
   return (
     <div>
       <Heading heading='Opinion' />
       <div className='grid grid-cols-[repeat(2,2fr)] gap-[10px] border-b pb-[24px] border-black'>
-        {opinions.map((n, i) => (
+        {opinions.map((n) => (
           <div
             key={n.url}
             className={

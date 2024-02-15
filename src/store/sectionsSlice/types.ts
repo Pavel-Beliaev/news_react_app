@@ -1,4 +1,4 @@
-import { NewsType } from '../mainNewsSlice';
+import { NewsType } from '../types';
 
 export type SectionsParamsType = {
   section: string;

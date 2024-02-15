@@ -1,4 +1,4 @@
-import { NewsType } from '../store';
+import { NewsType } from '../store/types';
 
 export function isNotEmpty<
   T extends NewsType['multimedia'],

@@ -8,7 +8,9 @@ import { isNotEmpty } from '../../../../utils/isEmptyMedia';
 
 export const SundayReviewColumn: FC = () => {
   const {
-    mainNews: { sundayreview },
+    mainNewsBlock: {
+      rightColumn: { sundayreview },
+    },
   } = useSelector(newsSlice);
 
   return (
