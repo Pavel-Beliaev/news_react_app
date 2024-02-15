@@ -12,27 +12,29 @@ export const LeftColumn: FC = () => {
 
   return (
     <div className='col-start-[1] col-end-[12] delimiter'>
-      <Post
-        type='imgUpDown'
-        articleData={{
-          title: leftColumn.title,
-          byline: leftColumn.byline,
-          url: leftColumn.url,
-          created_date: leftColumn.created_date,
-          img: isNotEmpty(leftColumn.multimedia, 0, 'url'),
-          copyright: isNotEmpty(leftColumn.multimedia, 0, 'copyright'),
-          caption: isNotEmpty(leftColumn.multimedia, 0, 'caption'),
-          description: leftColumn.abstract,
-        }}
-        title={leftColumn.title}
-        description={leftColumn.abstract}
-        img={isNotEmpty(leftColumn.multimedia, 1, 'url')}
-        copyright={isNotEmpty(leftColumn.multimedia, 1, 'copyright')}
-        byline={leftColumn.byline}
-        size='L'
-        time={leftColumn.created_date}
-        idArticle={parserURL(leftColumn.uri)}
-      />
+      {!!leftColumn.title && (
+        <Post
+          type='imgUpDown'
+          articleData={{
+            title: leftColumn.title,
+            byline: leftColumn.byline,
+            url: leftColumn.url,
+            created_date: leftColumn.created_date,
+            img: isNotEmpty(leftColumn.multimedia, 0, 'url'),
+            copyright: isNotEmpty(leftColumn.multimedia, 0, 'copyright'),
+            caption: isNotEmpty(leftColumn.multimedia, 0, 'caption'),
+            description: leftColumn.abstract,
+          }}
+          title={leftColumn.title}
+          description={leftColumn.abstract}
+          img={isNotEmpty(leftColumn.multimedia, 1, 'url')}
+          copyright={isNotEmpty(leftColumn.multimedia, 1, 'copyright')}
+          byline={leftColumn.byline}
+          size='L'
+          time={leftColumn.created_date}
+          idArticle={parserURL(leftColumn.uri)}
+        />
+      )}
     </div>
   );
 };
