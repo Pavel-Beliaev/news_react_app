@@ -19,6 +19,11 @@ export type HomePageDataType = {
   };
 };
 
+export type DataSliceType = HomePageDataType & {
+  status: null | string;
+  message: undefined | null | string;
+};
+
 type MediaType = {
   caption: string;
   copyright: string;

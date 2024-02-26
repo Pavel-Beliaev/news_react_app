@@ -1,13 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {
-  fetchCultureNews,
-  fetchMoreNews,
-  fetchSundayreview,
-  fetchTopStories,
-} from './actions';
-import { HomePageDataType } from './types';
+import { fetchNews } from './actions';
+import { DataSliceType } from './types';
 
-const initialState: HomePageDataType = {
+const initialState: DataSliceType = {
+  status: null,
+  message: null,
   mainNewsBlock: {
     leftColumn: [],
     rightColumn: {
@@ -51,43 +48,30 @@ export const newsData = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchTopStories.pending, () => {});
-    builder.addCase(fetchTopStories.fulfilled, (state, action) => {
+    builder.addCase(fetchNews.pending, (state) => {
+      state.status = 'loading';
+      state.message = null;
+    });
+    builder.addCase(fetchNews.fulfilled, (state, action) => {
+      state.status = 'success';
       state.mainNewsBlock.leftColumn = action.payload.mainNewsBlock.leftColumn;
       state.mainNewsBlock.rightColumn.opinions =
         action.payload.mainNewsBlock.rightColumn.opinions;
+      state.mainNewsBlock.rightColumn.sundayreview =
+        action.payload.mainNewsBlock.rightColumn.sundayreview;
       state.moreNewsBlock.leftColumn = action.payload.moreNewsBlock.leftColumn;
       state.moreNewsBlock.centerColumn =
         action.payload.moreNewsBlock.centerColumn;
-      state.cultureNewsBlock.leftColumn =
-        action.payload.cultureNewsBlock.leftColumn;
-    });
-    builder.addCase(fetchTopStories.rejected, (state, action) => {
-      console.log(action.error.message);
-    });
-    builder.addCase(fetchSundayreview.pending, () => {});
-    builder.addCase(fetchSundayreview.fulfilled, (state, action) => {
-      state.mainNewsBlock.rightColumn.sundayreview =
-        action.payload.mainNewsBlock.rightColumn.sundayreview;
-    });
-    builder.addCase(fetchSundayreview.rejected, (state, action) => {
-      console.log(action.error.message);
-    });
-    builder.addCase(fetchMoreNews.pending, () => {});
-    builder.addCase(fetchMoreNews.fulfilled, (state, action) => {
       state.moreNewsBlock.rightColumn =
         action.payload.moreNewsBlock.rightColumn;
-    });
-    builder.addCase(fetchMoreNews.rejected, (state, action) => {
-      console.log(action.error.message);
-    });
-    builder.addCase(fetchCultureNews.pending, () => {});
-    builder.addCase(fetchCultureNews.fulfilled, (state, action) => {
+      state.cultureNewsBlock.leftColumn =
+        action.payload.cultureNewsBlock.leftColumn;
       state.cultureNewsBlock.rightColumn =
         action.payload.cultureNewsBlock.rightColumn;
     });
-    builder.addCase(fetchCultureNews.rejected, (state, action) => {
-      console.log(action.error.message);
+    builder.addCase(fetchNews.rejected, (state, action) => {
+      state.status = 'error';
+      state.message = action.error.message;
     });
   },
 });

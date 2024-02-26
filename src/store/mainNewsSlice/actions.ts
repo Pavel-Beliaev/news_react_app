@@ -4,34 +4,27 @@ import { url } from './url';
 import { FetchAPIDataType, HomePageDataType } from './types';
 import { adapter } from './adapter';
 
-export const fetchTopStories = createAsyncThunk<HomePageDataType>(
-  'news/fetchTopStories',
+export const fetchNews = createAsyncThunk<HomePageDataType>(
+  'news/fetchNews',
   async () => {
-    const { data } = await axios.get<FetchAPIDataType>(`${url.home}`);
-    return adapter(data.results);
-  },
-);
+    const { data: topStories } = await axios.get<FetchAPIDataType>(
+      `${url.home}`,
+    );
+    const { data: sundayReview } = await axios.get<FetchAPIDataType>(
+      `${url.sundayreview}`,
+    );
+    const { data: moreNews } = await axios.get<FetchAPIDataType>(
+      `${url.nyregion}`,
+    );
+    const { data: cultureNews } = await axios.get<FetchAPIDataType>(
+      `${url.books}`,
+    );
 
-export const fetchSundayreview = createAsyncThunk<HomePageDataType>(
-  'news/fetchSundayreview',
-  async () => {
-    const { data } = await axios.get<FetchAPIDataType>(`${url.sundayreview}`);
-    return adapter(data.results);
-  },
-);
-
-export const fetchMoreNews = createAsyncThunk<HomePageDataType>(
-  'news/fetchMoreNews',
-  async () => {
-    const { data } = await axios.get<FetchAPIDataType>(`${url.nyregion}`);
-    return adapter(data.results);
-  },
-);
-
-export const fetchCultureNews = createAsyncThunk<HomePageDataType>(
-  'news/fetchCultureNews',
-  async () => {
-    const { data } = await axios.get<FetchAPIDataType>(`${url.books}`);
-    return adapter(data.results);
+    return adapter(
+      topStories.results,
+      sundayReview.results,
+      moreNews.results,
+      cultureNews.results,
+    );
   },
 );

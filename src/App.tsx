@@ -1,11 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import {
-  fetchCultureNews,
-  fetchMoreNews,
-  fetchSundayreview,
-  fetchTopStories,
-  searchSlice,
-} from './store';
+import { fetchNews, searchSlice, useAppDispatch } from './store';
 import {
   Content,
   ErrorRequest,
@@ -14,20 +8,13 @@ import {
   LeftSideBar,
 } from './components';
 import { useSelector } from 'react-redux';
-import { useFetching } from './hoocks/useFetching/useFetching';
 
 function App() {
   const [isAble, setIsAble] = useState(false);
   const [isActive, setIsActive] = useState(false);
 
   const { status } = useSelector(searchSlice);
-
-  const isStatus = useFetching(
-    fetchTopStories,
-    fetchSundayreview,
-    fetchMoreNews,
-    fetchCultureNews,
-  );
+  const dispatch = useAppDispatch();
 
   const isError = status === 'error';
 
@@ -49,6 +36,11 @@ function App() {
       clearTimeout(timer);
     };
   }, [isActive]);
+
+  useEffect(() => {
+    dispatch(fetchNews());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className='w-full relative h-auto bg-yellow-50 flex flex-col gap-y-0.5'>
