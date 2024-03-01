@@ -2,6 +2,7 @@ import React, { FC, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { fetchSectionsNews, useAppDispatch } from '../../store';
 import {
+  Category,
   CenterColumn,
   LeftColumn,
   NewsGrid,
@@ -30,11 +31,7 @@ export const SectionPage: FC = () => {
 
   return (
     <>
-      <div className='flex flex-col gap-y-2 pb-[10px] mt-2.5'>
-        <h1 className='text-[44px] leading-[44px] font-bold'>
-          {sectionName.toUpperCase() + ' NEWS'}
-        </h1>
-      </div>
+      <Category title={sectionName.toUpperCase()} />
       <Wrapper.NewsBlock>
         <LeftColumn />
         <CenterColumn />
