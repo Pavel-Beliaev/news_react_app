@@ -4,15 +4,17 @@ import { useSelector } from 'react-redux';
 import { newsSlice } from '../../../../store';
 import { parserURL } from '../../../../utils';
 import { isNotEmpty } from '../../../../utils/isEmptyMedia';
+import { Skeletons } from '../../Skeletons';
 
 export const CultureMainColumn: FC = () => {
   const {
     cultureNewsBlock: { leftColumn },
+    status,
   } = useSelector(newsSlice);
 
   return (
     <>
-      {!!leftColumn.title && (
+      {status === 'success' ? (
         <Post
           type='imgUpDown'
           articleData={{
@@ -34,6 +36,8 @@ export const CultureMainColumn: FC = () => {
           img={isNotEmpty(leftColumn.multimedia, 1, 'url')}
           copyright={isNotEmpty(leftColumn.multimedia, 1, 'copyright')}
         />
+      ) : (
+        <Skeletons.SkeletonImage />
       )}
     </>
   );

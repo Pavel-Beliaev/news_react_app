@@ -4,34 +4,40 @@ import { useSelector } from 'react-redux';
 import { newsSlice } from '../../../../store';
 import { parserURL } from '../../../../utils';
 import { isNotEmpty } from '../../../../utils/isEmptyMedia';
+import { Skeletons } from '../../Skeletons';
 
 export const RightColumn: FC = () => {
   const {
     moreNewsBlock: { rightColumn },
+    status,
   } = useSelector(newsSlice);
 
   return (
     <div className='flex flex-col gap-y-2.5'>
-      {rightColumn.map((n) => (
-        <Post
-          key={n.url}
-          type='notImg'
-          articleData={{
-            title: n.title,
-            byline: n.byline,
-            url: n.url,
-            created_date: n.created_date,
-            img: isNotEmpty(n.multimedia, 0, 'url'),
-            copyright: isNotEmpty(n.multimedia, 0, 'copyright'),
-            caption: isNotEmpty(n.multimedia, 0, 'caption'),
-            description: n.abstract,
-          }}
-          title={n.title}
-          size='M'
-          time={n.created_date}
-          idArticle={parserURL(n.uri)}
-        />
-      ))}
+      {status === 'success' ? (
+        rightColumn.map((n) => (
+          <Post
+            key={n.url}
+            type='notImg'
+            articleData={{
+              title: n.title,
+              byline: n.byline,
+              url: n.url,
+              created_date: n.created_date,
+              img: isNotEmpty(n.multimedia, 0, 'url'),
+              copyright: isNotEmpty(n.multimedia, 0, 'copyright'),
+              caption: isNotEmpty(n.multimedia, 0, 'caption'),
+              description: n.abstract,
+            }}
+            title={n.title}
+            size='M'
+            time={n.created_date}
+            idArticle={parserURL(n.uri)}
+          />
+        ))
+      ) : (
+        <Skeletons.SkeletonText count={5} />
+      )}
     </div>
   );
 };

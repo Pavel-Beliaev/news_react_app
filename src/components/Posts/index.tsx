@@ -44,7 +44,7 @@ export const Post: FC<PropsType> = ({
             <Title title={title} size={size} />
           </div>
           {!!description && <Description text={description} />}
-          <div className='flex items-center justify-between text-[10px] text-[#727272] uppercase'>
+          <div className='flex items-center justify-between text-[10px] text-[#727272] uppercase whitespace-nowrap'>
             {timeAgo}
             <CustomButton skin='dots'>
               <SVG.DotsIcon
@@ -70,7 +70,7 @@ export const Post: FC<PropsType> = ({
             {!!author && <Author author={author} />}
             <Title title={title} size={size} />
             {!!description && <Description text={description} />}
-            <div className='grid grid-cols-[1fr_2fr_1fr] text-[10px] text-[#727272] uppercase'>
+            <div className='grid grid-cols-[1fr_2fr_1fr] text-[10px] text-[#727272] uppercase whitespace-nowrap'>
               {timeAgo}
               <span>{!!byline && byline}</span>
               {isShare && (
@@ -102,7 +102,7 @@ export const Post: FC<PropsType> = ({
               </div>
               <Description text={description} />
             </div>
-            <div className='grid grid-cols-[1fr_2fr_1fr] text-[10px] text-[#727272] uppercase'>
+            <div className='grid grid-cols-[1fr_2fr_1fr] text-[10px] text-[#727272] uppercase whitespace-nowrap'>
               {timeAgo}
               <span>{!!byline && byline}</span>
               {isShare && (
@@ -138,7 +138,7 @@ export const Post: FC<PropsType> = ({
           <div className='flex flex-col flex-[0_1_50%] gap-y-1'>
             {!!author && <Author author={author} />}
             <Title title={title} size={size} />
-            <div className='grid grid-cols-[1fr_2fr_1fr] text-[10px] text-[#727272] uppercase'>
+            <div className='grid grid-cols-[1fr_2fr_1fr] text-[10px] text-[#727272] uppercase whitespace-nowrap'>
               {timeAgo}
               <span>{!!byline && byline}</span>
               {isShare && (

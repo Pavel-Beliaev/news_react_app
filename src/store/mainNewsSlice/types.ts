@@ -20,7 +20,7 @@ export type HomePageDataType = {
 };
 
 export type DataSliceType = HomePageDataType & {
-  status: null | string;
+  status: 'loading' | 'success' | 'error';
   message: undefined | null | string;
 };
 

@@ -4,15 +4,17 @@ import { useSelector } from 'react-redux';
 import { newsSlice } from '../../../../store';
 import { parserURL } from '../../../../utils';
 import { isNotEmpty } from '../../../../utils/isEmptyMedia';
+import { Skeletons } from '../../Skeletons';
 
 export const CenterColumn: FC = () => {
   const {
     moreNewsBlock: { centerColumn },
+    status,
   } = useSelector(newsSlice);
 
   return (
     <div className='grid col-start-[6] col-end-[15]'>
-      {centerColumn.title && (
+      {status === 'success' ? (
         <Post
           type='imgUpDown'
           articleData={{
@@ -34,6 +36,8 @@ export const CenterColumn: FC = () => {
           copyright={isNotEmpty(centerColumn.multimedia, 1, 'copyright')}
           isShare
         />
+      ) : (
+        <Skeletons.SkeletonImage />
       )}
     </div>
   );

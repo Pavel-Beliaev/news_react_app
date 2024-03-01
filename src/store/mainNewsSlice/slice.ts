@@ -3,7 +3,7 @@ import { fetchNews } from './actions';
 import { DataSliceType } from './types';
 
 const initialState: DataSliceType = {
-  status: null,
+  status: 'loading',
   message: null,
   mainNewsBlock: {
     leftColumn: [],
