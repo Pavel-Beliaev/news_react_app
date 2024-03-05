@@ -9,9 +9,11 @@ export const CenterColumn: FC = () => {
   const {
     topNews: { centerColumn },
   } = useSelector(sectionsSlice);
+  const isArray = Array.isArray(centerColumn);
+
   return (
     <div className='col-start-[12] col-end-[17] delimiter'>
-      {!!centerColumn.title && (
+      {!isArray && (
         <Post
           type='imgUpDown'
           articleData={{

@@ -1,7 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { url } from './url';
-import { FetchAPIDataType, HomePageDataType } from './types';
+import { HomePageDataType } from './types';
+import { FetchAPIDataType } from '../types';
 import { adapter } from './adapter';
 
 export const fetchNews = createAsyncThunk<HomePageDataType>(

@@ -11,10 +11,11 @@ export const CultureMainColumn: FC = () => {
     cultureNewsBlock: { leftColumn },
     status,
   } = useSelector(newsSlice);
+  const isArray = Array.isArray(leftColumn);
 
   return (
     <>
-      {status === 'success' ? (
+      {!isArray && status === 'success' ? (
         <Post
           type='imgUpDown'
           articleData={{

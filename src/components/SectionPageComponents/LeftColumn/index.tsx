@@ -9,10 +9,10 @@ export const LeftColumn: FC = () => {
   const {
     topNews: { leftColumn },
   } = useSelector(sectionsSlice);
-
+  const isArray = Array.isArray(leftColumn);
   return (
     <div className='col-start-[1] col-end-[12] delimiter'>
-      {!!leftColumn.title && (
+      {!isArray && (
         <Post
           type='imgUpDown'
           articleData={{

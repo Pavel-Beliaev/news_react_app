@@ -1,6 +1,6 @@
 import React, { FC, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { fetchSectionsNews, useAppDispatch } from '../../store';
+import { fetchSectionsNews, setClear, useAppDispatch } from '../../store';
 import {
   Category,
   CenterColumn,
@@ -26,6 +26,9 @@ export const SectionPage: FC = () => {
               : sectionName,
       }),
     );
+    return () => {
+      dispatch(setClear([]));
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 

@@ -11,10 +11,11 @@ export const CenterColumn: FC = () => {
     moreNewsBlock: { centerColumn },
     status,
   } = useSelector(newsSlice);
+  const isArray = Array.isArray(centerColumn);
 
   return (
     <div className='grid col-start-[6] col-end-[15]'>
-      {status === 'success' ? (
+      {!isArray && status === 'success' ? (
         <Post
           type='imgUpDown'
           articleData={{

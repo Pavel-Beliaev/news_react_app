@@ -1,78 +1,45 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchSectionsNews } from './actions';
-import { NewsType } from '../types';
-
-export type SectionsSliceType = {
-  status: 'loading' | 'success' | 'error';
-  topNews: {
-    leftColumn: NewsType;
-    centerColumn: NewsType;
-    rightColumn: NewsType[];
-  };
-  dataSections: NewsType[];
-  archive: [];
-};
+import { SectionsSliceType } from './types';
 
 const initialState: SectionsSliceType = {
   status: 'loading',
+  message: null,
   topNews: {
-    leftColumn: {
-      created_date: '',
-      abstract: '',
-      byline: '',
-      multimedia: [],
-      title: '',
-      url: '',
-      section: '',
-      subsection: '',
-      uri: '',
-    },
-    centerColumn: {
-      created_date: '',
-      abstract: '',
-      byline: '',
-      multimedia: [],
-      title: '',
-      url: '',
-      section: '',
-      subsection: '',
-      uri: '',
-    },
+    leftColumn: [],
+    centerColumn: [],
     rightColumn: [],
   },
   dataSections: [],
-  archive: [],
 };
 
 export const sectionsNews = createSlice({
   name: 'sections',
   initialState,
-  reducers: {},
+  reducers: {
+    setClear(state, action) {
+      state.topNews.leftColumn = action.payload;
+      state.topNews.centerColumn = action.payload;
+      state.topNews.rightColumn = action.payload;
+      state.dataSections = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchSectionsNews.pending, (state) => {
       state.status = 'loading';
+      state.message = null;
     });
     builder.addCase(fetchSectionsNews.fulfilled, (state, action) => {
       state.status = 'success';
-      state.topNews.leftColumn = action.payload.results.filter(
-        (n) => n.section !== 'admin' && n.url !== 'null',
-      )[0];
-      state.topNews.centerColumn = action.payload.results.filter(
-        (n) => n.section !== 'admin' && n.url !== 'null',
-      )[1];
-      state.topNews.rightColumn = action.payload.results
-        .filter((n) => n.section !== 'admin' && n.url !== 'null')
-        .slice(2, 4);
-      state.dataSections = action.payload.results
-        .filter((n) => n.section !== 'admin' && n.url !== 'null')
-        .slice(4);
+      state.topNews.leftColumn = action.payload.topNews.leftColumn;
+      state.topNews.centerColumn = action.payload.topNews.centerColumn;
+      state.topNews.rightColumn = action.payload.topNews.rightColumn;
+      state.dataSections = action.payload.dataSections;
     });
     builder.addCase(fetchSectionsNews.rejected, (state) => {
       state.status = 'error';
     });
   },
 });
-
-// eslint-disable-next-line no-empty-pattern
-export const {} = sectionsNews.actions;
+export const { setClear } = sectionsNews.actions;
 export default sectionsNews.reducer;

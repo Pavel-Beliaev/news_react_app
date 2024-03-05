@@ -1,5 +1,5 @@
 import { groupByArrays } from '../../utils';
-import { FetchAPIDataType } from './types';
+import { FetchAPIDataType } from '../types';
 
 export const adapter = (
   topStories: FetchAPIDataType['results'],
