@@ -1,10 +1,10 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 
 type PropsType = {
   url: string;
   imgAuthor?: string;
 };
-export const Image: FC<PropsType> = ({ url, imgAuthor }) => {
+export const Image: FC<PropsType> = memo(({ url, imgAuthor }) => {
   return (
     <div className='flex flex-col'>
       <div className=' flex justify-center w-full h-auto  bg-transparent rounded overflow-hidden'>
@@ -17,4 +17,4 @@ export const Image: FC<PropsType> = ({ url, imgAuthor }) => {
       )}
     </div>
   );
-};
+});

@@ -5,7 +5,7 @@ import { isNotEmpty } from '../../../../utils/isEmptyMedia';
 import { NewsType } from '../../../../store/types';
 import { useSelector } from 'react-redux';
 import { newsSlice } from '../../../../store';
-import { Skeletons } from '../../Skeletons';
+import { Skeletons } from '../../../Skeletons';
 
 type PropsType = {
   news: NewsType[];

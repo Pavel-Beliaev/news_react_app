@@ -26,7 +26,7 @@ const SkeletonImage: FC<SkeletonsType> = ({ count }) => {
     <>
       {createArr(count).map((s) => (
         <div className='flex flex-col gap-y-1.5' key={s}>
-          <div className='h-[100%] min-h-[100px] skeleton-image' />
+          <div className='h-[100%] min-h-[200px] skeleton-image' />
           <div className='h-[12px] skeleton' />
           <div className='h-[12px] skeleton' />
         </div>
@@ -48,7 +48,7 @@ const SkeletonMainCard: FC<SkeletonsType> = ({ count }) => {
             <div className='h-[12px] skeleton' />
           </div>
           <div className='grid col-start-[6] col-end-[15]'>
-            <div className='h-[100%] min-h-[100px] skeleton-image' />
+            <div className='h-[100%] min-h-[200px] skeleton-image' />
           </div>
         </div>
       ))}

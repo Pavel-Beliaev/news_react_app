@@ -102,7 +102,7 @@ export const Post: FC<PropsType> = ({
               </div>
               <Description text={description} />
             </div>
-            <div className='grid grid-cols-[1fr_2fr_1fr] text-[10px] text-[#727272] uppercase whitespace-nowrap'>
+            <div className='grid grid-cols-[1fr_2fr_1fr] text-[10px] text-[#727272] uppercase'>
               {timeAgo}
               <span>{!!byline && byline}</span>
               {isShare && (

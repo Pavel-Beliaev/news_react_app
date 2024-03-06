@@ -5,7 +5,7 @@ import { Post } from '../../../Posts';
 import { newsSlice } from '../../../../store';
 import { parserURL } from '../../../../utils';
 import { isNotEmpty } from '../../../../utils/isEmptyMedia';
-import { Skeletons } from '../../Skeletons';
+import { Skeletons } from '../../../Skeletons';
 
 export const OpinionColumn: FC = () => {
   const {

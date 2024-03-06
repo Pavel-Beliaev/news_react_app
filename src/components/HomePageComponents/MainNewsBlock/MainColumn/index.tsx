@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { MainNewsCard } from '../MainNewsCard';
 import { useSelector } from 'react-redux';
 import { newsSlice } from '../../../../store';
-import { Skeletons } from '../../Skeletons';
+import { Skeletons } from '../../../Skeletons';
 
 export const MainColumn: FC = () => {
   const {

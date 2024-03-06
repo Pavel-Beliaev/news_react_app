@@ -4,15 +4,17 @@ import { sectionsSlice } from '../../../store';
 import { Post } from '../../Posts';
 import { parserURL } from '../../../utils';
 import { isNotEmpty } from '../../../utils/isEmptyMedia';
+import { Skeletons } from '../../Skeletons';
 
 export const LeftColumn: FC = () => {
   const {
     topNews: { leftColumn },
+    status,
   } = useSelector(sectionsSlice);
   const isArray = Array.isArray(leftColumn);
   return (
     <div className='col-start-[1] col-end-[12] delimiter'>
-      {!isArray && (
+      {!isArray && status === 'success' ? (
         <Post
           type='imgUpDown'
           articleData={{
@@ -34,6 +36,8 @@ export const LeftColumn: FC = () => {
           time={leftColumn.created_date}
           idArticle={parserURL(leftColumn.uri)}
         />
+      ) : (
+        <Skeletons.SkeletonImage />
       )}
     </div>
   );

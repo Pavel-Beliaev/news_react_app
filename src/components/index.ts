@@ -20,5 +20,6 @@ export * from './LeftSideBar';
 export * from './Logo';
 export * from './Posts';
 export * from './SectionPageComponents';
+export * from './Skeletons';
 export * from './Title';
 export * from './Wrapper';
