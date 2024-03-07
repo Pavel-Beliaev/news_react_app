@@ -15,32 +15,10 @@ const initialState: DataSliceType = {
   moreNewsBlock: {
     leftColumn: [],
     centerColumn: [],
-    // {
-    // created_date: '',
-    // abstract: '',
-    // byline: '',
-    // multimedia: [],
-    // title: '',
-    // url: '',
-    // section: '',
-    // subsection: '',
-    // uri: '',
-    // },
     rightColumn: [],
   },
   cultureNewsBlock: {
     leftColumn: [],
-    // {
-    // created_date: '',
-    // abstract: '',
-    // byline: '',
-    // multimedia: [],
-    // title: '',
-    // url: '',
-    // section: '',
-    // subsection: '',
-    // uri: '',
-    // },
     rightColumn: [],
   },
 };

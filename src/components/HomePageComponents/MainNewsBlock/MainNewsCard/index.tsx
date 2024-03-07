@@ -39,7 +39,7 @@ export const MainNewsCard: FC<PropsType> = ({ news }) => {
       </div>
       <div className='grid col-start-[6] col-end-[15]'>
         <Image
-          url={isNotEmpty(news[0].multimedia, 1, 'url')}
+          src={isNotEmpty(news[0].multimedia, 1, 'url')}
           imgAuthor={isNotEmpty(news[0].multimedia, 1, 'copyright')}
         />
       </div>

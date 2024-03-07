@@ -65,7 +65,7 @@ export const Post: FC<PropsType> = ({
           className={`flex ${
             isRevers ? 'flex-col-reverse' : 'flex-col'
           } post group gap-y-2.5`}>
-          {!!img && <Image url={img} imgAuthor={copyright} />}
+          {!!img && <Image src={img} imgAuthor={copyright} />}
           <div className='flex flex-col'>
             {!!author && <Author author={author} />}
             <Title title={title} size={size} />
@@ -98,7 +98,7 @@ export const Post: FC<PropsType> = ({
             <Title title={title} size={size} />
             <div>
               <div className='pl-1 float-right w-[120px] h-auto'>
-                <Image url={img!} />
+                <Image src={img!} />
               </div>
               <Description text={description} />
             </div>
@@ -125,7 +125,7 @@ export const Post: FC<PropsType> = ({
           to={`/article/${idArticle}`}
           onClick={fetchArticleData}
           className='flex flex-col gap-y-2'>
-          <Image url={img!} />
+          <Image src={img!} />
           <Title title={title} size={size} />
         </NavLink>
       );
@@ -154,7 +154,7 @@ export const Post: FC<PropsType> = ({
             </div>
           </div>
           <div className='flex-[0_1_50%]'>
-            <Image url={img!} />
+            <Image src={img!} />
           </div>
         </NavLink>
       );
