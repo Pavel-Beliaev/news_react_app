@@ -45,15 +45,17 @@ export const Post: FC<PropsType> = ({
           </div>
           {!!description && <Description text={description} />}
           <div className='flex items-center justify-between text-[10px] text-[#727272] uppercase whitespace-nowrap'>
-            {timeAgo}
-            <CustomButton skin='dots'>
-              <SVG.DotsIcon
-                w='14'
-                h='14'
-                fill='#727272'
-                className='hover:fill-[#121212]'
-              />
-            </CustomButton>
+            {time && timeAgo}
+            {isShare && (
+              <CustomButton skin='dots'>
+                <SVG.DotsIcon
+                  w='14'
+                  h='14'
+                  fill='#727272'
+                  className='hover:fill-[#121212]'
+                />
+              </CustomButton>
+            )}
           </div>
         </NavLink>
       );

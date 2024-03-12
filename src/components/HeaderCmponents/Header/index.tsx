@@ -1,9 +1,9 @@
 import React, { FC, useCallback, useState } from 'react';
-import { SearchForm } from '../SearchForm';
 import { Logo } from '../../Logo';
 import { useLocation } from 'react-router-dom';
 import { CustomButton } from '../../CustomButton';
 import { SVG } from '../../../assets';
+import { SearchForm } from '../../SearchForm';
 
 type PropsType = {
   onClick: () => void;
@@ -12,6 +12,7 @@ export const Header: FC<PropsType> = ({ onClick }) => {
   const { pathname } = useLocation();
   const [isVisible, setIsVisible] = useState(true);
   const isHome = pathname !== '/';
+  const isSearchPage = pathname.includes('search');
 
   const showInput = useCallback(() => {
     setIsVisible(!isVisible);
@@ -29,10 +30,14 @@ export const Header: FC<PropsType> = ({ onClick }) => {
           <CustomButton onClick={onClick} skin='default'>
             <SVG.BurgerIcon w='20' h='20' />
           </CustomButton>
-          <CustomButton onClick={showInput} skin='default'>
-            <SVG.SearchIcon w='20' h='20' fill='transparent' />
-          </CustomButton>
-          <SearchForm isVisible={isVisible} />
+          {!isSearchPage && (
+            <>
+              <CustomButton onClick={showInput} skin='default'>
+                <SVG.SearchIcon w='20' h='20' fill='transparent' />
+              </CustomButton>
+              <SearchForm isVisible={isVisible} buttonType={1} />
+            </>
+          )}
         </div>
         <div className='grid place-self-center '>
           {isHome && <Logo size='text-2xl' />}

@@ -14,13 +14,20 @@ export type ParamsType = {
 
 export type SearchDataType = {
   abstract: string;
+  news_desk: string;
   byline: {
     original: string;
   };
   headline: {
     main: string;
   };
-  multimedia: [{ url: string }];
+  multimedia: [
+    {
+      url: string;
+      caption: string;
+      credit: string;
+    },
+  ];
   pub_date: string;
   section_name: string;
   uti: string;

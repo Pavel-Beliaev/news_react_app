@@ -33,6 +33,7 @@ export const MainNewsCard: FC<PropsType> = ({ news }) => {
                 time={n.created_date}
                 description={i < 1 ? n.abstract : ''}
                 idArticle={parserURL(n.uri)}
+                isShare
               />
             ),
         )}
