@@ -42,7 +42,8 @@ export type FetchAPIDataType = {
 
 export type ErrorType = {
   status: 'loading' | 'success' | 'error';
-  message: undefined | null | string;
+  message: null | string;
+  code: string;
 };
 
 export type NewsType = Pick<

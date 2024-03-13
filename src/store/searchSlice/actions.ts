@@ -1,8 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { FetchDataType, ParamsType } from './types';
+import { FetchDataType, ParamsType, SearchPageDataType } from './types';
+import { adapter } from './adapter';
 
-export const fetchSearchNews = createAsyncThunk<FetchDataType, ParamsType>(
+export const fetchSearchNews = createAsyncThunk<SearchPageDataType, ParamsType>(
   'search/fetchSearchNews',
   async (params) => {
     const { query, sort, page } = params;
@@ -10,6 +11,6 @@ export const fetchSearchNews = createAsyncThunk<FetchDataType, ParamsType>(
     const { data } = await axios.get<FetchDataType>(
       `https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=${key}&q=${query}&page=${page}&sort=${sort}`,
     );
-    return data;
+    return adapter(data.response);
   },
 );

@@ -1,12 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { SearchNewsSlice } from './types';
+import { SearchDataSliceType } from './types';
 import { fetchSearchNews } from './actions';
 
-const initialState: SearchNewsSlice = {
+const initialState: SearchDataSliceType = {
   searchData: [],
   page: 1,
+  countResults: 0,
   sort: 'relevance',
   status: 'loading',
+  message: '',
   code: '',
 };
 
@@ -20,12 +22,14 @@ export const searchNews = createSlice({
     });
     builder.addCase(fetchSearchNews.fulfilled, (state, action) => {
       state.status = 'success';
-      state.searchData = action.payload.response.docs;
+      state.searchData = action.payload.searchData;
+      state.countResults = action.payload.countResults;
     });
     builder.addCase(fetchSearchNews.rejected, (state, action) => {
       state.status = 'error';
       if (action.error.message) {
         state.code = action.error.message.split(' ').slice(-1).join('');
+        state.message = action.error.message;
       }
     });
   },

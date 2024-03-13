@@ -5,6 +5,7 @@ import { DataSliceType } from './types';
 const initialState: DataSliceType = {
   status: 'loading',
   message: null,
+  code: '',
   mainNewsBlock: {
     leftColumn: [],
     rightColumn: {
@@ -51,7 +52,10 @@ export const newsData = createSlice({
     });
     builder.addCase(fetchNews.rejected, (state, action) => {
       state.status = 'error';
-      state.message = action.error.message;
+      if (action.error.message) {
+        state.code = action.error.message.split(' ').slice(-1).join('');
+        state.message = action.error.message;
+      }
     });
   },
 });

@@ -16,10 +16,12 @@ export const SearchPage: FC = () => {
           <SearchForm isVisible={false} buttonType={2} />
         </div>
         <div className='flex-[0_1_15%] border rounded border-transparent hover:border-[#C7C7C7] justify-center p-[8px]'>
-          <select className='bg-transparent text-[18px] '>
-            <option selected>Sort by {'Relevance'}</option>
-            <option>Sort by {'Newest'}</option>
-            <option>Sort by {'Oldest'}</option>
+          <select
+            className='bg-transparent text-[18px]'
+            defaultValue={'Relevance'}>
+            <option value={'Relevance'}>Sort by Relevance</option>
+            <option value={'Newest'}>Sort by Newest</option>
+            <option value={'Oldest'}>Sort by Oldest</option>
           </select>
         </div>
       </div>
@@ -55,7 +57,7 @@ export const SearchPage: FC = () => {
                   description={card.abstract}
                   size='L'
                   time=''
-                  idArticle={parserURL(card.web_url)}
+                  idArticle={parserURL(card.uri)}
                   author={card.news_desk}
                 />
                 <div className='text-[12px] font-serif'>
@@ -63,7 +65,7 @@ export const SearchPage: FC = () => {
                 </div>
               </div>
               {!!card.multimedia.length && (
-                <div className='w-[200px] h-[133px] overflow-hidden place-self-end self-start'>
+                <div className='w-[200px] h-[133px] rounded overflow-hidden place-self-end self-start'>
                   <Image
                     src={`https://www.nytimes.com/${card.multimedia[0].url}`}
                   />

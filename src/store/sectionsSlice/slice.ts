@@ -5,6 +5,7 @@ import { SectionsSliceType } from './types';
 const initialState: SectionsSliceType = {
   status: 'loading',
   message: null,
+  code: '',
   topNews: {
     leftColumn: [],
     centerColumn: [],
@@ -36,8 +37,12 @@ export const sectionsNews = createSlice({
       state.topNews.rightColumn = action.payload.topNews.rightColumn;
       state.dataSections = action.payload.dataSections;
     });
-    builder.addCase(fetchSectionsNews.rejected, (state) => {
+    builder.addCase(fetchSectionsNews.rejected, (state, action) => {
       state.status = 'error';
+      if (action.error.message) {
+        state.code = action.error.message.split(' ').slice(-1).join('');
+        state.message = action.error.message;
+      }
     });
   },
 });
