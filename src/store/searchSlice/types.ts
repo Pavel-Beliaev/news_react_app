@@ -2,6 +2,7 @@ import { ErrorType } from '../types';
 
 export type SearchDataSliceType = SearchPageDataType & {
   page: number;
+  value: string;
   sort: ParamsType['sort'];
 } & ErrorType;
 

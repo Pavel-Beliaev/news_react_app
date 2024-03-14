@@ -1,11 +1,23 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { searchSlice } from '../../store';
+import { searchSlice, setClearValue, useAppDispatch } from '../../store';
 import { Image, Post, SearchForm } from '../../components';
 import { changeFormatDate, parserURL } from '../../utils';
 
 export const SearchPage: FC = () => {
-  const { searchData } = useSelector(searchSlice);
+  const { searchData, value } = useSelector(searchSlice);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    const json = JSON.stringify(value);
+    localStorage.setItem('search', json);
+    return () => {
+      dispatch(setClearValue());
+      window.localStorage.clear();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <>
       <div className=' flex flex-wrap justify-between items-center w-full border-b border-[#C7C7C7] p-[28px_0_10px_0] mb-[24px]'>

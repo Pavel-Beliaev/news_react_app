@@ -1,11 +1,13 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { SearchDataSliceType } from './types';
 import { fetchSearchNews } from './actions';
+import { getDataFromLocalStorage } from '../../utils';
 
 const initialState: SearchDataSliceType = {
   searchData: [],
   page: 1,
   countResults: 0,
+  value: getDataFromLocalStorage('search', ''),
   sort: 'relevance',
   status: 'loading',
   message: '',
@@ -15,7 +17,14 @@ const initialState: SearchDataSliceType = {
 export const searchNews = createSlice({
   name: 'search',
   initialState,
-  reducers: {},
+  reducers: {
+    setValue(state, action: PayloadAction<string>) {
+      state.value = action.payload;
+    },
+    setClearValue(state) {
+      state.value = '';
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchSearchNews.pending, (state) => {
       state.status = 'loading';
@@ -36,5 +45,5 @@ export const searchNews = createSlice({
 });
 
 // eslint-disable-next-line no-empty-pattern
-export const {} = searchNews.actions;
+export const { setValue, setClearValue } = searchNews.actions;
 export default searchNews.reducer;
