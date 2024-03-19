@@ -24,9 +24,9 @@ export const OpinionColumn: FC = () => {
             <div
               key={n.url}
               className={
-                opinions.length < 4
-                  ? 'col-start-1 col-end-3'
-                  : 'first:col-start-1 first:col-end-3 last:col-start-1 last:col-end-3'
+                opinions.length > 4 && !!n.multimedia
+                  ? 'first:col-start-1 first:col-end-3 last:col-start-1 last:col-end-3'
+                  : 'col-start-1 col-end-3'
               }>
               <Post
                 type='imgUpDown'
