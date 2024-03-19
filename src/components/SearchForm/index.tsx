@@ -19,7 +19,7 @@ type PropsType = {
 export const SearchForm: FC<PropsType> = ({ isVisible, buttonType }) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const { page, sort, value, status } = useSelector(searchSlice);
+  const { page, sort, value } = useSelector(searchSlice);
   const dispatch = useAppDispatch();
   const isSearchPage = pathname.includes('search');
   const handlerSearch = (event: FormEvent) => {
@@ -35,7 +35,7 @@ export const SearchForm: FC<PropsType> = ({ isVisible, buttonType }) => {
       dispatch(fetchSearchNews({ query: value, page: page, sort: sort }));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [sort, page]);
 
   const clearButton = useCallback(() => {
     dispatch(setValue(''));

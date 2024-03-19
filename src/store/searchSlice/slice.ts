@@ -21,8 +21,8 @@ export const searchNews = createSlice({
     setValue(state, action: PayloadAction<string>) {
       state.value = action.payload;
     },
-    setClearValue(state) {
-      state.value = '';
+    setSort(state, action: PayloadAction<string>) {
+      state.sort = action.payload as SearchDataSliceType['sort'];
     },
   },
   extraReducers: (builder) => {
@@ -45,5 +45,5 @@ export const searchNews = createSlice({
 });
 
 // eslint-disable-next-line no-empty-pattern
-export const { setValue, setClearValue } = searchNews.actions;
+export const { setValue, setSort } = searchNews.actions;
 export default searchNews.reducer;
