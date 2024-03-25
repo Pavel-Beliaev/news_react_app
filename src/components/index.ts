@@ -21,6 +21,7 @@ export * from './Logo';
 export * from './Posts';
 export * from './SectionPageComponents';
 export * from './SearchForm';
+export * from './SearchPageComponents';
 export * from './Skeletons';
 export * from './Title';
 export * from './Wrapper';
