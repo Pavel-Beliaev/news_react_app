@@ -1,12 +1,17 @@
 import React, { FC, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { searchSlice, setSort, useAppDispatch } from '../../store';
+import { searchSlice, setPage, setSort, useAppDispatch } from '../../store';
 import { Image, Post, SearchForm } from '../../components';
 import { changeFormatDate, parserURL } from '../../utils';
 
 export const SearchPage: FC = () => {
-  const { searchData, value, status, countResults } = useSelector(searchSlice);
+  const { searchData, value, status, countResults, page } =
+    useSelector(searchSlice);
   const dispatch = useAppDispatch();
+
+  const changePage = (n: number) => {
+    dispatch(setPage(n));
+  };
 
   useEffect(() => {
     const json = JSON.stringify(value);
@@ -14,11 +19,56 @@ export const SearchPage: FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
 
+  const formatNumber = (num: number): string => {
+    return num
+      .toString()
+      .split('')
+      .reverse()
+      .map((el, i) => (i % 3 === 0 && i > 0 ? [' ', el] : el))
+      .flat()
+      .reverse()
+      .join('');
+  };
+
+  const usePaginate = (
+    totalPage: number,
+    currentPage: number,
+    range: number,
+  ): number[] => {
+    const newArray = Array.from(Array(totalPage).keys(), (n) => n + 1);
+    const paginate = newArray.filter(
+      (num) => num <= currentPage + range && num >= currentPage - range,
+    );
+
+    if (paginate.includes(1)) {
+      paginate.push(0, totalPage);
+      return paginate;
+    } else if (paginate.includes(totalPage)) {
+      paginate.unshift(1, 0);
+      return paginate;
+    } else {
+      paginate.unshift(1, 0);
+      paginate.push(0, totalPage);
+      return paginate;
+    }
+  };
+
+  const paginate = usePaginate(200, page, 3);
+
+  const handleArrow = <T extends 'next' | 'prev'>(
+    page: number,
+    type: T,
+  ): void => {
+    if (type === 'next') {
+      dispatch(setPage(page + 1));
+    } else dispatch(setPage(page - 1));
+  };
+
   return (
     <>
       <div className=' flex flex-wrap justify-between items-center w-full border-b border-[#C7C7C7] p-[28px_0_10px_0] mb-[24px]'>
         <span className='flex-[0_1_100%] text-[grey] font-serif'>
-          Showing {countResults} results for:
+          Showing {formatNumber(countResults)} results for:
         </span>
         <div className='flex-[0_1_70%]'>
           <SearchForm isVisible={false} buttonType={2} />
@@ -89,6 +139,29 @@ export const SearchPage: FC = () => {
             <div className='circle-inner-right' />
           </div>
         )}
+      </div>
+      <div className='flex justify-center items-center w-full gap-x-2.5 p-[15px]'>
+        <button
+          onClick={() => handleArrow(page, 'prev')}
+          className='w-[15px] h-[15px]  select-none p-[20px] rounded flex justify-center items-center cursor-pointer hover:bg-yellow-100'>
+          {'<'}
+        </button>
+        {paginate.map((n, i) => (
+          <button
+            key={i}
+            disabled={n === 0}
+            onClick={() => changePage(n)}
+            className={`w-[15px] h-[15px]  select-none p-[20px] rounded flex justify-center items-center ${
+              n !== 0 ? 'cursor-pointer hover:bg-yellow-100' : ''
+            } ${n === page ? 'bg-yellow-100' : ''}`}>
+            {n === 0 ? '...' : n}
+          </button>
+        ))}
+        <button
+          onClick={() => handleArrow(page, 'next')}
+          className='w-[15px] h-[15px]  select-none p-[20px] rounded flex justify-center items-center cursor-pointer hover:bg-yellow-100'>
+          {'>'}
+        </button>
       </div>
     </>
   );
