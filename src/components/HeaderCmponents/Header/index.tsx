@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useState } from 'react';
+import React, { FC, memo, useCallback, useState } from 'react';
 import { Logo } from '../../Logo';
 import { useLocation } from 'react-router-dom';
 import { CustomButton } from '../../CustomButton';
@@ -8,7 +8,7 @@ import { SearchForm } from '../../SearchForm';
 type PropsType = {
   onClick: () => void;
 };
-export const Header: FC<PropsType> = ({ onClick }) => {
+export const Header: FC<PropsType> = memo(({ onClick }) => {
   const { pathname } = useLocation();
   const [isVisible, setIsVisible] = useState(true);
   const isHome = pathname !== '/';
@@ -48,4 +48,4 @@ export const Header: FC<PropsType> = ({ onClick }) => {
       </div>
     </div>
   );
-};
+});

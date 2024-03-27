@@ -26,7 +26,7 @@ export const Error: FC = () => {
     <div className='container p-3.5 flex flex-col  items-center gap-y-6 '>
       <ErrorTitle code={code} />
       <ErrorDescription message={errorMessage(code)} />
-      <CustomButton skin='long' onClick={() => navigate(-1)}>
+      <CustomButton skin='long' onClick={() => navigate('/')}>
         <SVG.ArrowIcon w='10' h='12' className='rotate-180' />
         Back
       </CustomButton>

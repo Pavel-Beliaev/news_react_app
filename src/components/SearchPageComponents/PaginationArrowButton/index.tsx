@@ -11,13 +11,15 @@ export const PaginationArrowButton: FC<PropsType> = ({
   isAble,
 }) => {
   return (
-    <button
-      onClick={onClick}
-      disabled={isAble}
-      className={`w-[15px] h-[15px]  select-none p-[20px] rounded flex justify-center items-center ${
-        isAble ? '' : 'cursor-pointer hover:bg-yellow-100'
-      }`}>
-      {content}
-    </button>
+    <>
+      {!isAble && (
+        <button
+          onClick={onClick}
+          disabled={isAble}
+          className='w-[15px] h-[15px]  select-none p-[20px] rounded flex justify-center items-center cursor-pointer hover:bg-yellow-100'>
+          {content}
+        </button>
+      )}
+    </>
   );
 };

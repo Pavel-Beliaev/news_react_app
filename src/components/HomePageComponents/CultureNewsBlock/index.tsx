@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 import { Wrapper } from '../../Wrapper';
 import { Heading } from '../../Heading';
 import { useSelector } from 'react-redux';
@@ -6,7 +6,7 @@ import { CultureMainColumn } from './CultureMainColumn';
 import { CultureRightColumn } from './CultureRightColumn';
 import { newsSlice } from '../../../store';
 
-export const CultureNewsBlock: FC = () => {
+export const CultureNewsBlock: FC = memo(() => {
   const {
     cultureNewsBlock: { rightColumn },
   } = useSelector(newsSlice);
@@ -25,4 +25,4 @@ export const CultureNewsBlock: FC = () => {
       </Wrapper.RightColumn>
     </>
   );
-};
+});

@@ -1,11 +1,11 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 import { searchSlice, setPage, useAppDispatch } from '../../../store';
 import { usePaginate } from '../../../hoocks';
 import { useSelector } from 'react-redux';
 import { PaginationButton } from '../PaginationButton';
 import { PaginationArrowButton } from '../PaginationArrowButton';
 
-export const Pagination: FC = () => {
+export const Pagination: FC = memo(() => {
   const { page } = useSelector(searchSlice);
   const paginate = usePaginate(200, page, 3);
   const dispatch = useAppDispatch();
@@ -36,4 +36,4 @@ export const Pagination: FC = () => {
       />
     </div>
   );
-};
+});

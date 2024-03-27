@@ -1,11 +1,11 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 import { Wrapper } from '../../Wrapper';
 import { Heading } from '../../Heading';
 import { LeftColumn } from './LeftColumn';
 import { CenterColumn } from './CenterColumn';
 import { RightColumn } from './RightColumn';
 
-export const MoreNewsBlock: FC = () => {
+export const MoreNewsBlock: FC = memo(() => {
   return (
     <>
       <Heading heading='More News' />
@@ -20,4 +20,4 @@ export const MoreNewsBlock: FC = () => {
       </Wrapper.RightColumn>
     </>
   );
-};
+});

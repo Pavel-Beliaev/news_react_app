@@ -1,10 +1,10 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 import { NavbarItem } from '../NavbarItem';
 
 type PropsType = {
   itemsArray: string[];
 };
-export const Navigation: FC<PropsType> = ({ itemsArray }) => {
+export const Navigation: FC<PropsType> = memo(({ itemsArray }) => {
   return (
     <>
       {itemsArray.map((item) => (
@@ -12,4 +12,4 @@ export const Navigation: FC<PropsType> = ({ itemsArray }) => {
       ))}
     </>
   );
-};
+});

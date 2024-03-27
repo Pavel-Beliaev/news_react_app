@@ -1,10 +1,10 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 import { Wrapper } from '../../Wrapper';
 import { MainColumn } from './MainColumn';
 import { OpinionColumn } from './OpinionColumn';
 import { SundayReviewColumn } from './SundayReviewColumn';
 
-export const MainNewsBlock: FC = () => {
+export const MainNewsBlock: FC = memo(() => {
   return (
     <>
       <Wrapper.LeftColumn>
@@ -16,4 +16,4 @@ export const MainNewsBlock: FC = () => {
       </Wrapper.RightColumn>
     </>
   );
-};
+});
